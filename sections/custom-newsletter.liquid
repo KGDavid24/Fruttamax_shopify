@@ -1,0 +1,356 @@
+{%- style -%}
+  /* KÜLSŐ WRAPPER */
+  .section-newsletter-wrapper-{{ section.id }} {
+    padding: 40px 20px;
+    background-color: {{ section.settings.outer_bg_color }};
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  /* 1200PX KONTÉNER */
+  .newsletter-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    background-color: {{ section.settings.bg_color }};
+    border-radius: 16px;
+    overflow: hidden;
+    padding: {{ section.settings.padding_top }}px 20px {{ section.settings.padding_bottom }}px 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+
+  /* TARTALOM WRAPPER (Z-index miatt, hogy az overlay fölött legyen) */
+  .newsletter-content {
+    position: relative;
+    z-index: 10;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  /* CÍMSOR */
+  .newsletter-heading {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: {{ section.settings.text_color }};
+    margin-bottom: 15px;
+    line-height: 1.2;
+    font-family: inherit;
+  }
+
+  /* SZÖVEG */
+  .newsletter-text {
+    font-size: 1.1rem;
+    color: {{ section.settings.text_color }};
+    margin-bottom: 30px;
+    opacity: 0.9;
+    line-height: 1.5;
+    font-family: inherit;
+  }
+
+  /* FORM KONTÉNER */
+  .newsletter-form-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .newsletter-form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  /* INPUT MEZŐ */
+  .newsletter-input {
+    flex: 1;
+    max-width: 350px;
+    padding: 15px 25px;
+    border-radius: 50px; /* Lekerekített */
+    border: 2px solid transparent;
+    font-size: 1rem;
+    font-family: inherit;
+    outline: none;
+    transition: all 0.3s ease;
+    background-color: #ffffff;
+    color: #333;
+  }
+
+  .newsletter-input:focus {
+    box-shadow: 0 0 0 3px rgba(255,255,255,0.3);
+  }
+
+  /* GOMB */
+  .newsletter-btn {
+    padding: 15px 35px;
+    border-radius: 50px; /* Lekerekített gomb */
+    border: none;
+    background-color: {{ section.settings.btn_bg_color }};
+    color: {{ section.settings.btn_text_color }};
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-family: inherit;
+    white-space: nowrap;
+  }
+
+  .newsletter-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    opacity: 0.95;
+  }
+
+  /* SIKERES / HIBA ÜZENETEK */
+  .form-status {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: {{ section.settings.text_color }};
+  }
+  .form-status--error {
+    color: #ffcccc;
+  }
+
+  /* OVERLAY EFFEKTEK (Ugyanaz a stílus, mint előbb) */
+  .overlay-side-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: {{ section.settings.overlay_width }}%;
+    height: 100%;
+    background: linear-gradient(90deg, {{ section.settings.overlay_color }} 0%, rgba(0,0,0,0) 100%);
+    opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .overlay-side-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: {{ section.settings.overlay_width }}%;
+    height: 100%;
+    background: linear-gradient(-90deg, {{ section.settings.overlay_color }} 0%, rgba(0,0,0,0) 100%);
+    opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  /* MOBIL NÉZET */
+  @media screen and (max-width: 600px) {
+    .newsletter-form {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .newsletter-input {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .newsletter-btn {
+      width: 100%;
+    }
+    
+    /* Mobilon elrejtjük az oldalsó árnyékot, hogy tisztább legyen */
+    .overlay-side-left, .overlay-side-right {
+      display: none;
+    }
+  }
+{%- endstyle -%}
+
+<div class="section-newsletter-wrapper-{{ section.id }}">
+  <div class="newsletter-container">
+    
+    <div class="overlay-side-left"></div>
+    <div class="overlay-side-right"></div>
+
+    <div class="newsletter-content">
+      
+      {%- if section.settings.heading != blank -%}
+        <h2 class="newsletter-heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+
+      {%- if section.settings.text != blank -%}
+        <div class="newsletter-text">{{ section.settings.text }}</div>
+      {%- endif -%}
+
+      <div class="newsletter-form-container">
+        {% form 'customer', class: 'newsletter-form' %}
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          
+          {%- if form.posted_successfully? -%}
+            <p class="form-status form-status--success" tabindex="-1" autofocus>
+              Mulțumim pentru abonare!
+            </p>
+          {%- else -%}
+            
+            <input
+              id="NewsletterForm--{{ section.id }}"
+              type="email"
+              name="contact[email]"
+              class="newsletter-input"
+              value="{{ form.email }}"
+              aria-required="true"
+              autocorrect="off"
+              autocapitalize="off"
+              autocomplete="email"
+              {% if form.errors %}
+                autofocus
+                aria-invalid="true"
+                aria-describedby="Newsletter-error--{{ section.id }}"
+              {% elsif form.posted_successfully? %}
+                aria-describedby="Newsletter-success--{{ section.id }}"
+              {% endif %}
+              placeholder="{{ section.settings.placeholder }}"
+              required
+            >
+            
+            <button type="submit" class="newsletter-btn" name="commit">
+              {{ section.settings.btn_label }}
+            </button>
+
+          {%- endif -%}
+          
+          {%- if form.errors -%}
+            <small class="form-status form-status--error">
+              {{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}
+            </small>
+          {%- endif -%}
+        {% endform %}
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Newsletter (1200px)",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Tartalom"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Címsor",
+      "default": "Fii primul care află noutățile!"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Szöveg",
+      "default": "Înscrie-te la newsletter-ul nostru pentru oferte exclusive și rețete delicioase de cocktailuri."
+    },
+    {
+      "type": "text",
+      "id": "placeholder",
+      "label": "Input Placeholder",
+      "default": "Adresa ta de email"
+    },
+    {
+      "type": "text",
+      "id": "btn_label",
+      "label": "Gomb Szöveg",
+      "default": "Mă Abonez"
+    },
+    {
+      "type": "header",
+      "content": "Színek"
+    },
+    {
+      "type": "color",
+      "id": "outer_bg_color",
+      "label": "Külső Háttérszín",
+      "default": "transparent"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Doboz Háttérszíne",
+      "default": "#990000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Szöveg Színe",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "btn_bg_color",
+      "label": "Gomb Háttérszíne",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "btn_text_color",
+      "label": "Gomb Szöveg Színe",
+      "default": "#990000"
+    },
+    {
+      "type": "header",
+      "content": "Overlay (Árnyékolás)"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay Színe",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Overlay Erőssége",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "overlay_width",
+      "min": 10,
+      "max": 50,
+      "step": 5,
+      "unit": "%",
+      "label": "Overlay Szélessége (%)",
+      "default": 25
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding Felül",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding Alul",
+      "default": 60
+    }
+  ],
+  "presets": [
+    {
+      "name": "Newsletter (1200px)"
+    }
+  ]
+}
+{% endschema %}

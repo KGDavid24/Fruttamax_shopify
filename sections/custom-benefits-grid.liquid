@@ -1,0 +1,372 @@
+{%- style -%}
+  /* KÜLSŐ WRAPPER */
+  .section-benefits-wrapper-{{ section.id }} {
+    padding: {{ section.settings.padding_top }}px 20px {{ section.settings.padding_bottom }}px 20px;
+    background-color: {{ section.settings.bg_color }};
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  /* 1200PX KONTÉNER */
+  .benefits-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  /* CÍMSOR DOBOZ */
+  .benefits-header-wrapper {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  /* CÍMSOR */
+  .benefits-heading {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: {{ section.settings.heading_color }};
+    margin: 0 0 15px 0; /* Kis margó az alcím miatt */
+    line-height: 1.2;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  /* ALCÍM (SUBHEADING) - ÚJ */
+  .benefits-subheading {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: {{ section.settings.subheading_color }};
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.5;
+    opacity: 0.9;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  /* GRID RÁCS (3 oszlop) */
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+
+  /* KÁRTYA STÍLUS */
+  .benefit-card {
+    background: #ffffff;
+    border: 1px solid rgba(0,0,0,0.05);
+    border-radius: 16px;
+    padding: 30px 25px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%; 
+  }
+
+  .benefit-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    border-color: {{ section.settings.icon_color }};
+  }
+
+  /* IKON WRAPPER (KÖR) */
+  .benefit-icon-wrapper {
+    width: 70px;
+    height: 70px;
+    background-color: {{ section.settings.icon_bg_color }};
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: {{ section.settings.icon_color }};
+    transition: all 0.3s ease;
+    overflow: hidden; 
+  }
+
+  /* HOVER ÁLLAPOT A KÖRÖN */
+  .benefit-card:hover .benefit-icon-wrapper {
+    background-color: {{ section.settings.icon_color }};
+    color: #ffffff; 
+    transform: scale(1.1);
+  }
+
+  /* SVG IKONOK */
+  .benefit-icon-wrapper svg {
+    width: 35px;
+    height: 35px;
+    fill: currentColor; 
+    stroke: currentColor;
+    transition: all 0.3s ease;
+  }
+  
+  /* SAJÁT KÉP IKONOK (PNG) */
+  .benefit-icon-wrapper img {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+    transition: all 0.3s ease;
+  }
+
+  /* KÉP FEHÉRÍTÉSE HOVERRE */
+  .benefit-card:hover .benefit-icon-wrapper img {
+    filter: brightness(0) invert(1);
+  }
+
+  /* SZÖVEG */
+  .benefit-text {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: {{ section.settings.text_color }};
+    font-weight: 500;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  /* RESPONSIVE */
+  @media screen and (max-width: 900px) {
+    .benefits-grid {
+      grid-template-columns: repeat(2, 1fr); 
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .benefits-grid {
+      grid-template-columns: 1fr; 
+      gap: 20px;
+    }
+    .benefit-card {
+      padding: 20px;
+      flex-direction: row; 
+      text-align: left;
+      align-items: center;
+      gap: 20px;
+    }
+    .benefit-icon-wrapper {
+      margin-bottom: 0;
+      min-width: 60px; 
+      width: 60px;
+      height: 60px;
+    }
+    .benefit-text {
+      font-size: 1rem;
+    }
+  }
+{%- endstyle -%}
+
+<div class="section-benefits-wrapper-{{ section.id }}">
+  <div class="benefits-container">
+    
+    <div class="benefits-header-wrapper">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="benefits-heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      
+      {%- if section.settings.subheading != blank -%}
+        <div class="benefits-subheading">{{ section.settings.subheading }}</div>
+      {%- endif -%}
+    </div>
+
+    <div class="benefits-grid">
+      {%- for block in section.blocks -%}
+        <div class="benefit-card" {{ block.shopify_attributes }}>
+          
+          <div class="benefit-icon-wrapper">
+            {%- if block.settings.custom_icon != blank -%}
+              <img src="{{ block.settings.custom_icon | image_url: width: 80 }}" alt="" loading="lazy">
+            {%- else -%}
+              {%- case block.settings.icon_type -%}
+                {%- when 'star' -%}
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                {%- when 'drop' -%}
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+                {%- when 'feather' -%}
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg>
+                {%- when 'leaf' -%}
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg>
+                {%- when 'check' -%}
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                {%- when 'water' -%}
+                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+              {%- endcase -%}
+            {%- endif -%}
+          </div>
+
+          <div class="benefit-text">
+            {{ block.settings.text }}
+          </div>
+
+        </div>
+      {%- endfor -%}
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Beneficii Grid (1200px)",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Címsor",
+      "default": "De ce FruttaMax?"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subtitlu (Alcím)",
+      "default": "Descoperă avantajele siropurilor noastre premium"
+    },
+    {
+      "type": "header",
+      "content": "Színek"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Háttérszín",
+      "default": "#f9f9f9"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Címsor Színe",
+      "default": "#E80404"
+    },
+    {
+      "type": "color",
+      "id": "subheading_color",
+      "label": "Alcím Színe",
+      "default": "#666666"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Szöveg Színe",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Ikon Színe (Hover háttér)",
+      "default": "#E80404",
+      "info": "Ez lesz a kör háttérszíne, amikor ráviszed az egeret."
+    },
+    {
+      "type": "color",
+      "id": "icon_bg_color",
+      "label": "Ikon Háttérszíne (Normál)",
+      "default": "#FFE5E5"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Felül",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Alul",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Előny",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Szöveg",
+          "default": "Előny szövege ide"
+        },
+        {
+          "type": "select",
+          "id": "icon_type",
+          "label": "Ikon Típusa (Alapértelmezett)",
+          "options": [
+            { "value": "star", "label": "Csillag (Minőség)" },
+            { "value": "drop", "label": "Csepp (12 Liter)" },
+            { "value": "feather", "label": "Toll (Könnyű)" },
+            { "value": "leaf", "label": "Levél (Eco)" },
+            { "value": "check", "label": "Pipa (Könnyű)" },
+            { "value": "water", "label": "Víz (Buborék)" }
+          ],
+          "default": "star"
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_icon",
+          "label": "Saját Ikon (PNG - Opcionális)",
+          "info": "Tölts fel egy színes ikont átlátszó háttérrel. Hoverre automatikusan fehér lesz."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Beneficii Grid (1200px)",
+      "blocks": [
+        {
+          "type": "benefit",
+          "settings": {
+            "icon_type": "star",
+            "text": "Gust uimitor și aromă divină de fructe"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon_type": "drop",
+            "text": "La achiziționarea unei sticle obții 12 litri de băutură cu fructe"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon_type": "feather",
+            "text": "Scapi de povara transportului greu, alegând un sirop eficient"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon_type": "leaf",
+            "text": "Protejezi mediul folosind un număr mai mic de sticle PET reciclabile"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon_type": "check",
+            "text": "Dozare ușoară și fără bătăi de cap cu ajutorul măsurii incluse"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon_type": "water",
+            "text": "Poate fi adăugat atât în apă plată, cât și în apă carbogazoasă"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

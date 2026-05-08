@@ -1,0 +1,1703 @@
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;0,800;0,900;1,800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+<div id="fruttamax-campaign-wrapper">
+<style>
+/* ═══════════════════════════════════════════
+   TOKENS & SAFE BASE
+═══════════════════════════════════════════ */
+#fruttamax-campaign-wrapper {
+  --red:      #d0322b;
+  --red-hi:   #ff1616;
+  --dark:     #2b2b2b;
+  --white:    #ffffff;
+  --cream:    #fff8f7;
+  --warm:     #FF7D78;
+  --red-soft: rgba(208,50,43,0.08);
+
+  font-family: 'Poppins', sans-serif;
+  background: var(--white);
+  color: var(--dark);
+  overflow-x: hidden;
+  font-size: 16px;
+}
+
+#fruttamax-campaign-wrapper img { 
+  max-width: 100%; 
+  display: block; 
+}
+
+#fruttamax-campaign-wrapper *, 
+#fruttamax-campaign-wrapper *::before, 
+#fruttamax-campaign-wrapper *::after { 
+  box-sizing: border-box; 
+}
+
+/* ═══════════════════════════════════════════
+   HERO  – mobile first
+═══════════════════════════════════════════ */
+#fruttamax-campaign-wrapper #hero {
+  background: var(--red);
+  padding: 90px 20px 0;
+  position: relative; overflow: hidden;
+  min-height: 100svh;
+  display: flex; flex-direction: column; align-items: center;
+}
+
+/* decorative blobs */
+#fruttamax-campaign-wrapper .bg-blob { position: absolute; border-radius: 50%; pointer-events: none; }
+#fruttamax-campaign-wrapper .bg-blob.b1 { width: 380px; height: 380px; top: -100px; right: -100px; background: rgba(255,255,255,0.07); }
+#fruttamax-campaign-wrapper .bg-blob.b2 { width: 180px; height: 180px; bottom: 30%; left: -60px; background: rgba(0,0,0,0.06); }
+
+/* white wave at bottom */
+#fruttamax-campaign-wrapper #hero::after {
+  content: '';
+  position: absolute; bottom: -2px; left: 0; right: 0;
+  height: 70px;
+  background: var(--cream);
+  clip-path: ellipse(55% 100% at 50% 100%);
+  z-index: 3;
+}
+
+/* text block */
+#fruttamax-campaign-wrapper .hero-text {
+  position: relative; z-index: 2;
+  text-align: center;
+  max-width: 500px;
+  padding-bottom: 24px;
+}
+#fruttamax-campaign-wrapper .hero-badge {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: rgba(255,255,255,0.15);
+  border: 1.5px solid rgba(255,255,255,0.3);
+  color: #fff; font-size: 11px; font-weight: 700;
+  letter-spacing: 1.8px; text-transform: uppercase;
+  padding: 6px 14px; border-radius: 50px; margin-bottom: 20px;
+}
+#fruttamax-campaign-wrapper .hero-h1 {
+  font-size: clamp(30px, 8.5vw, 60px);
+  font-weight: 900; line-height: 1.08;
+  color: #fff; margin-bottom: 18px;
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+}
+#fruttamax-campaign-wrapper .hero-h1 .stroke {
+  -webkit-text-stroke: 2px rgba(255,255,255,0.85);
+  color: transparent;
+  display: block;
+}
+#fruttamax-campaign-wrapper .hero-h1 .prize {
+  display: block;
+  font-size: clamp(34px, 9.5vw, 68px);
+  line-height: 1.0; margin-top: 2px;
+  color: #fff;
+  -webkit-text-stroke: 0;
+}
+#fruttamax-campaign-wrapper .hero-sub {
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px; color: rgba(255,255,255,0.88);
+  line-height: 1.65; margin-bottom: 28px;
+}
+#fruttamax-campaign-wrapper .hero-sub strong { color: #fff; font-weight: 700; }
+
+/* buttons */
+#fruttamax-campaign-wrapper .hero-btns {
+  display: flex; flex-direction: column; gap: 12px;
+  width: 100%; max-width: 340px; margin: 0 auto 20px;
+}
+#fruttamax-campaign-wrapper .btn-white {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  background: #fff; color: var(--red);
+  font-size: 15px; font-weight: 800;
+  padding: 17px 28px; border-radius: 60px;
+  text-decoration: none;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.22);
+  transition: transform .2s, box-shadow .2s;
+  width: 100%;
+}
+#fruttamax-campaign-wrapper .btn-white:hover { transform: translateY(-2px); box-shadow: 0 14px 40px rgba(0,0,0,0.28); }
+#fruttamax-campaign-wrapper .btn-ghost {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  background: transparent; color: #fff;
+  font-size: 14px; font-weight: 700;
+  padding: 15px 24px; border-radius: 60px;
+  text-decoration: none;
+  border: 2px solid rgba(255,255,255,0.35);
+  transition: border-color .2s, background .2s;
+  width: 100%;
+}
+#fruttamax-campaign-wrapper .btn-ghost:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
+
+/* pill sticker */
+#fruttamax-campaign-wrapper .pill-sticker {
+  display: inline-block;
+  background: #fff; color: var(--red);
+  font-weight: 800; font-size: 13px;
+  padding: 8px 18px; border-radius: 50px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.14);
+  transform: rotate(-2deg);
+  margin-bottom: 20px;
+}
+
+/* bottle scene */
+#fruttamax-campaign-wrapper .hero-bottles {
+  position: relative; z-index: 2;
+  width: 100%; max-width: 400px;
+  height: 260px;
+  display: flex; align-items: flex-end; justify-content: center;
+  margin: 0 auto;
+  flex-shrink: 0;
+}
+#fruttamax-campaign-wrapper .bottle {
+  position: absolute;
+  transition: transform .4s cubic-bezier(.34,1.56,.64,1);
+  cursor: pointer;
+}
+#fruttamax-campaign-wrapper .bottle::after {
+  content: '';
+  position: absolute; bottom: -6px; left: 50%;
+  transform: translateX(-50%);
+  width: 55%; height: 14px;
+  background: rgba(0,0,0,0.2);
+  border-radius: 50%;
+  filter: blur(6px);
+}
+#fruttamax-campaign-wrapper .bt1 { width: 190px; bottom: 30px; left: 50%; transform: translateX(-50%) rotate(-2deg); z-index: 3; }
+#fruttamax-campaign-wrapper .bt2 { width: 150px; bottom: 10px; left: 10px; transform: rotate(9deg); z-index: 2; }
+#fruttamax-campaign-wrapper .bt3 { width: 150px; bottom: 10px; right: 10px; transform: rotate(-9deg); z-index: 2; }
+#fruttamax-campaign-wrapper .bt1:hover { transform: translateX(-50%) rotate(0deg) translateY(-16px); }
+#fruttamax-campaign-wrapper .bt2:hover { transform: rotate(0deg) translateY(-16px); }
+#fruttamax-campaign-wrapper .bt3:hover { transform: rotate(0deg) translateY(-16px); }
+
+/* floating Gen-Z tags */
+#fruttamax-campaign-wrapper .ftag {
+  position: absolute;
+  background: #fff; color: var(--red);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800; font-size: 11px;
+  padding: 6px 13px; border-radius: 50px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.16);
+  white-space: nowrap; pointer-events: none;
+  animation: ftag-bob 3s ease-in-out infinite;
+  z-index: 4;
+}
+#fruttamax-campaign-wrapper .ft1 { top: 16px; left: 2px; transform: rotate(-5deg); animation-delay: 0s; }
+#fruttamax-campaign-wrapper .ft2 { top: 30px; right: 0px; transform: rotate(4deg); animation-delay: 1.1s; }
+
+@keyframes ftag-bob {
+  0%,100% { translate: 0 0; }
+  50%      { translate: 0 -8px; }
+}
+
+/* prize strip */
+#fruttamax-campaign-wrapper .prize-strip {
+  position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+  background: var(--dark); color: #fff;
+  font-size: 12px; font-weight: 800; letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 10px 24px; border-radius: 14px 14px 0 0;
+  white-space: nowrap; z-index: 5;
+}
+#fruttamax-campaign-wrapper .prize-strip .hi { color: var(--warm); }
+
+/* ═══════════════════════════════════════════
+   PRIZES  (new section)
+═══════════════════════════════════════════ */
+#fruttamax-campaign-wrapper #premii {
+  padding: 72px 20px;
+  background: var(--cream);
+}
+#fruttamax-campaign-wrapper .premii-inner { max-width: 640px; margin: 0 auto; text-align: center; }
+#fruttamax-campaign-wrapper .eyebrow {
+  font-size: 10px; font-weight: 700; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--red); margin-bottom: 8px;
+  display: block;
+}
+#fruttamax-campaign-wrapper .sec-h2 {
+  font-size: clamp(28px, 7vw, 52px);
+  font-weight: 900; line-height: 1.05;
+  color: var(--dark); letter-spacing: -0.5px; margin-bottom: 40px;
+}
+#fruttamax-campaign-wrapper .sec-h2 .red { color: var(--red); }
+
+#fruttamax-campaign-wrapper .prize-cards {
+  display: flex; flex-direction: column; gap: 14px;
+  margin-bottom: 32px;
+}
+#fruttamax-campaign-wrapper .prize-card {
+  background: #fff;
+  border-radius: 18px; padding: 20px 22px;
+  display: flex; align-items: center; gap: 16px;
+  text-align: left;
+  border: 2px solid #f0e4e3;
+  box-shadow: 0 2px 16px rgba(208,50,43,0.06);
+  transition: transform .25s, box-shadow .25s;
+}
+#fruttamax-campaign-wrapper .prize-card:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(208,50,43,0.12); }
+#fruttamax-campaign-wrapper .prize-card.featured {
+  border-color: var(--red);
+  background: linear-gradient(135deg, #fff 60%, rgba(208,50,43,0.04));
+  box-shadow: 0 4px 28px rgba(208,50,43,0.18);
+}
+#fruttamax-campaign-wrapper .prize-ico { font-size: 36px; flex-shrink: 0; }
+#fruttamax-campaign-wrapper .prize-body { flex: 1; }
+#fruttamax-campaign-wrapper .prize-title { font-size: 16px; font-weight: 800; color: var(--dark); margin-bottom: 3px; }
+#fruttamax-campaign-wrapper .prize-title .amount { color: var(--red); }
+#fruttamax-campaign-wrapper .prize-desc { font-family: 'Roboto', sans-serif; font-size: 13px; color: #777; line-height: 1.5; }
+
+/* ═══════════════════════════════════════════
+   HOW IT WORKS
+═══════════════════════════════════════════ */
+#fruttamax-campaign-wrapper #cum-functioneaza {
+  padding: 72px 20px;
+  background: var(--white);
+}
+#fruttamax-campaign-wrapper .sec-inner { max-width: 960px; margin: 0 auto; }
+
+#fruttamax-campaign-wrapper .steps {
+  display: flex; flex-direction: column; gap: 20px;
+  position: relative;
+}
+/* vertical connector line */
+#fruttamax-campaign-wrapper .steps::before {
+  content: '';
+  position: absolute; top: 34px; bottom: 34px; left: 33px;
+  width: 3px;
+  background: repeating-linear-gradient(180deg, var(--red) 0, var(--red) 10px, transparent 10px, transparent 20px);
+  z-index: 0;
+}
+#fruttamax-campaign-wrapper .step {
+  display: flex; align-items: flex-start; gap: 20px;
+  position: relative; z-index: 1;
+  background: #fff; border-radius: 18px;
+  padding: 20px 20px;
+  border: 2px solid #f5eeed;
+  box-shadow: 0 2px 12px rgba(208,50,43,0.05);
+  transition: transform .3s, box-shadow .3s;
+}
+#fruttamax-campaign-wrapper .step:hover { transform: translateX(4px); box-shadow: 0 6px 24px rgba(208,50,43,0.10); }
+#fruttamax-campaign-wrapper .step-left { display: flex; flex-direction: column; align-items: center; gap: 6px; flex-shrink: 0; }
+#fruttamax-campaign-wrapper .step-num {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--red); color: #fff;
+  font-size: 20px; font-weight: 900;
+  display: flex; align-items: center; justify-content: center;
+  border: 3px solid var(--white);
+  box-shadow: 0 4px 18px rgba(208,50,43,0.38);
+  flex-shrink: 0;
+}
+#fruttamax-campaign-wrapper .step-icon { font-size: 22px; }
+#fruttamax-campaign-wrapper .step-body { flex: 1; padding-top: 4px; }
+#fruttamax-campaign-wrapper .step-body h3 { font-size: 15px; font-weight: 800; margin-bottom: 5px; color: var(--dark); }
+#fruttamax-campaign-wrapper .step-body p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px; color: #777; line-height: 1.6;
+}
+#fruttamax-campaign-wrapper .step-body strong { color: var(--dark); }
+
+/* ═══════════════════════════════════════════
+   NO FRUTTAMAX YET
+═══════════════════════════════════════════ */
+#fruttamax-campaign-wrapper #no-frutta {
+  padding: 72px 20px;
+  background: var(--dark);
+  position: relative; overflow: hidden;
+}
+#fruttamax-campaign-wrapper #no-frutta::before {
+  content: '';
+  position: absolute; top: -2px; left: 0; right: 0;
+  height: 70px;
+  background: var(--white);
+  clip-path: ellipse(55% 100% at 50% 0%);
+}
+#fruttamax-campaign-wrapper .no-inner { max-width: 960px; margin: 0 auto; position: relative; z-index: 2; }
+#fruttamax-campaign-wrapper .no-inner .eyebrow { color: var(--warm); }
+#fruttamax-campaign-wrapper .no-inner .sec-h2 { color: #fff; margin-bottom: 12px; }
+#fruttamax-campaign-wrapper .no-sub {
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px; color: rgba(255,255,255,0.6);
+  line-height: 1.7; margin-bottom: 28px;
+}
+#fruttamax-campaign-wrapper .no-sub strong { color: #fff; }
+#fruttamax-campaign-wrapper .no-tagline {
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px; font-weight: 800;
+  color: #fff; line-height: 1.3;
+  margin-bottom: 28px;
+}
+#fruttamax-campaign-wrapper .btn-red {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  background: var(--red); color: #fff;
+  font-size: 15px; font-weight: 800;
+  padding: 16px 32px; border-radius: 60px;
+  text-decoration: none;
+  box-shadow: 0 8px 30px rgba(208,50,43,0.5);
+  transition: background .2s, transform .2s;
+  width: 100%; max-width: 320px;
+}
+#fruttamax-campaign-wrapper .btn-red:hover { background: var(--red-hi); transform: translateY(-3px); }
+
+/* product shelf – horizontal scroll on mobile */
+#fruttamax-campaign-wrapper .shelf-scroll {
+  margin-top: 36px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 24px;
+}
+#fruttamax-campaign-wrapper .shelf-scroll::-webkit-scrollbar { display: none; }
+#fruttamax-campaign-wrapper .shelf {
+  display: flex; align-items: flex-end;
+  gap: 12px;
+  width: max-content;
+  padding: 12px 4px 0;
+}
+#fruttamax-campaign-wrapper .sb {
+  width: 80px; flex-shrink: 0; position: relative;
+  transition: transform .3s cubic-bezier(.34,1.56,.64,1); cursor: pointer;
+}
+#fruttamax-campaign-wrapper .sb:hover { transform: translateY(-16px) scale(1.08); z-index: 5; }
+#fruttamax-campaign-wrapper .sb:nth-child(2):hover { transform: translateY(-16px) scale(1.08); }
+#fruttamax-campaign-wrapper .sb:nth-child(4):hover { transform: translateY(-16px) scale(1.08); }
+#fruttamax-campaign-wrapper .sb img { width: 100%; height: 110px; object-fit: contain; display: block; }
+#fruttamax-campaign-wrapper .sb-inner {
+  background: #fff; border-radius: 14px;
+  padding: 8px 5px 3px;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.38);
+  overflow: hidden;
+  transition: box-shadow .3s;
+}
+#fruttamax-campaign-wrapper .sb:hover .sb-inner { box-shadow: 0 18px 44px rgba(0,0,0,0.55); }
+#fruttamax-campaign-wrapper .sb .lbl {
+  display: block;
+  margin-top: 10px;
+  font-size: 9px; font-weight: 700; color: rgba(255,255,255,0.45);
+  text-align: center; letter-spacing: 0.5px; text-transform: uppercase;
+}
+#fruttamax-campaign-wrapper .sb a { display: block; text-decoration: none; }
+
+/* ═══════════════════════════════════════════
+   UPLOAD FORM
+═══════════════════════════════════════════ */
+#fruttamax-campaign-wrapper #incarca {
+  padding: 72px 20px;
+  background: var(--cream);
+  border-top: 4px solid var(--red);
+}
+#fruttamax-campaign-wrapper .up-inner { max-width: 540px; margin: 0 auto; text-align: center; }
+#fruttamax-campaign-wrapper .up-desc {
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px; color: #666; line-height: 1.65; margin-bottom: 36px;
+}
+
+#fruttamax-campaign-wrapper .form-box {
+  background: #fff; border-radius: 22px;
+  padding: 30px 22px;
+  border: 2px solid #f0e4e3;
+  box-shadow: 0 4px 32px rgba(208,50,43,0.07);
+  text-align: left;
+}
+#fruttamax-campaign-wrapper .fg { margin-bottom: 16px; }
+#fruttamax-campaign-wrapper .fg label {
+  font-family: 'Poppins', sans-serif;
+  display: block; font-size: 12px; font-weight: 700;
+  color: var(--dark); margin-bottom: 6px; letter-spacing: 0.2px;
+}
+#fruttamax-campaign-wrapper .fg label .req { color: var(--red); }
+#fruttamax-campaign-wrapper .fg input {
+  width: 100%; padding: 14px 16px;
+  border: 2px solid #e8dede; border-radius: 12px;
+  font-size: 16px; /* 16px prevents iOS zoom */
+  font-family: 'Roboto', sans-serif;
+  color: var(--dark); background: #fff; outline: none;
+  transition: border-color .2s, box-shadow .2s;
+  -webkit-appearance: none; appearance: none;
+}
+#fruttamax-campaign-wrapper .fg input:focus { border-color: var(--red); box-shadow: 0 0 0 4px rgba(208,50,43,0.09); }
+
+/* Drop zone */
+#fruttamax-campaign-wrapper .dz {
+  border: 3px dashed #ddd; border-radius: 16px;
+  padding: 32px 20px; text-align: center;
+  background: var(--cream); cursor: pointer; position: relative;
+  transition: border-color .2s, background .2s;
+}
+#fruttamax-campaign-wrapper .dz.over { border-color: var(--red); background: rgba(208,50,43,0.03); }
+#fruttamax-campaign-wrapper .dz input[type="file"] {
+  position: absolute; inset: 0; opacity: 0;
+  cursor: pointer; width: 100%; height: 100%;
+}
+#fruttamax-campaign-wrapper .dz-ico  { font-size: 38px; display: block; margin-bottom: 10px; }
+#fruttamax-campaign-wrapper .dz-main { font-size: 14px; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
+#fruttamax-campaign-wrapper .dz-hint { font-size: 12px; color: #aaa; font-family: 'Roboto', sans-serif; }
+#fruttamax-campaign-wrapper .dz-lim  {
+  display: inline-block; margin-top: 10px;
+  font-size: 11px; font-weight: 700; color: var(--red);
+  background: rgba(208,50,43,0.08);
+  padding: 4px 12px; border-radius: 50px;
+}
+#fruttamax-campaign-wrapper #prev-wrap {
+  display: none; margin-top: 14px;
+  align-items: center; gap: 12px;
+  background: #fff; border-radius: 12px;
+  padding: 12px 16px; border: 2px solid var(--red);
+}
+#fruttamax-campaign-wrapper #prev-wrap img { width: 52px; height: 52px; object-fit: cover; border-radius: 8px; }
+#fruttamax-campaign-wrapper .pi { flex: 1; text-align: left; }
+#fruttamax-campaign-wrapper .pi-name { font-size: 13px; font-weight: 700; color: var(--dark); }
+#fruttamax-campaign-wrapper .pi-size { font-size: 12px; color: #aaa; margin-top: 2px; font-family: 'Roboto', sans-serif; }
+#fruttamax-campaign-wrapper #rm-btn {
+  background: none; border: none; cursor: pointer;
+  font-size: 20px; color: #ccc; transition: color .2s;
+  min-width: 44px; min-height: 44px; display: flex; align-items: center; justify-content: center;
+}
+#fruttamax-campaign-wrapper #rm-btn:hover { color: var(--red); }
+
+/* agree */
+#fruttamax-campaign-wrapper .agree {
+  display: flex; align-items: flex-start; gap: 12px;
+  margin: 18px 0 22px;
+}
+#fruttamax-campaign-wrapper .agree input[type="checkbox"] {
+  width: 22px; height: 22px; min-width: 22px;
+  accent-color: var(--red); margin-top: 2px; cursor: pointer;
+}
+#fruttamax-campaign-wrapper .agree label {
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px; color: #666; line-height: 1.55; cursor: pointer;
+}
+#fruttamax-campaign-wrapper .agree label a { color: var(--red); }
+
+#fruttamax-campaign-wrapper .submit-btn {
+  width: 100%; background: var(--red); color: #fff;
+  border: none; padding: 18px;
+  border-radius: 60px; font-size: 16px; font-weight: 800;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer; letter-spacing: 0.3px;
+  box-shadow: 0 8px 28px rgba(208,50,43,0.4);
+  transition: background .2s, transform .2s, box-shadow .2s;
+  min-height: 56px;
+  -webkit-appearance: none; appearance: none;
+}
+#fruttamax-campaign-wrapper .submit-btn:hover { background: var(--red-hi); transform: translateY(-2px); box-shadow: 0 14px 40px rgba(208,50,43,0.48); }
+#fruttamax-campaign-wrapper .submit-btn:disabled { opacity: 0.6; transform: none; cursor: not-allowed; }
+
+/* Success */
+#fruttamax-campaign-wrapper #success-msg { display: none; text-align: center; padding: 48px 16px; }
+#fruttamax-campaign-wrapper #success-msg .big-em { font-size: 68px; display: block; margin-bottom: 16px; }
+#fruttamax-campaign-wrapper #success-msg h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(32px, 8vw, 48px); font-weight: 900; color: var(--red);
+  letter-spacing: -0.5px; margin-bottom: 12px;
+}
+#fruttamax-campaign-wrapper #success-msg p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px; color: #666; line-height: 1.65;
+}
+
+/* ═══════════════════════════════════════════
+   TOAST
+═══════════════════════════════════════════ */
+#fruttamax-campaign-wrapper #toast {
+  position: fixed; bottom: 24px; left: 50%;
+  transform: translateX(-50%) translateY(90px);
+  background: var(--dark); color: #fff;
+  padding: 13px 26px; border-radius: 60px;
+  font-size: 14px; font-weight: 700;
+  z-index: 9999; transition: transform .3s ease;
+  white-space: nowrap; pointer-events: none;
+  max-width: calc(100vw - 40px); text-align: center;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.3);
+}
+#fruttamax-campaign-wrapper #toast.show { transform: translateX(-50%) translateY(0); }
+
+/* ═══════════════════════════════════════════
+   REVEAL ANIMATION
+═══════════════════════════════════════════ */
+#fruttamax-campaign-wrapper .reveal {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity .5s ease, transform .5s ease;
+}
+#fruttamax-campaign-wrapper .reveal.vis { opacity: 1; transform: none; }
+
+/* ═══════════════════════════════════════════
+   TABLET  ≥ 640px
+═══════════════════════════════════════════ */
+@media (min-width: 640px) {
+  #fruttamax-campaign-wrapper #hero { padding: 100px 32px 0; }
+  #fruttamax-campaign-wrapper .hero-text { padding-bottom: 30px; }
+
+  #fruttamax-campaign-wrapper .hero-btns { flex-direction: row; justify-content: center; max-width: 100%; }
+  #fruttamax-campaign-wrapper .btn-white, #fruttamax-campaign-wrapper .btn-ghost { width: auto; }
+
+  #fruttamax-campaign-wrapper .hero-bottles { max-width: 480px; height: 320px; }
+  #fruttamax-campaign-wrapper .bt1 { width: 230px; bottom: 35px; }
+  #fruttamax-campaign-wrapper .bt2, #fruttamax-campaign-wrapper .bt3 { width: 185px; }
+
+  #fruttamax-campaign-wrapper .prize-cards { flex-direction: row; flex-wrap: wrap; }
+  #fruttamax-campaign-wrapper .prize-card { flex: 1 1 calc(50% - 8px); min-width: 220px; }
+
+  #fruttamax-campaign-wrapper .steps { flex-direction: row; flex-wrap: wrap; gap: 16px; }
+  #fruttamax-campaign-wrapper .steps::before { display: none; }
+  #fruttamax-campaign-wrapper .step { flex: 1 1 calc(50% - 8px); flex-direction: column; align-items: center; text-align: center; gap: 10px; }
+  #fruttamax-campaign-wrapper .step-body { padding-top: 0; }
+  #fruttamax-campaign-wrapper .step-left { flex-direction: row; justify-content: center; }
+
+  #fruttamax-campaign-wrapper #no-frutta { padding: 90px 32px; }
+  #fruttamax-campaign-wrapper .btn-red { width: auto; }
+  #fruttamax-campaign-wrapper .shelf-scroll { overflow-x: visible; }
+  #fruttamax-campaign-wrapper .shelf { width: auto; justify-content: center; }
+  #fruttamax-campaign-wrapper .sb { width: 90px; }
+  #fruttamax-campaign-wrapper .sb:nth-child(2), #fruttamax-campaign-wrapper .sb:nth-child(4) { transform: none; }
+
+  #fruttamax-campaign-wrapper .form-box { padding: 40px 36px; }
+}
+
+/* ═══════════════════════════════════════════
+   DESKTOP  ≥ 1024px
+═══════════════════════════════════════════ */
+@media (min-width: 1024px) {
+  #fruttamax-campaign-wrapper #hero {
+    overflow: hidden;
+    flex-direction: column;
+    align-items: center;
+    padding: 130px 48px 0;
+    min-height: 100vh;
+  }
+  #fruttamax-campaign-wrapper #hero::after { height: 110px; }
+
+  #fruttamax-campaign-wrapper .hero-text {
+    text-align: center;
+    max-width: 780px;
+    padding-bottom: 36px;
+    padding-right: 0;
+  }
+  #fruttamax-campaign-wrapper .hero-h1 {
+    font-size: 72px;
+    margin-bottom: 24px;
+  }
+  #fruttamax-campaign-wrapper .hero-h1 .stroke { display: inline; }
+  #fruttamax-campaign-wrapper .hero-h1 .prize {
+    display: block; font-size: 72px; margin-top: 4px;
+  }
+  #fruttamax-campaign-wrapper .hero-h1 .prize br { display: none; }
+
+  #fruttamax-campaign-wrapper .hero-badge  { margin-bottom: 22px; }
+  #fruttamax-campaign-wrapper .hero-sub    { font-size: 17px; max-width: 560px; margin: 0 auto 32px; }
+  #fruttamax-campaign-wrapper .hero-btns   {
+    flex-direction: row; justify-content: center;
+    margin: 0 auto 20px; max-width: none; width: auto; gap: 14px;
+  }
+  #fruttamax-campaign-wrapper .btn-white   { width: auto; white-space: nowrap; }
+  #fruttamax-campaign-wrapper .btn-ghost   { width: auto; white-space: nowrap; }
+  #fruttamax-campaign-wrapper .pill-sticker { display: inline-block; }
+
+  #fruttamax-campaign-wrapper .hero-bottles {
+    position: relative; display: flex; flex-direction: row;
+    align-items: flex-end; justify-content: center; gap: 56px;
+    width: 100%; max-width: 860px; height: 400px;
+    overflow: visible; margin-top: -20px;
+  }
+  #fruttamax-campaign-wrapper .bottle { position: relative; bottom: auto; left: auto; right: auto; }
+  #fruttamax-campaign-wrapper .bt1 { width: 300px; transform: rotate(-2deg); order: 2; }
+  #fruttamax-campaign-wrapper .bt2 { width: 230px; transform: rotate(6deg); margin-bottom: 10px; order: 1; }
+  #fruttamax-campaign-wrapper .bt3 { width: 230px; transform: rotate(-8deg); margin-bottom: 6px; order: 3; }
+  #fruttamax-campaign-wrapper .bt1:hover { transform: rotate(0deg) translateY(-18px); }
+  #fruttamax-campaign-wrapper .bt2:hover { transform: rotate(0deg) translateY(-18px); }
+  #fruttamax-campaign-wrapper .bt3:hover { transform: rotate(0deg) translateY(-18px); }
+  #fruttamax-campaign-wrapper .bottle::after { display: none; }
+
+  #fruttamax-campaign-wrapper .ftag { font-size: 12px; padding: 8px 16px; }
+  #fruttamax-campaign-wrapper .ft1  { position: absolute; bottom: auto; top: 12%; left: -110px; transform: rotate(-5deg); animation-delay: 0s; }
+  #fruttamax-campaign-wrapper .ft2  { position: absolute; bottom: auto; top: 18%; right: -110px; transform: rotate(4deg); animation-delay: 1.1s; }
+
+  #fruttamax-campaign-wrapper .prize-strip { position: absolute; bottom: 0; }
+  #fruttamax-campaign-wrapper .prize-card { flex: 1 1 calc(25% - 12px); }
+
+  #fruttamax-campaign-wrapper #premii { padding: 110px 56px; }
+  #fruttamax-campaign-wrapper #cum-functioneaza { padding: 110px 56px; }
+  #fruttamax-campaign-wrapper .steps { flex-direction: row; flex-wrap: nowrap; gap: 12px; position: relative; }
+  #fruttamax-campaign-wrapper .steps::before {
+    display: block; content: ''; position: absolute;
+    top: 22px; left: calc(12.5% + 4px); right: calc(12.5% + 4px);
+    height: 3px; width: auto; bottom: auto;
+    background: repeating-linear-gradient(90deg, var(--red) 0, var(--red) 10px, transparent 10px, transparent 20px);
+  }
+  #fruttamax-campaign-wrapper .step { flex: 1; flex-direction: column; align-items: center; text-align: center; }
+  #fruttamax-campaign-wrapper .step-left { flex-direction: column; align-items: center; }
+
+  #fruttamax-campaign-wrapper #no-frutta { padding: 110px 56px; }
+  #fruttamax-campaign-wrapper .no-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  #fruttamax-campaign-wrapper .shelf-scroll { margin-top: 0; }
+  #fruttamax-campaign-wrapper .shelf { align-items: flex-end; justify-content: flex-start; }
+  #fruttamax-campaign-wrapper .sb { width: 100px; }
+  #fruttamax-campaign-wrapper .sb:nth-child(2), #fruttamax-campaign-wrapper .sb:nth-child(4) { transform: none; margin-bottom: 0; }
+  #fruttamax-campaign-wrapper .sb:nth-child(2):hover, #fruttamax-campaign-wrapper .sb:nth-child(4):hover { transform: translateY(-16px) scale(1.08); }
+
+  #fruttamax-campaign-wrapper #incarca { padding: 110px 56px; }
+  #fruttamax-campaign-wrapper #incarca .sec-h2 { white-space: nowrap; }
+  #fruttamax-campaign-wrapper .up-desc {
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   SOCIAL PROOF FEED
+═══════════════════════════════════════════ */
+#fruttamax-campaign-wrapper #feed {
+  padding: 72px 0 60px;
+  background: var(--white);
+  overflow: hidden;
+}
+#fruttamax-campaign-wrapper .feed-header {
+  padding: 0 20px 28px;
+  max-width: 960px; margin: 0 auto;
+}
+#fruttamax-campaign-wrapper .feed-live {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(208,50,43,0.08);
+  border-radius: 50px; padding: 6px 14px; margin-bottom: 10px;
+}
+#fruttamax-campaign-wrapper .feed-dot {
+  width: 8px; height: 8px; border-radius: 50%; background: var(--red);
+  animation: pulse-dot 1.4s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+  0%,100% { opacity:1; transform:scale(1); }
+  50%      { opacity:0.4; transform:scale(0.7); }
+}
+#fruttamax-campaign-wrapper .feed-live-txt {
+  font-size: 11px; font-weight: 700; color: var(--red);
+  letter-spacing: 1.5px; text-transform: uppercase;
+}
+
+#fruttamax-campaign-wrapper .feed-outer { position: relative; }
+#fruttamax-campaign-wrapper .feed-track {
+  display: flex; gap: 12px;
+  overflow-x: auto; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; scrollbar-width: none;
+  padding: 16px 20px 28px;
+  cursor: grab; align-items: flex-end;
+}
+#fruttamax-campaign-wrapper .feed-track:active { cursor: grabbing; }
+#fruttamax-campaign-wrapper .feed-track::-webkit-scrollbar { display: none; }
+
+#fruttamax-campaign-wrapper .fc {
+  flex-shrink: 0; background: #fff; border-radius: 4px;
+  box-shadow: 0 6px 28px rgba(0,0,0,0.13), 0 1px 4px rgba(0,0,0,0.08);
+  scroll-snap-align: start;
+  transition: transform .3s cubic-bezier(.34,1.56,.64,1), box-shadow .3s;
+  overflow: visible; position: relative;
+}
+#fruttamax-campaign-wrapper .fc:hover { box-shadow: 0 16px 48px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.10); z-index: 5; }
+
+#fruttamax-campaign-wrapper .fc:nth-child(1)  { transform: rotate(-2.8deg); }
+#fruttamax-campaign-wrapper .fc:nth-child(1):hover { transform: rotate(-1deg) translateY(-8px); }
+#fruttamax-campaign-wrapper .fc:nth-child(2)  { transform: rotate(1.5deg); margin-bottom: 20px; }
+#fruttamax-campaign-wrapper .fc:nth-child(2):hover { transform: rotate(0.5deg) translateY(-8px); }
+#fruttamax-campaign-wrapper .fc:nth-child(3)  { transform: rotate(-1.2deg); margin-bottom: 8px; }
+#fruttamax-campaign-wrapper .fc:nth-child(3):hover { transform: rotate(0deg) translateY(-8px); }
+#fruttamax-campaign-wrapper .fc:nth-child(4)  { transform: rotate(3deg); margin-bottom: 24px; }
+#fruttamax-campaign-wrapper .fc:nth-child(4):hover { transform: rotate(1.5deg) translateY(-8px); }
+#fruttamax-campaign-wrapper .fc:nth-child(5)  { transform: rotate(-2.2deg); margin-bottom: 4px; }
+#fruttamax-campaign-wrapper .fc:nth-child(5):hover { transform: rotate(-0.8deg) translateY(-8px); }
+#fruttamax-campaign-wrapper .fc:nth-child(6)  { transform: rotate(1.8deg); margin-bottom: 16px; }
+#fruttamax-campaign-wrapper .fc:nth-child(6):hover { transform: rotate(0.5deg) translateY(-8px); }
+#fruttamax-campaign-wrapper .fc:nth-child(7)  { transform: rotate(-0.8deg); margin-bottom: 10px; }
+#fruttamax-campaign-wrapper .fc:nth-child(7):hover { transform: rotate(0deg) translateY(-8px); }
+#fruttamax-campaign-wrapper .fc:nth-child(8)  { transform: rotate(2.5deg); margin-bottom: 18px; }
+#fruttamax-campaign-wrapper .fc:nth-child(8):hover { transform: rotate(1deg) translateY(-8px); }
+
+#fruttamax-campaign-wrapper .fc-photo-wrap { padding: 8px 8px 0; }
+#fruttamax-campaign-wrapper .fc-photo { display: block; border-radius: 2px; object-fit: cover; background: #eee; }
+#fruttamax-campaign-wrapper .fc:nth-child(odd)  .fc-photo { width: 200px; height: 265px; }
+#fruttamax-campaign-wrapper .fc:nth-child(even) .fc-photo { width: 186px; height: 248px; }
+#fruttamax-campaign-wrapper .fc:nth-child(3)    .fc-photo { width: 214px; height: 280px; }
+#fruttamax-campaign-wrapper .fc:nth-child(6)    .fc-photo { width: 192px; height: 254px; }
+
+#fruttamax-campaign-wrapper .fc-body { padding: 10px 10px 12px; }
+#fruttamax-campaign-wrapper .fc-user { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+#fruttamax-campaign-wrapper .fc-avatar {
+  width: 26px; height: 26px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 800; color: #fff; flex-shrink: 0;
+}
+#fruttamax-campaign-wrapper .fc-meta { flex: 1; min-width: 0; }
+#fruttamax-campaign-wrapper .fc-handle { font-size: 11px; font-weight: 800; color: var(--dark); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#fruttamax-campaign-wrapper .fc-time { font-size: 10px; color: #bbb; font-family: 'Roboto', sans-serif; margin-top: 1px; }
+#fruttamax-campaign-wrapper .fc-caption { font-family: 'Roboto', sans-serif; font-size: 11.5px; color: #555; line-height: 1.5; }
+#fruttamax-campaign-wrapper .fc-loc { font-size: 10px; color: #bbb; margin-top: 5px; font-family: 'Roboto', sans-serif; display: flex; align-items: center; gap: 3px; }
+
+#fruttamax-campaign-wrapper .feed-arrow {
+  display: none; position: absolute; top: 50%; transform: translateY(-50%);
+  width: 44px; height: 44px; border-radius: 50%; background: #fff; border: 2px solid #eee;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12); cursor: pointer; align-items: center; justify-content: center;
+  font-size: 20px; z-index: 10; transition: background .2s, box-shadow .2s;
+}
+#fruttamax-campaign-wrapper .feed-arrow:hover { background: var(--cream); box-shadow: 0 6px 24px rgba(0,0,0,0.18); }
+#fruttamax-campaign-wrapper .feed-arrow.prev { left: 12px; }
+#fruttamax-campaign-wrapper .feed-arrow.next { right: 12px; }
+
+@media (min-width: 640px) {
+  #fruttamax-campaign-wrapper .feed-track { padding: 20px 32px 32px; gap: 16px; }
+  #fruttamax-campaign-wrapper .fc:nth-child(odd)  .fc-photo { width: 220px; height: 292px; }
+  #fruttamax-campaign-wrapper .fc:nth-child(even) .fc-photo { width: 200px; height: 266px; }
+  #fruttamax-campaign-wrapper .fc:nth-child(3)    .fc-photo { width: 236px; height: 312px; }
+  #fruttamax-campaign-wrapper .fc:nth-child(6)    .fc-photo { width: 208px; height: 276px; }
+}
+@media (min-width: 1024px) {
+  #fruttamax-campaign-wrapper #feed { padding: 110px 0 80px; }
+  #fruttamax-campaign-wrapper .feed-header { padding: 0 56px 44px; }
+
+  #fruttamax-campaign-wrapper .feed-outer { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+  #fruttamax-campaign-wrapper .feed-track {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 24px;
+    overflow-x: visible; scroll-snap-type: none; cursor: default;
+    padding: 40px 0 48px; align-items: flex-end;
+  }
+  #fruttamax-campaign-wrapper .feed-track:active { cursor: default; }
+  #fruttamax-campaign-wrapper .fc { flex: 0 0 240px; scroll-snap-align: none; }
+
+  #fruttamax-campaign-wrapper .fc:nth-child(1) { margin-top: 40px; }
+  #fruttamax-campaign-wrapper .fc:nth-child(2) { margin-top: 0; }
+  #fruttamax-campaign-wrapper .fc:nth-child(3) { margin-top: 60px; }
+  #fruttamax-campaign-wrapper .fc:nth-child(4) { margin-top: 16px; }
+  #fruttamax-campaign-wrapper .fc:nth-child(5) { margin-top: 24px; }
+  #fruttamax-campaign-wrapper .fc:nth-child(6) { margin-top: 64px; }
+  #fruttamax-campaign-wrapper .fc:nth-child(7) { margin-top: 8px; }
+  #fruttamax-campaign-wrapper .fc:nth-child(8) { margin-top: 48px; }
+
+  #fruttamax-campaign-wrapper .fc-photo-wrap { padding: 10px 10px 0; }
+  #fruttamax-campaign-wrapper .fc .fc-photo        { width: 100% !important; height: 260px !important; }
+  #fruttamax-campaign-wrapper .fc:nth-child(3) .fc-photo { height: 290px !important; }
+  #fruttamax-campaign-wrapper .fc:nth-child(6) .fc-photo { height: 270px !important; }
+  #fruttamax-campaign-wrapper .fc-body { padding: 12px 12px 14px; }
+
+  #fruttamax-campaign-wrapper .feed-arrow { display: none; }
+  #fruttamax-campaign-wrapper .feed-dots  { display: none; }
+}
+</style>
+
+{%- assign is_hu = false -%}
+{%- if request.locale.iso_code == 'hu' -%}
+  {%- assign is_hu = true -%}
+{%- endif -%}
+
+<section id="hero">
+  <div class="bg-blob b1"></div>
+  <div class="bg-blob b2"></div>
+
+  <div class="hero-text reveal">
+    <div class="hero-badge">
+      {%- if is_hu -%}
+        🇷🇴 A FruttaMax megérkezett Romániába!
+      {%- else -%}
+        🇷🇴 FruttaMax a ajuns în România!
+      {%- endif -%}
+    </div>
+    <h1 class="hero-h1">
+      {%- if is_hu -%}
+        HOL NINCS
+        <span class="stroke">FRUTTAMAX?</span>
+        <span class="prize">NYERJ <br>10.000 LEJT.</span>
+      {%- else -%}
+        UNDE NU E
+        <span class="stroke">FRUTTAMAX?</span>
+        <span class="prize">CÂȘTIGĂ <br>10.000 LEI.</span>
+      {%- endif -%}
+    </h1>
+    <p class="hero-sub">
+      {%- if is_hu -%}
+        Fotózd le az üveget a legrandomabb, legabszurdabb helyzetben. Töltsd fel a képet. Nyerd meg a főnyereményt.
+      {%- else -%}
+        Fotografiază sticla în cel mai <strong>random, nepotrivit, absurd</strong> context posibil. Încarcă poza. Câștigă marele premiu.
+      {%- endif -%}
+    </p>
+    <div class="hero-btns">
+      {%- if is_hu -%}
+        <a href="#incarca" class="btn-white">📸 Feltöltöm a képemet</a>
+        <a href="#cum-functioneaza" class="btn-ghost">Hogy működik?</a>
+      {%- else -%}
+        <a href="#incarca" class="btn-white">📸 Încarc fotografia mea</a>
+        <a href="#cum-functioneaza" class="btn-ghost">Cum funcționează?</a>
+      {%- endif -%}
+    </div>
+    <div class="pill-sticker">
+      {%- if is_hu -%}
+        🏆 Főnyeremény: 10.000 LEJ készpénz
+      {%- else -%}
+        🏆 Grand Prize: 10.000 LEI cash
+      {%- endif -%}
+    </div>
+  </div>
+
+  <div class="hero-bottles">
+    {%- if is_hu -%}
+      <div class="ftag ft1">a zuhanyban??? 💀</div>
+      <div class="ftag ft2">teljesen random ✨</div>
+    {%- else -%}
+      <div class="ftag ft1">în duș??? 💀</div>
+      <div class="ftag ft2">random af ✨</div>
+    {%- endif -%}
+
+    <div class="bottle bt2">
+      <img src="https://fruttamax.ro/cdn/shop/files/raspberry2.avif"
+           alt="{%- if is_hu -%}Málna ízű FruttaMax{%- else -%}Zmeură{%- endif -%}"
+           loading="lazy">
+    </div>
+    <div class="bottle bt3">
+      <img src="https://fruttamax.ro/cdn/shop/files/lemon-lime2.avif"
+           alt="{%- if is_hu -%}Citrom-Lime ízű FruttaMax{%- else -%}Lămâie Lime{%- endif -%}"
+           loading="lazy">
+    </div>
+    <div class="bottle bt1">
+      <img src="https://fruttamax.ro/cdn/shop/files/strawberry2.avif"
+           alt="{%- if is_hu -%}Eper ízű FruttaMax{%- else -%}Căpșuni{%- endif -%}"
+           loading="lazy">
+    </div>
+
+    <div class="prize-strip">
+      {%- if is_hu -%}
+        FŐNYEREMÉNY: <span class="hi">10.000 LEJ</span> 🎉
+      {%- else -%}
+        MARELE PREMIU: <span class="hi">10.000 LEI</span> 🎉
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+<section id="premii">
+  <div class="premii-inner">
+    <span class="eyebrow reveal">
+      {%- if is_hu -%}Mit nyerhetsz{%- else -%}Ce poți câștiga{%- endif -%}
+    </span>
+    <h2 class="sec-h2 reveal">
+      {%- if is_hu -%}
+        Valódi <span class="red">nyeremények.</span>
+      {%- else -%}
+        Premii <span class="red">reale.</span>
+      {%- endif -%}
+    </h2>
+    <div class="prize-cards">
+
+      <div class="prize-card featured reveal" style="transition-delay:.05s">
+        <div class="prize-ico">💸</div>
+        <div class="prize-body">
+          <div class="prize-title">
+            {%- if is_hu -%}
+              Főnyeremény: <span class="amount">10.000 lej</span>
+            {%- else -%}
+              Marele Premiu: <span class="amount">10.000 lei</span>
+            {%- endif -%}
+          </div>
+          <div class="prize-desc">
+            {%- if is_hu -%}
+              Egyetlen győztes, e-mailben értesítve. A legrandomabb kép nyer.
+            {%- else -%}
+              Un singur câștigător, anunțat pe email. Cea mai random poză câștigă.
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+
+      <div class="prize-card reveal" style="transition-delay:.1s">
+        <div class="prize-ico">🏆</div>
+        <div class="prize-body">
+          <div class="prize-title">
+            {%- if is_hu -%}Top 10 nyertes{%- else -%}Top 10 câștigă{%- endif -%}
+          </div>
+          <div class="prize-desc">
+            {%- if is_hu -%}
+              A legjobb 10 kép mindegyike értékes meglepetés-nyereményt kap.
+            {%- else -%}
+              Cele mai creative 10 poze câștigă fiecare un premiu surpriză de valoare.
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+
+      <div class="prize-card reveal" style="transition-delay:.15s">
+        <div class="prize-ico">🎁</div>
+        <div class="prize-body">
+          <div class="prize-title">
+            {%- if is_hu -%}Azonnali 20%{%- else -%}20% instant{%- endif -%}
+          </div>
+          <div class="prize-desc">
+            {%- if is_hu -%}
+              Azonnali 20% kedvezményt kapsz — csak azért, mert részt vettél.
+            {%- else -%}
+              Primești o reducere de 20% instant. Doar pentru că ai participat.
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+
+      <div class="prize-card reveal" style="transition-delay:.2s">
+        <div class="prize-ico">📲</div>
+        <div class="prize-body">
+          <div class="prize-title">
+            {%- if is_hu -%}
+              Felkerülsz a <span style="color:var(--red)">@fruttamax.ro</span> oldalra
+            {%- else -%}
+              Ajungi pe <span style="color:var(--red)">@fruttamax.ro</span>
+            {%- endif -%}
+          </div>
+          <div class="prize-desc">
+            {%- if is_hu -%}
+              Tedd ki a képet Story-ban, jelöld meg a <strong style="color:var(--dark)">@fruttamax.ro</strong> oldalt, és mi repostoljuk.
+            {%- else -%}
+              Postează poza în Story, dă tag la <strong style="color:var(--dark)">@fruttamax.ro</strong> și îți repostăm poza.
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="feed">
+  <div class="feed-header">
+    <div class="feed-live reveal">
+      <span class="feed-dot"></span>
+      <span class="feed-live-txt">
+        {%- if is_hu -%}Élő beküldések{%- else -%}Participări live{%- endif -%}
+      </span>
+    </div>
+    <h2 class="sec-h2 reveal" style="margin-bottom:0">
+      {%- if is_hu -%}
+        Ők már <span class="red">részt vesznek.</span>
+      {%- else -%}
+        Ei deja au <span class="red">participat.</span>
+      {%- endif -%}
+    </h2>
+  </div>
+
+  <div class="feed-outer">
+    <button class="feed-arrow prev" id="feedPrev" aria-label="{%- if is_hu -%}Előző{%- else -%}Anterior{%- endif -%}">‹</button>
+    <button class="feed-arrow next" id="feedNext" aria-label="{%- if is_hu -%}Következő{%- else -%}Următor{%- endif -%}">›</button>
+
+    <div class="feed-track" id="feedTrack">
+
+      <div class="fc">
+        <div class="fc-photo-wrap">
+          <img class="fc-photo"
+               src="{{ 'kampany_kep7.png' | file_url }}"
+               alt="{%- if is_hu -%}FruttaMax éttermi bemutatón{%- else -%}FruttaMax la o degustare gourmet{%- endif -%}"
+               loading="lazy">
+        </div>
+        <div class="fc-body">
+          <div class="fc-user">
+            <div class="fc-meta">
+              <div class="fc-handle">@sonia.lupu34</div>
+              <div class="fc-time">
+                {%- if is_hu -%}2 perce{%- else -%}acum 2 minute{%- endif -%}
+              </div>
+            </div>
+          </div>
+          <div class="fc-caption">
+            {%- if is_hu -%}michelin csillag fruttának 😂{%- else -%}stea michelin pt frutta 😂{%- endif -%}
+          </div>
+        </div>
+      </div>
+
+      <div class="fc">
+        <div class="fc-photo-wrap">
+          <img class="fc-photo"
+               src="{{ 'kampany_kep6.png' | file_url }}"
+               alt="{%- if is_hu -%}FruttaMax random helyen{%- else -%}FruttaMax în context random{%- endif -%}"
+               loading="lazy">
+        </div>
+        <div class="fc-body">
+          <div class="fc-user">
+            <div class="fc-meta">
+              <div class="fc-handle">@alex_mnt</div>
+              <div class="fc-time">
+                {%- if is_hu -%}2 perce{%- else -%}acum 2 minute{%- endif -%}
+              </div>
+            </div>
+          </div>
+          <div class="fc-caption">no comment 🍌</div>
+        </div>
+      </div>
+
+      <div class="fc">
+        <div class="fc-photo-wrap">
+          <img class="fc-photo"
+               src="{{ 'kampany_kep2.png' | file_url }}"
+               alt="{%- if is_hu -%}FruttaMax lefekvés előtt{%- else -%}FruttaMax la culcare{%- endif -%}"
+               loading="lazy">
+        </div>
+        <div class="fc-body">
+          <div class="fc-user">
+            <div class="fc-meta">
+              <div class="fc-handle">@mihai.pop22</div>
+              <div class="fc-time">
+                {%- if is_hu -%}2 perce{%- else -%}acum 2 minute{%- endif -%}
+              </div>
+            </div>
+          </div>
+          <div class="fc-caption">
+            {%- if is_hu -%}jó éjt frutta 🌙{%- else -%}noapte buna frutta 🌙{%- endif -%}
+          </div>
+        </div>
+      </div>
+
+      <div class="fc">
+        <div class="fc-photo-wrap">
+          <img class="fc-photo"
+               src="{{ 'kampany_kep3.png' | file_url }}"
+               alt="{%- if is_hu -%}FruttaMax mosáskor{%- else -%}FruttaMax la mașina de spălat{%- endif -%}"
+               loading="lazy">
+        </div>
+        <div class="fc-body">
+          <div class="fc-user">
+            <div class="fc-meta">
+              <div class="fc-handle">@ioanalapo4</div>
+              <div class="fc-time">
+                {%- if is_hu -%}2 perce{%- else -%}acum 2 minute{%- endif -%}
+              </div>
+            </div>
+          </div>
+          <div class="fc-caption">
+            {%- if is_hu -%}mosásnál 🧼{%- else -%}la spalat 🧼{%- endif -%}
+          </div>
+        </div>
+      </div>
+
+      <div class="fc">
+        <div class="fc-photo-wrap">
+          <img class="fc-photo"
+               src="{{ 'kampany_kep4.png' | file_url }}"
+               alt="{%- if is_hu -%}FruttaMax az autópályán{%- else -%}FruttaMax pe autostradă{%- endif -%}"
+               loading="lazy">
+        </div>
+        <div class="fc-body">
+          <div class="fc-user">
+            <div class="fc-meta">
+              <div class="fc-handle">@raulrazvan44</div>
+              <div class="fc-time">
+                {%- if is_hu -%}2 perce{%- else -%}acum 2 minute{%- endif -%}
+              </div>
+            </div>
+          </div>
+          <div class="fc-caption">
+            {%- if is_hu -%}közlekedési info: fruttamax az e60-on{%- else -%}info trafic: fruttamax pe e60{%- endif -%}
+          </div>
+        </div>
+      </div>
+
+      <div class="fc">
+        <div class="fc-photo-wrap">
+          <img class="fc-photo"
+               src="{{ 'kampany_kep1.png' | file_url }}"
+               alt="{%- if is_hu -%}FruttaMax a fürdőszobában{%- else -%}FruttaMax în baie{%- endif -%}"
+               loading="lazy">
+        </div>
+        <div class="fc-body">
+          <div class="fc-user">
+            <div class="fc-meta">
+              <div class="fc-handle">@andreea_b</div>
+              <div class="fc-time">
+                {%- if is_hu -%}2 perce{%- else -%}acum 2 minute{%- endif -%}
+              </div>
+            </div>
+          </div>
+          <div class="fc-caption">
+            {%- if is_hu -%}az új samponym.{%- else -%}noul meu sampon.{%- endif -%}
+          </div>
+        </div>
+      </div>
+
+      <div class="fc">
+        <div class="fc-photo-wrap">
+          <img class="fc-photo"
+               src="{{ 'kampany_kep5.png' | file_url }}"
+               alt="{%- if is_hu -%}FruttaMax az egyetemen{%- else -%}FruttaMax la facultate{%- endif -%}"
+               loading="lazy">
+        </div>
+        <div class="fc-body">
+          <div class="fc-user">
+            <div class="fc-meta">
+              <div class="fc-handle">@daria.constantin1</div>
+              <div class="fc-time">
+                {%- if is_hu -%}2 perce{%- else -%}acum 2 minute{%- endif -%}
+              </div>
+            </div>
+          </div>
+          <div class="fc-caption">
+            {%- if is_hu -%}az egyetemen is megjelenik{%- else -%}trec si pe la facultate{%- endif -%}
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="cum-functioneaza">
+  <div class="sec-inner">
+    <div class="reveal">
+      <span class="eyebrow">
+        {%- if is_hu -%}A részvétel menete{%- else -%}Procesul de participare{%- endif -%}
+      </span>
+      <h2 class="sec-h2">
+        {%- if is_hu -%}
+          Hogy <span class="red">működik?</span>
+        {%- else -%}
+          Cum <span class="red">funcționează?</span>
+        {%- endif -%}
+      </h2>
+    </div>
+    <div class="steps">
+
+      <div class="step reveal" style="transition-delay:.0s">
+        <div class="step-left">
+          <div class="step-num">1</div>
+          <span class="step-icon">🛒</span>
+        </div>
+        <div class="step-body">
+          <h3>{%- if is_hu -%}Rendelj FruttaMaxot{%- else -%}Comandă Fruttamax{%- endif -%}</h3>
+          <p>
+            {%- if is_hu -%}
+              Rendelj vagy szerezz be egy üveget. 20+ ízből választhatsz.
+            {%- else -%}
+              Comandă sau fă-ți rost de o sticlă. Ai 20+ arome din care poți alege.
+            {%- endif -%}
+          </p>
+        </div>
+      </div>
+
+      <div class="step reveal" style="transition-delay:.1s">
+        <div class="step-left">
+          <div class="step-num">2</div>
+          <span class="step-icon">📸</span>
+        </div>
+        <div class="step-body">
+          <h3>{%- if is_hu -%}Fotózd le{%- else -%}Fotografiază{%- endif -%}</h3>
+          <p>
+            {%- if is_hu -%}
+              Fotózd le az üveget a legrandomabb helyzetekben. Minél bizarrabb, annál jobb.
+            {%- else -%}
+              Fotografiază sticla în cele mai random situații. Cu cât mai weird, cu atât mai bine.
+            {%- endif -%}
+          </p>
+        </div>
+      </div>
+
+      <div class="step reveal" style="transition-delay:.2s">
+        <div class="step-left">
+          <div class="step-num">3</div>
+          <span class="step-icon">⬆️</span>
+        </div>
+        <div class="step-body">
+          <h3>{%- if is_hu -%}Töltsd fel a képet{%- else -%}Încarcă-ți poza{%- endif -%}</h3>
+          <p>
+            {%- if is_hu -%}
+              Töltsd ki az űrlapot és küldd el a fotódat. Egyszerű.
+            {%- else -%}
+              Completează formularul și trimite-ne fotografia ta. Simplu.
+            {%- endif -%}
+          </p>
+        </div>
+      </div>
+
+      <div class="step reveal" style="transition-delay:.3s">
+        <div class="step-left">
+          <div class="step-num">4</div>
+          <span class="step-icon">🎁</span>
+        </div>
+        <div class="step-body">
+          <h3>{%- if is_hu -%}Azonnali 20% kedvezmény{%- else -%}Primești 20% instant{%- endif -%}</h3>
+          <p>
+            {%- if is_hu -%}
+              Részt veszel és megkapod a kedvezményt.
+            {%- else -%}
+              Participi și primești reducerea.
+            {%- endif -%}
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="no-frutta">
+  <div class="no-inner">
+    <div class="reveal">
+      <span class="eyebrow">
+        {%- if is_hu -%}Első lépés{%- else -%}Primul pas{%- endif -%}
+      </span>
+      <h2 class="sec-h2">
+        {%- if is_hu -%}
+          Még nincs<br>FruttaMaxod?
+        {%- else -%}
+          Nu ai încă<br>Fruttamax?
+        {%- endif -%}
+      </h2>
+      <p class="no-sub">
+        {%- if is_hu -%}
+          Válassz <strong>20+ ízből</strong> és rendelj most. Gyors kiszállítás egész Románia területén.<br>
+          Egy palack = akár <strong>12 liter ital</strong>. Elég ahhoz, hogy abszolút minden helyzetben megállja a helyét.
+        {%- else -%}
+          Alege din <strong>20+ arome</strong> și comandă acum. Livrare rapidă în toată România.<br>
+          Un flacon = până la <strong>12 litri de băutură</strong>. Destul cât să-l pui în absolut orice situație posibilă.
+        {%- endif -%}
+      </p>
+      <p class="no-tagline">
+        {%- if is_hu -%}
+          Az élet túl koncentrált.<br>Hígítsd fel a valóságot!
+        {%- else -%}
+          Viața e prea concentrată.<br>Diluează realitatea!
+        {%- endif -%}
+      </p>
+      <a href="{%- if is_hu -%}https://fruttamax.ro/hu/collections/termekek{%- else -%}https://fruttamax.ro/collections/frontpage{%- endif -%}" target="_blank" class="btn-red">
+        {%- if is_hu -%}
+          Ugrás a webshopba →
+        {%- else -%}
+          Mergi la Webshop →
+        {%- endif -%}
+      </a>
+    </div>
+
+    <div class="shelf-scroll reveal" style="transition-delay:.15s">
+      <div class="shelf">
+        <div class="sb">
+          <a href="{%- if is_hu -%}https://fruttamax.ro/hu/products/eper{%- else -%}https://fruttamax.ro/products/capsuni{%- endif -%}" target="_blank">
+            <div class="sb-inner">
+              <img src="https://fruttamax.ro/cdn/shop/files/strawberry2.avif"
+                   alt="{%- if is_hu -%}Eper ízű FruttaMax{%- else -%}Căpșuni{%- endif -%}"
+                   loading="lazy">
+            </div>
+          </a>
+          <span class="lbl">{%- if is_hu -%}Eper{%- else -%}Căpșuni{%- endif -%}</span>
+        </div>
+        <div class="sb">
+          <a href="{%- if is_hu -%}https://fruttamax.ro/hu/products/cola{%- else -%}https://fruttamax.ro/products/cola{%- endif -%}" target="_blank">
+            <div class="sb-inner">
+              <img src="https://fruttamax.ro/cdn/shop/files/cola2.avif"
+                   alt="{%- if is_hu -%}Kóla ízű FruttaMax{%- else -%}Cola{%- endif -%}"
+                   loading="lazy">
+            </div>
+          </a>
+          <span class="lbl">Cola</span>
+        </div>
+        <div class="sb">
+          <a href="{%- if is_hu -%}https://fruttamax.ro/hu/products/energiaital-szirup-original-zero-500-ml{%- else -%}https://fruttamax.ro/products/sirop-bautura-energizanta-original-zero-500-ml{%- endif -%}" target="_blank">
+            <div class="sb-inner">
+              <img src="https://fruttamax.ro/cdn/shop/files/WhatsAppImage2026-03-17at19.49.21.jpg?v=1773823686"
+                   alt="{%- if is_hu -%}Energiaital ízű FruttaMax{%- else -%}Băutură energizantă FruttaMax{%- endif -%}"
+                   loading="lazy">
+            </div>
+          </a>
+          <span class="lbl">Energy</span>
+        </div>
+        <div class="sb">
+          <a href="{%- if is_hu -%}https://fruttamax.ro/hu/products/bodza-lime-menta-szirup-500-ml{%- else -%}https://fruttamax.ro/products/soc-lime-menta{%- endif -%}" target="_blank">
+            <div class="sb-inner">
+              <img src="https://fruttamax.ro/cdn/shop/files/elder-lime-mint2.avif"
+                   alt="{%- if is_hu -%}Bodza-Menta ízű FruttaMax{%- else -%}Soc-Mentă FruttaMax{%- endif -%}"
+                   loading="lazy">
+            </div>
+          </a>
+          <span class="lbl">{%- if is_hu -%}Bodza-Menta{%- else -%}Soc-Mentă{%- endif -%}</span>
+        </div>
+        <div class="sb">
+          <a href="{%- if is_hu -%}https://fruttamax.ro/hu/products/oszibarack-szirup-500-ml{%- else -%}https://fruttamax.ro/products/piersica{%- endif -%}" target="_blank">
+            <div class="sb-inner">
+              <img src="https://fruttamax.ro/cdn/shop/files/peach.avif"
+                   alt="{%- if is_hu -%}Őszibarack ízű FruttaMax{%- else -%}Piersică FruttaMax{%- endif -%}"
+                   loading="lazy">
+            </div>
+          </a>
+          <span class="lbl">{%- if is_hu -%}Őszibarack{%- else -%}Piersică{%- endif -%}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="incarca">
+  <div class="up-inner">
+    <span class="eyebrow reveal">
+      {%- if is_hu -%}Vegyél részt most{%- else -%}Participă acum{%- endif -%}
+    </span>
+    <h2 class="sec-h2 reveal" style="margin-top:8px">
+      {%- if is_hu -%}Feltöltöm a képemet{%- else -%}Încarc fotografia mea{%- endif -%}
+    </h2>
+    <p class="up-desc reveal">
+      {%- if is_hu -%}
+        Töltsd ki az űrlapot és küldd el a FruttaMaxos fotódat a legrandomabb helyzetben.<br>
+        A nyertest e-mailben értesítjük!
+      {%- else -%}
+        Completează formularul și trimite-ne fotografia ta cu Fruttamax în cea mai random situație.<br>
+        Câștigătorul este anunțat pe email!
+      {%- endif -%}
+    </p>
+
+    <div class="form-box reveal" id="form-wrap">
+      <form id="main-form" novalidate>
+
+        <div class="fg">
+          <label>
+            {%- if is_hu -%}Teljes név{%- else -%}Nume complet{%- endif -%}
+            <span class="req">*</span>
+          </label>
+          <input type="text" name="nume"
+                 placeholder="{%- if is_hu -%}pl. Kiss Mária{%- else -%}ex. Maria Ionescu{%- endif -%}"
+                 required autocomplete="name">
+        </div>
+
+        <div class="fg">
+          <label>
+            {%- if is_hu -%}E-mail cím{%- else -%}Adresă de email{%- endif -%}
+            <span class="req">*</span>
+          </label>
+          <input type="email" name="email"
+                 placeholder="{%- if is_hu -%}pl. kiss.maria@gmail.com{%- else -%}ex. maria@gmail.com{%- endif -%}"
+                 required autocomplete="email">
+        </div>
+
+        <div class="fg">
+          <label>
+            {%- if is_hu -%}Telefonszám{%- else -%}Număr de telefon{%- endif -%}
+          </label>
+          <input type="tel" name="tel"
+                 placeholder="{%- if is_hu -%}pl. 0740 000 000{%- else -%}ex. 0740 000 000{%- endif -%}"
+                 autocomplete="tel">
+        </div>
+
+        <div class="fg">
+          <label>
+            {%- if is_hu -%}A FruttaMaxos fotód{%- else -%}Fotografia ta cu Fruttamax{%- endif -%}
+            <span class="req">*</span>
+          </label>
+          <div class="dz" id="dz">
+            <input type="file" id="file-in" accept="image/*, .heic, .heif" required>
+            <span class="dz-ico">🖼️</span>
+            <div class="dz-main">
+              {%- if is_hu -%}Érintsd a fotó kiválasztásához{%- else -%}Atinge să alegi fotografia{%- endif -%}
+            </div>
+            <div class="dz-hint">JPG, PNG, HEIC –
+              {%- if is_hu -%} bármilyen telefonos formátum{%- else -%} orice format de telefon{%- endif -%}
+            </div>
+            <span class="dz-lim">MAX 5MB</span>
+          </div>
+          <div id="prev-wrap">
+            <img id="prev-img" src="" alt="">
+            <div class="pi">
+              <div class="pi-name" id="prev-name"></div>
+              <div class="pi-size" id="prev-size"></div>
+            </div>
+            <button id="rm-btn" type="button"
+                    aria-label="{%- if is_hu -%}Fotó törlése{%- else -%}Șterge fotografia{%- endif -%}">✕</button>
+          </div>
+        </div>
+
+        <div class="agree">
+          <input type="checkbox" id="agree" required>
+          <label for="agree">
+            {%- if is_hu -%}
+              Elolvastam és elfogadom a <a href="https://fruttamax.ro/hu/pages/fruttamax-az-elet-tul-tomeny-promocio-szabalyzat">Kampányszabályzatot</a>, és hozzájárulok, hogy a fényképemet a FruttaMax marketing anyagaiban felhasználják.
+            {%- else -%}
+              Am citit și accept <a href="https://fruttamax.ro/pages/regulament-campanie-unde-nu-e-fruttamax">Regulamentul Campaniei</a> și sunt de acord ca fotografia mea să fie utilizată în materiale de marketing FruttaMax.
+            {%- endif -%}
+            <span style="color:var(--red)">*</span>
+          </label>
+        </div>
+
+        <div class="agree" style="margin-top:0;margin-bottom:20px">
+          <input type="checkbox" id="newsletter">
+          <label for="newsletter">
+            {%- if is_hu -%}
+              Feliratkozom a hírlevélre, és elsőként értesülök az ajánlatokról, újdonságokról és FruttaMax meglepetésekről.
+            {%- else -%}
+              Vreau să mă abonez la newsletter și să fiu primul/prima care află despre oferte, noutăți și surprize FruttaMax.
+            {%- endif -%}
+          </label>
+        </div>
+
+        <button type="submit" class="submit-btn">
+          {%- if is_hu -%}🚀 Elküldöm a fotómat{%- else -%}🚀 Trimit fotografia mea{%- endif -%}
+        </button>
+
+      </form>
+    </div>
+
+    <div id="success-msg">
+      <span class="big-em">🎉</span>
+      <h2>
+        {%- if is_hu -%}Részt veszel!{%- else -%}Ai participat!{%- endif -%}
+      </h2>
+      <p>
+        {%- if is_hu -%}
+          Megkaptuk a fotódat és versenyben vagy a 10.000 lejért!<br><br>
+          Szeretnél <strong>extra nyerési esélyt?</strong><br>
+          Tedd ki Instagram Story-ban és jelöld meg a <strong>@fruttamax.ro</strong> oldalt 📱
+        {%- else -%}
+          Am primit fotografia ta și ești în cursă pentru 10.000 lei!<br><br>
+          Vrei șanse <strong>extra de câștig?</strong><br>
+          Postează pe Instagram Story și tagează <strong>@fruttamax.ro</strong> 📱
+        {%- endif -%}
+      </p>
+    </div>
+  </div>
+</section>
+
+<div id="toast"></div>
+
+<script>
+/* ── Scroll reveal ── */
+const obs = new IntersectionObserver(entries => entries.forEach(e => {
+  if (e.isIntersecting) e.target.classList.add('vis');
+}), { threshold: 0.08 });
+document.querySelectorAll('#fruttamax-campaign-wrapper .reveal').forEach(el => obs.observe(el));
+
+/* ── File upload ── */
+const dzEl   = document.getElementById('dz');
+const fileIn = document.getElementById('file-in');
+const pw     = document.getElementById('prev-wrap');
+const pi     = document.getElementById('prev-img');
+const pn     = document.getElementById('prev-name');
+const ps     = document.getElementById('prev-size');
+const rm     = document.getElementById('rm-btn');
+
+/* Locale flag injected from Liquid so JS toast messages match the page language */
+const isHu = {{ is_hu | json }};
+
+dzEl.addEventListener('dragover',  e => { e.preventDefault(); dzEl.classList.add('over'); });
+dzEl.addEventListener('dragleave', () => dzEl.classList.remove('over'));
+dzEl.addEventListener('drop', e => {
+  e.preventDefault(); dzEl.classList.remove('over');
+  if (e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0]);
+});
+fileIn.addEventListener('change', () => { if (fileIn.files[0]) handleFile(fileIn.files[0]); });
+
+function handleFile(f) {
+  const isImageMime = f.type.startsWith('image/');
+  const isHeicExt = f.name.toLowerCase().endsWith('.heic') || f.name.toLowerCase().endsWith('.heif');
+
+  if (!isImageMime && !isHeicExt) {
+    toast(isHu ? '⚠️ Válassz egy képet.' : '⚠️ Selectează o imagine.');
+    return;
+  }
+  if (f.size > 5 * 1024 * 1024) {
+    toast(isHu ? '⚠️ A kép mérete meghaladja az 5MB-ot.' : '⚠️ Imaginea depășește 5MB.');
+    return;
+  }
+
+  const r = new FileReader();
+  r.onload = ev => {
+    if (isHeicExt) {
+      pi.style.display = 'none';
+    } else {
+      pi.style.display = 'block';
+      pi.src = ev.target.result;
+    }
+    pn.textContent = f.name;
+    ps.textContent = (f.size / 1024 / 1024).toFixed(2) + ' MB';
+    pw.style.display = 'flex';
+    dzEl.style.display = 'none';
+  };
+  r.readAsDataURL(f);
+}
+
+rm.addEventListener('click', () => {
+  fileIn.value = '';
+  pw.style.display = 'none';
+  dzEl.style.display = 'block';
+  pi.src = '';
+  pi.style.display = 'block';
+});
+
+/* ── Form submit ── */
+document.getElementById('main-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const nume       = this.querySelector('[name="nume"]').value.trim();
+  const email      = this.querySelector('[name="email"]').value.trim();
+  const tel        = this.querySelector('[name="tel"]').value.trim();
+  const newsletter = document.getElementById('newsletter').checked;
+
+  if (!nume) {
+    toast(isHu ? '⚠️ Add meg a nevedet.' : '⚠️ Introdu numele tău.');
+    return;
+  }
+  if (!email || !email.includes('@')) {
+    toast(isHu ? '⚠️ Adj meg egy érvényes e-mail címet.' : '⚠️ Introdu un email valid.');
+    return;
+  }
+  if (!fileIn.files.length) {
+    toast(isHu ? '⚠️ Csatold a fotódat.' : '⚠️ Atașează fotografia ta.');
+    return;
+  }
+  if (fileIn.files[0].size > 15 * 1024 * 1024) {
+    toast(isHu ? '⚠️ A fotó túl nagy. Maximum 15MB.' : '⚠️ Fotografia este prea mare. Maximum 15MB.');
+    return;
+  }
+
+  const f = fileIn.files[0];
+  const isImageMimeSubmit = f.type.startsWith('image/');
+  const isHeicExtSubmit = f.name.toLowerCase().endsWith('.heic') || f.name.toLowerCase().endsWith('.heif');
+
+  if (!isImageMimeSubmit && !isHeicExtSubmit) {
+    toast(isHu ? '⚠️ A fájlnak képnek kell lennie.' : '⚠️ Fișierul trebuie să fie o imagine.');
+    return;
+  }
+  if (!document.getElementById('agree').checked) {
+    toast(isHu ? '⚠️ Fogadd el a kampányszabályzatot.' : '⚠️ Acceptă regulamentul campaniei.');
+    return;
+  }
+
+  const btn = this.querySelector('.submit-btn');
+  btn.disabled = true;
+  btn.textContent = isHu ? '⏳ Küldés...' : '⏳ Se trimite...';
+  toast(isHu ? '⏳ A fotó feltöltése folyamatban...' : '⏳ Se încarcă fotografia...');
+
+  try {
+    const formData = new FormData();
+    let uploadFile = fileIn.files[0];
+
+    const isHeicExt = uploadFile.name.toLowerCase().endsWith('.heic') || uploadFile.name.toLowerCase().endsWith('.heif');
+    if (isHeicExt && !uploadFile.type) {
+      uploadFile = new File([uploadFile], uploadFile.name, { type: 'image/heic' });
+    }
+
+    formData.append('photo',      uploadFile);
+    formData.append('email',      email);
+    formData.append('nume',       nume);
+    formData.append('tel',        tel);
+    formData.append('newsletter', newsletter ? 'true' : 'false');
+
+    const data = await new Promise((resolve, reject) => {
+      const xhr = new XMLHttpRequest();
+      xhr.open('POST', 'https://shopify-campaign-app.vercel.app/api/submit');
+      xhr.setRequestHeader('x-submit-token', '{{ settings.submit_secret }}');
+
+      xhr.onload = () => {
+        try {
+          resolve(JSON.parse(xhr.responseText));
+        } catch (e) {
+          reject(new Error(isHu ? 'Hiba a szerver válaszának olvasásakor.' : 'Eroare la citirea răspunsului de la server.'));
+        }
+      };
+      xhr.onerror = () => {
+        reject(new Error(isHu ? 'Hálózati hiba. Kérés blokkolva.' : 'Eroare de rețea. Request blocat.'));
+      };
+
+      xhr.send(formData);
+    });
+
+    if (!data.success) throw new Error(data.error || (isHu ? 'Ismeretlen hiba.' : 'Eroare necunoscută'));
+
+    document.getElementById('form-wrap').style.display = 'none';
+    document.getElementById('success-msg').style.display = 'block';
+    document.getElementById('incarca').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+  } catch(err) {
+    console.error(err);
+    toast(isHu ? '❌ Hiba a küldés során. Próbáld újra.' : '❌ Eroare la trimitere. Încearcă din nou.');
+    btn.disabled = false;
+    btn.textContent = isHu ? '🚀 Elküldöm a fotómat' : '🚀 Trimit fotografia mea';
+  }
+});
+
+/* ── Toast ── */
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3200);
+}
+
+/* ── Feed carousel ── */
+(function() {
+  const track   = document.getElementById('feedTrack');
+  if (!track) return;
+  const cards   = Array.from(track.querySelectorAll('.fc'));
+  const prevBtn = document.getElementById('feedPrev');
+  const nextBtn = document.getElementById('feedNext');
+
+  function getCardWidth() {
+    const gap = parseInt(getComputedStyle(track).gap) || 12;
+    return cards[0].offsetWidth + gap;
+  }
+  function getActive() {
+    return Math.round(track.scrollLeft / getCardWidth());
+  }
+  function scrollTo(idx) {
+    idx = Math.max(0, Math.min(cards.length - 1, idx));
+    track.scrollTo({ left: idx * getCardWidth(), behavior: 'smooth' });
+  }
+
+  if (prevBtn) prevBtn.addEventListener('click', () => scrollTo(getActive() - 1));
+  if (nextBtn) nextBtn.addEventListener('click', () => scrollTo(getActive() + 1));
+
+  let autoTimer = setInterval(() => scrollTo((getActive() + 1) % cards.length), 3500);
+  track.addEventListener('pointerdown', () => { clearInterval(autoTimer); autoTimer = null; });
+
+  let isDown = false, startX, startScroll;
+  track.addEventListener('mousedown', e => {
+    isDown = true; startX = e.pageX; startScroll = track.scrollLeft;
+    track.style.scrollSnapType = 'none';
+    if (autoTimer) { clearInterval(autoTimer); autoTimer = null; }
+  });
+  document.addEventListener('mouseup', () => {
+    if (!isDown) return; isDown = false;
+    track.style.scrollSnapType = 'x mandatory';
+    scrollTo(getActive());
+  });
+  document.addEventListener('mousemove', e => {
+    if (!isDown) return; e.preventDefault();
+    track.scrollLeft = startScroll - (e.pageX - startX);
+  });
+
+  /* ── Random timestamps ── */
+  function randMinute() {
+    const weights = [10,9,8,7,6,5,4,4,3,3,2,2,2,1,1,1,1,1,1,1];
+    const total = weights.reduce((a,b) => a+b, 0);
+    let r = Math.random() * total, cum = 0;
+    for (let i = 0; i < weights.length; i++) {
+      cum += weights[i];
+      if (r <= cum) return i * 3 + Math.floor(Math.random() * 3) + 1;
+    }
+    return Math.floor(Math.random() * 55) + 2;
+  }
+
+  const timeEls = track.querySelectorAll('.fc-time');
+  const baseMinutes = Array.from({length: 7}, () => randMinute()).sort((a, b) => a - b);
+
+  function fmtTime(m) {
+    if (isHu) {
+      if (m === 1) return '1 perce';
+      if (m < 60)  return m + ' perce';
+      const h = Math.floor(m / 60);
+      return h + (h === 1 ? ' órája' : ' órája');
+    } else {
+      if (m === 1) return 'acum 1 minut';
+      if (m < 60)  return 'acum ' + m + ' minute';
+      const h = Math.floor(m / 60);
+      return 'acum ' + h + (h === 1 ? ' oră' : ' ore');
+    }
+  }
+
+  timeEls.forEach((el, i) => { el.textContent = fmtTime(baseMinutes[i]); });
+
+  setInterval(() => {
+    timeEls.forEach((el, i) => {
+      baseMinutes[i]++;
+      el.textContent = fmtTime(baseMinutes[i]);
+    });
+  }, 60000);
+})();
+</script>
+</div>
+
+{% schema %}
+{
+  "name": "Fruttamax Campaign",
+  "presets": [
+    {
+      "name": "Fruttamax Campaign"
+    }
+  ]
+}
+{% endschema %}

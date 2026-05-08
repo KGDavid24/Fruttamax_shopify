@@ -1,0 +1,431 @@
+{%- style -%}
+  /* KÜLSŐ WRAPPER */
+  .section-outer-wrapper-{{ section.id }} {
+    position: relative; /* Fontos a rétegrendhez */
+    z-index: 0; /* Ez biztosítja, hogy a Header ALATT maradjon, ne menjen rá */
+    
+    padding: 40px 20px;
+    
+    /* Külső margók a pozicionáláshoz (hogy ne lógjon a header alá) */
+    margin-top: {{ section.settings.margin_top }}px;
+    margin-bottom: {{ section.settings.margin_bottom }}px;
+
+    background-color: {{ section.settings.outer_bg_color }};
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  /* A FŐ KONTÉNER (1200px) */
+  .section-{{ section.id }}-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    /* A belső elemek z-indexe csak ezen belül érvényes, nem zavarja a headert */
+    z-index: 1; 
+    
+    background-color: {{ section.settings.bg_color }};
+    overflow: hidden;
+    border-radius: 16px;
+    
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-left: {{ section.settings.padding_side }}px;
+    padding-right: {{ section.settings.padding_side }}px;
+    padding-bottom: 0; 
+    
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 40px;
+    min-height: 400px;
+  }
+
+  /* BAL OLDALI KÉP KONTÉNER */
+  .feature-image-col {
+    flex: 1;
+    position: relative;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; 
+  }
+
+  .feature-image-col img {
+    width: 100%;
+    max-width: {{ section.settings.image_width }}px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    line-height: 0;
+    transform-origin: bottom center;
+  }
+
+  /* JOBB OLDALI SZÖVEG KONTÉNER */
+  .feature-text-col {
+    flex: 1;
+    position: relative;
+    z-index: 10;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    align-items: center; 
+    
+    padding-bottom: {{ section.settings.padding_top }}px; 
+    color: {{ section.settings.text_color }};
+    text-align: center;
+    padding-right: 20px;
+    font-family: inherit; 
+  }
+
+  /* Dinamikus igazítás */
+  .feature-text-col.text-center { align-items: center; text-align: center; }
+  .feature-text-col.text-right { align-items: flex-end; text-align: right; }
+  .feature-text-col.text-left { align-items: flex-start; text-align: left; }
+
+  /* BLOKKOK STÍLUSA */
+  .feature-block-item {
+    width: 100%;
+    max-width: 500px; 
+  }
+
+  /* Ikon wrapper */
+  .feature-block-icon-wrapper {
+    display: block;
+    margin-bottom: 20px;
+    line-height: 0;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+  
+  .feature-block-icon-wrapper img, 
+  .feature-block-icon-wrapper svg { 
+    width: 100% !important; 
+    height: auto !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    display: block;
+  }
+
+  .feature-block-heading {
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    color: inherit;
+    font-family: inherit;
+  }
+
+  .feature-block-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    font-weight: 500;
+    opacity: 0.9;
+    margin-bottom: 20px;
+    font-family: inherit;
+  }
+
+  /* OVERLAY EFFEKTEK */
+  .overlay-side-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: {{ section.settings.overlay_width }}%;
+    height: 100%;
+    background: linear-gradient(90deg, {{ section.settings.overlay_color }} 0%, rgba(0,0,0,0) 100%);
+    opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .overlay-side-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: {{ section.settings.overlay_width }}%;
+    height: 100%;
+    background: linear-gradient(-90deg, {{ section.settings.overlay_color }} 0%, rgba(0,0,0,0) 100%);
+    opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  /* MOBIL NÉZET */
+  @media screen and (max-width: 900px) {
+    .section-{{ section.id }}-container {
+      flex-direction: column;
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-bottom: 0;
+      gap: 30px;
+      height: auto;
+    }
+
+    .feature-text-col {
+      order: 1; 
+      align-items: center !important;
+      text-align: center !important;
+      padding-right: 0;
+      padding-bottom: 20px;
+    }
+    
+    .feature-image-col {
+      order: 2;
+      width: 100%;
+      align-items: flex-end;
+    }
+
+    .feature-image-col img {
+      max-width: 280px; 
+    }
+    
+    .overlay-side-left, .overlay-side-right {
+       display: none; 
+    }
+  }
+{%- endstyle -%}
+
+<div class="section-outer-wrapper-{{ section.id }}">
+  <div class="section-{{ section.id }}-container">
+    
+    <div class="overlay-side-left"></div>
+    <div class="overlay-side-right"></div>
+
+    <div class="feature-image-col">
+      {%- if section.settings.image != blank -%}
+        {{ section.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', alt: section.settings.heading }}
+      {%- else -%}
+        {{ 'product-1' | placeholder_svg_tag }}
+      {%- endif -%}
+    </div>
+
+    <div class="feature-text-col text-{{ section.settings.text_align }}">
+      
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          
+          {%- when 'icon' -%}
+            <div class="feature-block-icon-wrapper" style="width: {{ block.settings.icon_width }}px;" {{ block.shopify_attributes }}>
+              {%- if block.settings.custom_icon != blank -%}
+                <img src="{{ block.settings.custom_icon | image_url: width: 200 }}" alt="Icon" loading="lazy">
+              {%- else -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="22" y1="12" x2="18" y2="12"></line><line x1="6" y1="12" x2="2" y2="12"></line><line x1="12" y1="6" x2="12" y2="2"></line><line x1="12" y1="22" x2="12" y2="18"></line></svg>
+              {%- endif -%}
+            </div>
+
+          {%- when 'heading' -%}
+            <h2 class="feature-block-item feature-block-heading" {{ block.shopify_attributes }}>
+              {{ block.settings.heading }}
+            </h2>
+
+          {%- when 'text' -%}
+            <div class="feature-block-item feature-block-text" {{ block.shopify_attributes }}>
+              {{ block.settings.text }}
+            </div>
+
+        {%- endcase -%}
+      {%- endfor -%}
+
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Produs + Text (1200px)",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Imagine Stânga"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Încarcă Imagine (ex. Mână cu sticlă)"
+    },
+    {
+      "type": "range",
+      "id": "image_width",
+      "min": 200,
+      "max": 700,
+      "step": 10,
+      "unit": "px",
+      "label": "Lățime Imagine",
+      "default": 400
+    },
+    {
+      "type": "header",
+      "content": "Design & Culori"
+    },
+    {
+      "type": "color",
+      "id": "outer_bg_color",
+      "label": "Culoare Fundal Secțiune (Exterior)",
+      "default": "transparent"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Culoare Fundal Casetă (Interior)",
+      "default": "#990000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Culoare Text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Aliniere Text",
+      "options": [
+        { "value": "left", "label": "Stânga" },
+        { "value": "center", "label": "Centru" },
+        { "value": "right", "label": "Dreapta" }
+      ],
+      "default": "center",
+      "info": "Alege 'Centru' pentru a arăta ca în poza de referință."
+    },
+    {
+      "type": "header",
+      "content": "Külső Margó (Helyigazítás)"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "label": "Margó Felül (Told lejjebb)",
+      "default": 0,
+      "info": "Ha a szekció rácsúszik a headerre, növeld ezt az értéket!"
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "label": "Margó Alul",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Overlay Lateral (Umbrire)"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Culoare Overlay",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Opacitate Overlay",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "overlay_width",
+      "min": 10,
+      "max": 50,
+      "step": 5,
+      "unit": "%",
+      "label": "Lățime Overlay (%)",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "Spațiere (Padding)"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding Sus",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_side",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding Lateral",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "icon",
+      "name": "Icon",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "custom_icon",
+          "label": "Icon Personalizat (PNG)"
+        },
+        {
+          "type": "range",
+          "id": "icon_width",
+          "min": 20,
+          "max": 150,
+          "step": 5,
+          "unit": "px",
+          "label": "Mărime Icon",
+          "default": 50
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "name": "Titlu",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Text Titlu",
+          "default": "Scopul nostru"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Paragraf",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "La FruttaMax lucrăm pentru ca siropurile de fructe premium din Ungaria să fie disponibile în fiecare regiune și țară, menținând în același timp cele mai înalte standarde de calitate. Suntem atenți la nevoile clienților noștri pentru a dezvolta produse inovatoare și bogate în arome, și ne reducem continuu amprenta ecologică prin soluții sustenabile și dezvoltări tehnologice."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Produs + Text (1200px)",
+      "blocks": [
+        { "type": "icon" },
+        { "type": "heading" },
+        { "type": "text" }
+      ]
+    }
+  ]
+}
+{% endschema %}

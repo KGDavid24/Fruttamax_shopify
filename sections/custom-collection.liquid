@@ -1,0 +1,355 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    background-color: {{ section.settings.bg_color }};
+    /* System Font használata */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+    color: {{ section.settings.text_color }};
+  }
+
+  /* KONTÉNER - FIX 1200PX */
+  .custom-products__wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px; /* Hogy mobilon ne érjen a széléhez */
+  }
+
+  /* CÍMSOR (HEADING) */
+  .custom-products__heading {
+    text-align: center;
+    font-family: inherit;
+    font-weight: {{ section.settings.heading_weight }}; 
+    font-size: 2.5rem;
+    color: {{ section.settings.brand_color }};
+    margin-bottom: 15px;
+    line-height: 1.2;
+  }
+
+  /* ALCÍM (SUBHEADING) */
+  .custom-products__subheading {
+    text-align: center;
+    font-family: inherit;
+    font-size: 1.2rem;
+    color: {{ section.settings.text_color }};
+    margin-bottom: 50px;
+    opacity: 0.8;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.5;
+  }
+
+  /* GRID ELRENDEZÉS */
+  .custom-product-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  @media screen and (max-width: 480px) {
+    .custom-product-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media screen and (min-width: 750px) {
+    .custom-product-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+  }
+
+  @media screen and (min-width: 1100px) {
+    .custom-product-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  /* KÁRTYA */
+  .custom-product-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+    border: 1px solid #f0f0f0;
+  }
+
+  .custom-product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  }
+
+  /* KÉP */
+  .custom-product-card__image-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 100%;
+    overflow: hidden;
+    background-color: #f9f9f9;
+  }
+
+  .custom-product-card__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 10px;
+    transition: scale 0.3s ease;
+  }
+
+  .custom-product-card:hover .custom-product-card__image {
+    scale: 1.05;
+  }
+
+  /* TARTALOM */
+  .custom-product-card__content {
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+  }
+
+  .custom-product-card__title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: inherit;
+    margin: 0 0 10px;
+    text-decoration: none;
+    line-height: 1.4;
+  }
+  
+  .custom-product-card__title:hover {
+    color: {{ section.settings.brand_color }};
+  }
+
+  .custom-product-card__price {
+    font-size: 1.2rem;
+    color: {{ section.settings.brand_color }};
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  .custom-product-card__compare-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 0.9rem;
+    margin-right: 8px;
+    font-weight: 400;
+  }
+
+  /* GOMB */
+  .custom-product-btn {
+    width: 100%;
+    background-color: {{ section.settings.brand_color }};
+    color: #ffffff;
+    border: 2px solid {{ section.settings.brand_color }};
+    padding: 12px;
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    font-family: inherit;
+  }
+
+  .custom-product-btn:hover {
+    background-color: transparent;
+    color: {{ section.settings.brand_color }};
+  }
+
+  .custom-product-btn:disabled {
+    background-color: #ccc;
+    border-color: #ccc;
+    cursor: not-allowed;
+    color: #666;
+  }
+
+{%- endstyle -%}
+
+<div class="section-{{ section.id }}-padding">
+  <div class="custom-products__wrapper">
+    
+    {%- if section.settings.heading != blank -%}
+      <h2 class="custom-products__heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    {%- if section.settings.subheading != blank -%}
+      <div class="custom-products__subheading">{{ section.settings.subheading }}</div>
+    {%- endif -%}
+
+    <div class="custom-product-grid">
+      {%- for product in section.settings.product_list -%}
+        <div class="custom-product-card">
+          
+          <a href="{{ product.url }}" class="custom-product-card__image-wrapper">
+            {%- if product.featured_image != blank -%}
+              <img src="{{ product.featured_image | image_url: width: 600 }}" 
+                   alt="{{ product.title | escape }}" 
+                   class="custom-product-card__image"
+                   loading="lazy">
+            {%- else -%}
+              {{ 'product-1' | placeholder_svg_tag: 'custom-product-card__image' }}
+            {%- endif -%}
+          </a>
+
+          <div class="custom-product-card__content">
+            <a href="{{ product.url }}" class="custom-product-card__title">
+              {{ product.title }}
+            </a>
+
+            <div class="custom-product-card__price">
+              {%- if product.compare_at_price > product.price -%}
+                <span class="custom-product-card__compare-price">{{ product.compare_at_price | money }}</span>
+              {%- endif -%}
+              {{ product.price | money }}
+            </div>
+
+            <form method="post" action="/cart/add" accept-charset="UTF-8" class="shopify-product-form" enctype="multipart/form-data">
+              <input type="hidden" name="form_type" value="product">
+              <input type="hidden" name="utf8" value="✓">
+              <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+              
+              <button type="submit" name="add" class="custom-product-btn" {% unless product.available %}disabled{% endunless %}>
+  {%- if product.available -%}
+    {%- if request.locale.iso_code == 'hu' -%}
+      Kosárba
+    {%- else -%}
+      Adaugă în coș
+    {%- endif -%}
+  {%- else -%}
+    {%- if request.locale.iso_code == 'hu' -%}
+      Elfogyott
+    {%- else -%}
+      Stoc epuizat
+    {%- endif -%}
+  {%- endif -%}
+</button>
+            </form>
+          </div>
+
+        </div>
+      {%- else -%}
+        {%- for i in (1..4) -%}
+           <div class="custom-product-card">
+              <div class="custom-product-card__image-wrapper">
+                {{ 'product-' | append: i | placeholder_svg_tag: 'custom-product-card__image' }}
+              </div>
+              <div class="custom-product-card__content">
+                <div class="custom-product-card__title">Produs FruttaMax {{ i }}</div>
+                <div class="custom-product-card__price">35.00 lei</div>
+                <button class="custom-product-btn">Adaugă în coș</button>
+              </div>
+           </div>
+        {%- endfor -%}
+      {%- endfor -%}
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Produse (System Font)",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Conținut"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titlu Secțiune",
+      "default": "Aromele Tale Preferate"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subtitlu Secțiune (ÚJ)",
+      "default": "Descoperă selecția noastră de siropuri premium"
+    },
+    {
+      "type": "select",
+      "id": "heading_weight",
+      "label": "Greutate Font Titlu",
+      "options": [
+        { "value": "400", "label": "Normal" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi-Bold" },
+        { "value": "700", "label": "Bold" },
+        { "value": "900", "label": "Extra Bold" }
+      ],
+      "default": "700"
+    },
+    {
+      "type": "product_list",
+      "id": "product_list",
+      "label": "Selectează Produsele"
+    },
+    {
+      "type": "header",
+      "content": "Culori"
+    },
+    {
+      "type": "color",
+      "id": "brand_color",
+      "label": "Culoare Brand",
+      "default": "#E80404"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Culoare Text",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Culoare Fundal",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Spațiere"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Sus",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Jos",
+      "default": 60
+    }
+  ],
+  "presets": [
+    {
+      "name": "Produse (System Font)"
+    }
+  ]
+}
+{% endschema %}

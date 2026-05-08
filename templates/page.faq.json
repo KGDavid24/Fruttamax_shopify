@@ -1,0 +1,176 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "blocks": {
+        "heading": {
+          "type": "text",
+          "name": "Title",
+          "settings": {
+            "text": "<h1>{{ closest.page.title }}</h1>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h2",
+            "font": "var(--font-primary--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "page-content": {
+          "type": "page-content",
+          "settings": {},
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading",
+        "page-content"
+      ],
+      "disabled": true,
+      "settings": {
+        "content_direction": "column",
+        "gap": 32,
+        "color_scheme": "",
+        "padding-block-start": 40,
+        "padding-block-end": 80
+      }
+    },
+    "custom_faq_HHdf7B": {
+      "type": "custom-faq",
+      "blocks": {
+        "faq_item_DYc37x": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Ce este siropul FruttaMax?",
+            "answer": "<p>FruttaMax este un sirop de fructe foarte concentrat, destinat preparării băuturilor răcoritoare prin diluare cu apă. Dintr-o singură sticlă se pot prepara mai mulți litri de băutură, fiind astfel o alternativă economică la băuturile răcoritoare gata preparate.</p>"
+          }
+        },
+        "faq_item_bGMcin": {
+          "type": "faq_item",
+          "settings": {
+            "question": "În ce proporție trebuie diluat?",
+            "answer": "<p>Diluția recomandată este de obicei 1:23, dar poate fi modificată după gust.</p>"
+          }
+        },
+        "faq_item_pQeXp8": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Se poate consuma atât rece, cât și cald?",
+            "answer": "<p>Da. Siropul FruttaMax nu este doar o băutură răcoritoare rece, ci poate fi amestecat și cu apă caldă, de exemplu pentru băuturi de iarnă sau pentru aromatizarea ceaiurilor de fructe.</p>"
+          }
+        },
+        "faq_item_jTVbiV": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Se poate folosi cu apă gazoasă?",
+            "answer": "<p>Da, se poate prepara o băutură deosebit de răcoritoare folosind un aparat de sifon sau apă minerală carbogazoasă.</p>"
+          }
+        },
+        "faq_item_XVcw9F": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Câtă băutură se poate prepara dintr-o sticlă?",
+            "answer": "<p>Respectând diluția recomandată, se pot obține aproximativ 12 litri de băutură.</p>"
+          }
+        },
+        "faq_item_GXVGVB": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Conține fructe naturale?",
+            "answer": "<p>Da, produsele sunt fabricate cu un conținut ridicat de fructe (50-60%). Compoziția exactă poate varia în funcție de aromă.</p>"
+          }
+        },
+        "faq_item_mQcxWz": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Există și variante fără zahăr?",
+            "answer": "<p>Da, anumite arome sunt disponibile și în varianta fără zahăr (light).</p>"
+          }
+        },
+        "faq_item_66iEXi": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Poate fi folosit la gătit sau deserturi?",
+            "answer": "<p>Da. Siropul FruttaMax este o alegere excelentă ca bază pentru limonadă și cocktailuri, dar poate fi folosit cu succes și la prăjituri — de exemplu pentru jeleuri de fructe, aromatizarea cremelor pentru torturi sau ca ingredient pentru alte deserturi.</p>"
+          }
+        },
+        "faq_item_FDiNfg": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Copiii îl pot consuma?",
+            "answer": "<p>Da, siropurile FruttaMax pot fi consumate și de copii, dacă sunt diluate corespunzător. Se recomandă întotdeauna respectarea proporției de diluare sugerate și verificarea ingredientelor și valorilor nutriționale de pe eticheta produsului, în special în cazul dietelor speciale sau sensibilităților.</p>"
+          }
+        },
+        "faq_item_GWNKbn": {
+          "type": "faq_item",
+          "settings": {
+            "question": "De ce este mai economic decât băuturile gata preparate?",
+            "answer": "<p>Datorită concentrației ridicate, dintr-o singură sticlă se pot prepara până la 12 litri de băutură, ceea ce înseamnă mai puține ambalaje și un cost mai mic pe litru.</p>"
+          }
+        },
+        "faq_item_prxwTE": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Cum trebuie depozitat?",
+            "answer": "<p>Înainte de deschidere, se păstrează într-un loc răcoros și uscat. După deschidere, se recomandă păstrarea la frigider.</p>"
+          }
+        },
+        "faq_item_3TJpX9": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Informații despre Livrare (Țări, Timp, Cost)",
+            "answer": "<p><strong>În ce țări livrați?</strong><br> Livrăm momentan în România. [Te rog completează]</p><p><strong>Care este timpul de livrare?</strong><br> Timpul estimat de livrare este de X-Y zile lucrătoare.</p><p><strong>Care este costul livrării?</strong><br> Costul livrării este de X RON, sau gratuit peste suma de Y RON.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_DYc37x",
+        "faq_item_bGMcin",
+        "faq_item_pQeXp8",
+        "faq_item_jTVbiV",
+        "faq_item_XVcw9F",
+        "faq_item_GXVGVB",
+        "faq_item_mQcxWz",
+        "faq_item_66iEXi",
+        "faq_item_FDiNfg",
+        "faq_item_GWNKbn",
+        "faq_item_prxwTE",
+        "faq_item_3TJpX9"
+      ],
+      "name": "FruttaMax FAQ",
+      "settings": {
+        "heading": "Întrebări Frecvente",
+        "heading_size": 32,
+        "brand_color": "#E80404",
+        "text_color": "#333333",
+        "bg_color": "#FFFFFF"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "custom_faq_HHdf7B"
+  ]
+}

@@ -1,0 +1,604 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "product-information",
+      "blocks": {
+        "media-gallery": {
+          "type": "_product-media-gallery",
+          "static": true,
+          "settings": {
+            "media_presentation": "grid",
+            "media_columns": "two",
+            "image_gap": 18,
+            "large_first_image": false,
+            "icons_style": "none",
+            "slideshow_controls_style": "counter",
+            "slideshow_mobile_controls_style": "dots",
+            "thumbnail_position": "right",
+            "thumbnail_width": 44,
+            "thumbnail_radius": 0,
+            "aspect_ratio": "adapt",
+            "constrain_to_viewport": true,
+            "media_fit": "contain",
+            "media_radius": 13,
+            "extend_media": false,
+            "zoom": true,
+            "video_loop": false,
+            "hide_variants": true,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 20,
+            "padding-inline-end": 20
+          },
+          "blocks": {}
+        },
+        "product-details": {
+          "type": "_product-details",
+          "static": true,
+          "settings": {
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fill",
+            "details_position": "flex-start",
+            "gap": 13,
+            "sticky_details_desktop": true,
+            "inherit_color_scheme": false,
+            "color_scheme": "scheme-283c728c-21d6-44ac-8cfa-5d68626ecbfe",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 10,
+            "border_radius": 30,
+            "padding-block-start": 24,
+            "padding-block-end": 24,
+            "padding-inline-start": 50,
+            "padding-inline-end": 100
+          },
+          "blocks": {
+            "group_icgrde": {
+              "type": "group",
+              "name": "Header",
+              "settings": {
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 12,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "background_media": "none",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "text_xrnftG": {
+                  "type": "text",
+                  "name": "Product title",
+                  "settings": {
+                    "text": "<h1>{{ closest.product.title }}</h1>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "custom",
+                    "font": "var(--font-primary--family)",
+                    "font_size": "1.5rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 63,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "price_tVjtKg": {
+                  "type": "price",
+                  "settings": {
+                    "show_sale_price_first": true,
+                    "show_installments": false,
+                    "show_tax_info": false,
+                    "type_preset": "paragraph",
+                    "width": "100%",
+                    "alignment": "left",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "color": "var(--color-foreground)",
+                    "padding-block-start": 4,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "text_Y8dnXP": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "{{ closest.product.description }}",
+                    "width": "fit-content",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": true,
+                    "background_color": "#ffffff",
+                    "corner_radius": 24,
+                    "padding-block-start": 16,
+                    "padding-block-end": 16,
+                    "padding-inline-start": 16,
+                    "padding-inline-end": 16
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_xrnftG",
+                "price_tVjtKg",
+                "text_Y8dnXP"
+              ]
+            },
+            "divider_VJhene": {
+              "type": "_divider",
+              "name": "t:names.divider",
+              "settings": {
+                "thickness": 1,
+                "corner_radius": "square",
+                "width_percent": 100,
+                "padding-block-start": 0,
+                "padding-block-end": 0
+              },
+              "blocks": {}
+            },
+            "product_inventory_AfGbap": {
+              "type": "product-inventory",
+              "name": "t:names.product_inventory",
+              "settings": {
+                "inventory_threshold": 10,
+                "show_inventory_quantity": false,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "custom_liquid_yWhL77": {
+              "type": "custom-liquid",
+              "name": "t:names.custom_liquid",
+              "settings": {
+                "custom_liquid": "<style>\n  .hasonlo-termekek-wrapper {\n    display: flex;\n    flex-wrap: wrap;\n    gap: 10px;\n    align-items: center;\n    margin: 10px 0;\n  } \n\n  .hasonlo-termek {\n    text-decoration: none;\n    display: inline-block;\n  }\n\n  /* Alap Pill stílus */\n  .termek-varians-pill {\n    display: inline-block;\n    padding: 8px 18px;\n    background-color: #ffffff;\n    border: 1px solid #000000;\n    border-radius: 50px;\n    font-size: 14px;\n    font-weight: 500;\n    color: #000000;\n    transition: all 0.2s ease;\n    cursor: pointer;\n    text-align: center;\n    min-width: 85px;\n    line-height: 1.2;\n  }\n\n  /* Aktív állapot - Amikor ezen a termékoldalon vagyunk */\n  .termek-varians-pill.active-selection {\n    background-color: #000000; /* Fekete háttér */\n    color: #ffffff;            /* Fehér szöveg */\n    cursor: default;           /* Ne mutasson kattintható kurzort, mert már itt vagyunk */\n    pointer-events: none;      /* Ne lehessen újra rákattintani */\n  }\n\n  /* Hover effekt csak a nem aktív gombokra */\n  .hasonlo-termek:not(.is-active):hover .termek-varians-pill {\n    background-color: #f0f0f0;\n    transform: translateY(-1px);\n  }\n\n  .hasonlo-toggle-card {\n    display: inline-block;\n    padding: 8px 18px;\n    background-color: #eeeeee;\n    border-radius: 50px;\n    font-size: 14px;\n    cursor: pointer;\n    color: #555555;\n    border: 1px solid transparent;\n  }\n\n  .hasonlo-szin-kijelzo {\n    margin-top: 8px;\n    font-size: 13px;\n    font-weight: 600;\n    color: #333333;\n    min-height: 1.4em;\n  }\n\n  @media (max-width: 600px) {\n    .termek-varians-pill {\n      padding: 6px 14px;\n      font-size: 13px;\n      min-width: 75px;\n    }\n  }\n</style>\n\n{% assign current_product_handle = product.handle %}\n{% assign raw_handles = product.metafields.custom.hasonlo_termekek_handle \n  | remove: '[' | remove: ']' | remove: '\"' | split: ',' %}\n{% assign hasonlo_count = raw_handles.size %}\n\n{% if hasonlo_count > 0 %}\n  <div class=\"hasonlo-termekek-wrapper\" id=\"hasonlo-termekek\">\n    {% assign index_counter = 0 %}\n    {% for handle in raw_handles %}\n      {% assign trimmed_handle = handle | strip %}\n      {% assign termek = all_products[trimmed_handle] %}\n      \n      {% if termek and termek.url %}\n        {% assign has_available_variant = false %}\n        {% for variant in termek.variants %}\n          {% if variant.available %}\n            {% assign has_available_variant = true %}\n            {% break %}\n          {% endif %}\n        {% endfor %}\n\n        {% if has_available_variant %}\n          {% assign index_counter = index_counter | plus: 1 %}\n\n          {% comment %} Név meghatározása és formázása {% endcomment %}\n          {% if trimmed_handle contains 'light' %}\n            {% assign display_name = 'Light' %}\n          {% else %}\n            {% assign display_name = 'Normal' %}\n          {% endif %}\n\n          {% comment %} Aktív állapot vizsgálata {% endcomment %}\n          {% assign is_active = false %}\n          {% if current_product_handle == trimmed_handle %}\n            {% assign is_active = true %}\n          {% endif %}\n\n          {% if index_counter == 10 and hasonlo_count > 10 %}\n            <div class=\"hasonlo-termek\">\n              <div id=\"toggle-hasonlo\" class=\"hasonlo-toggle-card\" data-expanded=\"false\">\n                + Több\n              </div>\n            </div>\n            \n            <a href=\"{{ termek.url }}\" \n               class=\"hasonlo-termek {% if is_active %}is-active{% endif %}\" \n               data-szin=\"{{ termek.metafields.custom.szin }}\" \n               style=\"display:none;\">\n              <span class=\"termek-varians-pill {% if is_active %}active-selection{% endif %}\">\n                {{ display_name }}\n              </span>\n            </a>\n          {% else %}\n            <a href=\"{{ termek.url }}\" \n               class=\"hasonlo-termek {% if is_active %}is-active{% endif %}\" \n               data-szin=\"{{ termek.metafields.custom.szin }}\"\n               {% if index_counter > 10 %}style=\"display:none;\"{% endif %}>\n              <span class=\"termek-varians-pill {% if is_active %}active-selection{% endif %}\">\n                {{ display_name }}\n              </span>\n            </a>\n          {% endif %}\n        {% endif %}\n      {% endif %}\n    {% endfor %}\n  </div>\n\n  <div class=\"hasonlo-szin-kijelzo\" id=\"hasonlo-szin-kijelzo\"></div>\n\n  <script>\n    document.addEventListener('DOMContentLoaded', function() {\n      const wrapper = document.getElementById('hasonlo-termekek');\n      if (!wrapper) return;\n\n      const items = wrapper.querySelectorAll('.hasonlo-termek');\n      const szinKijelzo = document.getElementById('hasonlo-szin-kijelzo');\n      const toggle = document.getElementById('toggle-hasonlo');\n      \n      items.forEach(item => {\n        if (!item.contains(toggle)) {\n          item.addEventListener('mouseenter', () => {\n            const szin = item.getAttribute('data-szin');\n            if(szin) szinKijelzo.textContent = 'Szín: ' + szin;\n          });\n          item.addEventListener('mouseleave', () => {\n            szinKijelzo.textContent = '';\n          });\n        }\n      });\n\n      if (toggle) {\n        toggle.addEventListener('click', function() {\n          const isExpanded = this.getAttribute('data-expanded') === 'true';\n          const hiddenPills = wrapper.querySelectorAll('.hasonlo-termek[style*=\"display:none\"]');\n          const allPills = Array.from(items).filter(i => !i.contains(toggle));\n\n          if (isExpanded) {\n            allPills.forEach((pill, index) => {\n              if(index >= 9) pill.style.display = 'none';\n            });\n            this.textContent = '+ Több';\n            this.setAttribute('data-expanded', 'false');\n          } else {\n            allPills.forEach(pill => pill.style.display = 'inline-block');\n            this.textContent = '- Kevesebb';\n            this.setAttribute('data-expanded', 'true');\n          }\n        });\n      }\n    });\n  </script>\n{% endif %}"
+              },
+              "blocks": {}
+            },
+            "divider_E9LwgK": {
+              "type": "_divider",
+              "name": "t:names.divider",
+              "settings": {
+                "thickness": 1,
+                "corner_radius": "square",
+                "width_percent": 100,
+                "padding-block-start": 0,
+                "padding-block-end": 0
+              },
+              "blocks": {}
+            },
+            "custom_liquid_WK87XR": {
+              "type": "custom-liquid",
+              "name": "t:names.custom_liquid",
+              "settings": {
+                "custom_liquid": "{%- comment -%}\n  ENERGIAITAL FIGYELMEZTETÉS ÉS JOGI SZÖVEG (Kompakt verzió)\n{%- endcomment -%}\n<style>\n  .energy-warning-compact {\n    background-color: #fff3cd;\n    border: 1px solid #ffe69c;\n    border-left: 4px solid #ffc107;\n    padding: 10px 12px;\n    margin-bottom: 15px;\n    border-radius: 4px;\n    font-size: 13px;\n    line-height: 1.4;\n    color: #664d03;\n    width: 100%;\n  }\n  .energy-warning-compact p {\n    margin: 0 0 4px 0;\n  }\n  .energy-warning-compact p:last-child {\n    margin-bottom: 0;\n  }\n  .energy-warning-compact strong {\n    color: #000;\n  }\n</style>\n\n<div class=\"energy-warning-compact\">\n  {% if request.locale.iso_code == 'ro' %}\n    <p><strong>Conținut ridicat de cofeină.</strong> Nu este recomandat copiilor, femeilor însărcinate sau care alăptează. Achiziție permisă doar peste 18 ani.</p>\n   \n  {% else %}\n    <p><strong>Magas koffeintartalom.</strong> Gyermekeknek, várandós vagy szoptató nőknek nem ajánlott. Kizárólag 18 éven felülieknek értékesíthető.</p>\n   \n  {% endif %}\n</div>"
+              },
+              "blocks": {}
+            },
+            "custom_liquid_WUGEic": {
+              "type": "custom-liquid",
+              "name": "t:names.custom_liquid",
+              "disabled": true,
+              "settings": {
+                "custom_liquid": "{%- comment -%}\n  ENERGIAITAL FIGYELMEZTETÉS ÉS JOGI SZÖVEG (Kompakt verzió)\n{%- endcomment -%}\n<style>\n  .energy-warning-compact {\n    background-color: #fff3cd;\n    border: 1px solid #ffe69c;\n    border-left: 4px solid #ffc107;\n    padding: 10px 12px;\n    margin-bottom: 15px;\n    border-radius: 4px;\n    font-size: 13px;\n    line-height: 1.4;\n    color: #664d03;\n    width: 100%;\n  }\n  .energy-warning-compact p {\n    margin: 0 0 4px 0;\n  }\n  .energy-warning-compact p:last-child {\n    margin-bottom: 0;\n  }\n  .energy-warning-compact strong {\n    color: #000;\n  }\n</style>\n\n<div class=\"energy-warning-compact\">\n  {% if request.locale.iso_code == 'ro' %}\n    <p><strong>Conținut ridicat de cofeină.</strong> Nu este recomandat copiilor, femeilor însărcinate sau care alăptează. Achiziție permisă doar peste 18 ani.</p>\n    <p><strong>Cofeină:</strong> XX mg/100 ml (în băutura preparată la diluția recomandată de 1:23).</p>\n  {% else %}\n    <p><strong>Magas koffeintartalom.</strong> Gyermekeknek, várandós vagy szoptató nőknek nem ajánlott. Kizárólag 18 éven felülieknek értékesíthető.</p>\n    <p><strong>Koffeintartalom:</strong> XX mg/100 ml (az 1:23 arányban ajánlottan elkészített italban).</p>\n  {% endif %}\n</div>"
+              },
+              "blocks": {}
+            },
+            "custom_liquid_mUPPwj": {
+              "type": "custom-liquid",
+              "name": "t:names.custom_liquid",
+              "disabled": true,
+              "settings": {
+                "custom_liquid": "<style>\n  .custom-accordion {\n    border-top: 1px solid #e5e5e5;\n    border-bottom: 1px solid #e5e5e5;\n    margin: 10px 0;\n    width: 100%;\n  }\n  .accordion-header {\n    padding: 15px 0;\n    cursor: pointer;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    font-weight: 600;\n    font-size: 14px;\n    color: #000;\n  }\n  .accordion-header::after {\n    content: '+';\n    font-size: 18px;\n  }\n  .custom-accordion[open] .accordion-header::after {\n    content: '-';\n  }\n  .accordion-content {\n    padding: 0 0 15px 0;\n    font-size: 13px;\n    line-height: 1.6;\n    color: #333;\n  }\n  .nutri-table {\n    width: 100%;\n    border-collapse: collapse;\n    margin-top: 10px;\n  }\n  .nutri-table tr { border-bottom: 1px solid #f1f1f1; }\n  .nutri-table td { padding: 8px 0; }\n  .text-right { text-align: right; }\n  .warn-red { color: #d9534f; font-weight: bold; }\n</style>\n\n<details class=\"custom-accordion\">\n  <summary class=\"accordion-header\">\n    {% if request.locale.iso_code == 'ro' %}\n      Informații nutriționale și Ingrediente\n    {% else %}\n      Tápérték és Összetevők\n    {% endif %}\n  </summary>\n  <div class=\"accordion-content\">\n    \n    {% if request.locale.iso_code == 'ro' %}\n      {% comment %} ROMÁN TARTALOM {% endcomment %}\n      <p><strong>Ingrediente:</strong> Aici introduceți lista ingredientelor în limba română de pe etichetă...</p>\n      <table class=\"nutri-table\">\n        <thead><tr style=\"font-weight: bold;\"><td>100ml</td><td class=\"text-right\">Valoare</td></tr></thead>\n        <tbody>\n          <tr><td>Valoare energetică</td><td class=\"text-right\">XX kJ / XX kcal</td></tr>\n          <tr><td>Grăsimi</td><td class=\"text-right\">0 g</td></tr>\n          <tr><td>Glucide</td><td class=\"text-right\">XX g</td></tr>\n          <tr><td>din care zaharuri</td><td class=\"text-right\">XX g</td></tr>\n          <tr><td>Proteine</td><td class=\"text-right\">0 g</td></tr>\n          <tr class=\"warn-red\"><td>Cofeină</td><td class=\"text-right\">XX mg</td></tr>\n        </tbody>\n      </table>\n      <p style=\"margin-top:10px; font-size: 11px; color: #666;\">Raport diluție recomandat: 1:23.</p>\n\n    {% else %}\n      {% comment %} MAGYAR TARTALOM {% endcomment %}\n      <p><strong>Összetevők:</strong> Ide írd be a magyar nyelvű összetevők listáját a címkéről...</p>\n      <table class=\"nutri-table\">\n        <thead><tr style=\"font-weight: bold;\"><td>100ml</td><td class=\"text-right\">Érték</td></tr></thead>\n        <tbody>\n          <tr><td>Energia</td><td class=\"text-right\">XX kJ / XX kcal</td></tr>\n          <tr><td>Zsír</td><td class=\"text-right\">0 g</td></tr>\n          <tr><td>Szénhidrát</td><td class=\"text-right\">XX g</td></tr>\n          <tr><td>amelyből cukrok</td><td class=\"text-right\">XX g</td></tr>\n          <tr><td>Fehérje</td><td class=\"text-right\">0 g</td></tr>\n          <tr class=\"warn-red\"><td>Koffein</td><td class=\"text-right\">XX mg</td></tr>\n        </tbody>\n      </table>\n      <p style=\"margin-top:10px; font-size: 11px; color: #666;\">Ajánlott hígítási arány: 1:23.</p>\n    {% endif %}\n\n  </div>\n</details>"
+              },
+              "blocks": {}
+            },
+            "buy_buttons_eYQEYi": {
+              "type": "buy-buttons",
+              "settings": {
+                "stacking": true,
+                "show_pickup_availability": false,
+                "gift_card_form": true,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "quantity": {
+                  "type": "quantity",
+                  "static": true,
+                  "settings": {},
+                  "blocks": {}
+                },
+                "add-to-cart": {
+                  "type": "add-to-cart",
+                  "static": true,
+                  "settings": {
+                    "style_class": "button"
+                  },
+                  "blocks": {}
+                },
+                "accelerated-checkout": {
+                  "type": "accelerated-checkout",
+                  "disabled": true,
+                  "static": true,
+                  "settings": {},
+                  "blocks": {}
+                }
+              },
+              "block_order": []
+            },
+            "custom_liquid_HL7FHB": {
+              "type": "custom-liquid",
+              "name": "t:names.custom_liquid",
+              "settings": {
+                "custom_liquid": "{% liquid\n  assign seconds_in_two_days = 2 | times: 24 | times: 60 | times: 60\n  assign delivery_timestamp = 'now' | date: \"%s\" | plus: seconds_in_two_days\n  assign delivery_date = delivery_timestamp | date: \"%d.%m.%Y\"\n%}\n\n<div class=\"modern-dynamic-delivery-card\">\n  <div class=\"card-content-wrapper\">\n    <div class=\"delivery-icon-static\">\n      <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#d92121\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n        <rect x=\"1\" y=\"3\" width=\"15\" height=\"13\"></rect>\n        <polygon points=\"16 8 20 8 23 11 23 16 16 16 16 8\"></polygon>\n        <circle cx=\"5.5\" cy=\"18.5\" r=\"2.5\"></circle>\n        <circle cx=\"18.5\" cy=\"18.5\" r=\"2.5\"></circle>\n      </svg>\n    </div>\n    <div class=\"delivery-text-info\">\n      <div class=\"main-delivery-line\">\n        <span class=\"label-text\">\n          {% if request.locale.iso_code == 'hu' %}\n            Várható szállítás:\n          {% else %}\n            Livrare estimată:\n          {% endif %}\n        </span>\n        <strong class=\"date-text\">{{ delivery_date }}</strong>\n      </div>\n      <div class=\"sub-delivery-line\">\n        <span class=\"status-indicator\"></span>\n        <span>\n          {% if request.locale.iso_code == 'hu' %}\n            Átlagos szállítási idő: 2 munkanap\n          {% else %}\n            Timp mediu de tranzit: 2 zile lucrătoare\n          {% endif %}\n        </span>\n      </div>\n    </div>\n  </div>\n  \n  <div class=\"dynamic-progress-container\">\n    <div class=\"dynamic-progress-bar\"></div>\n  </div>\n</div>\n\n<style>\n  .modern-dynamic-delivery-card {\n    position: relative;\n    display: flex;\n    flex-direction: column;\n    gap: 16px;\n    padding: 18px 20px;\n    background-color: #ffffff; \n    border-radius: 12px;\n    border: 1px solid rgba(0,0,0,0.06);\n    box-shadow: 0 4px 15px rgba(0,0,0,0.03);\n    margin-bottom: 20px;\n    overflow: hidden; \n    transition: transform 0.3s ease, box-shadow 0.3s ease;\n  }\n\n  .modern-dynamic-delivery-card:hover {\n    transform: translateY(-2px);\n    box-shadow: 0 6px 20px rgba(0,0,0,0.05);\n  }\n\n  .card-content-wrapper {\n    display: flex;\n    align-items: center;\n    gap: 16px;\n  }\n\n  .delivery-icon-static {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    width: 44px;\n    height: 44px;\n    background-color: rgba(217, 33, 33, 0.06); \n    border-radius: 50%;\n    flex-shrink: 0;\n  }\n\n  .delivery-text-info {\n    display: flex;\n    flex-direction: column;\n    gap: 4px;\n  }\n\n  .main-delivery-line {\n    display: flex;\n    align-items: baseline;\n    gap: 6px;\n    flex-wrap: wrap;\n  }\n\n  /* Finomabb vastagság, fekete/sötétszürke szín */\n  .label-text {\n    font-size: 0.85rem;\n    font-weight: 500;\n    color: #333333; \n  }\n\n  /* Visszavettük a vastagságot (800-ról 600-ra) */\n  .date-text {\n    font-size: 1rem;\n    font-weight: 600;\n    color: #111111; \n  }\n\n  /* Fekete/sötétszürke alsó szöveg, normál (400) vastagsággal */\n  .sub-delivery-line {\n    display: flex;\n    align-items: center;\n    gap: 6px;\n    font-size: 0.85rem;\n    color: #444444; \n    font-weight: 400;\n  }\n\n  .status-indicator {\n    display: inline-block;\n    width: 6px;\n    height: 6px;\n    background-color: #108043; \n    border-radius: 50%;\n  }\n\n  .dynamic-progress-container {\n    position: absolute;\n    bottom: 0;\n    left: 0;\n    width: 100%;\n    height: 4px; \n    background-color: rgba(217, 33, 33, 0.08); \n  }\n\n  .dynamic-progress-bar {\n    height: 100%;\n    width: 25%; \n    background: linear-gradient(90deg, #ff4d4d 0%, #d92121 100%); \n    border-radius: 0 4px 4px 0;\n    animation: slide-progress-clean 2.8s ease-in-out infinite alternate;\n  }\n\n  @keyframes slide-progress-clean {\n    0% { transform: translateX(0); width: 15%; }\n    100% { transform: translateX(566%); width: 15%; } \n  }\n</style>"
+              },
+              "blocks": {}
+            },
+            "custom_liquid_nkH7Qd": {
+              "type": "custom-liquid",
+              "name": "t:names.custom_liquid",
+              "disabled": true,
+              "settings": {
+                "custom_liquid": "{% if product.metafields.custom.short_description != blank %}\n  <div class=\"custom-short-description\" style=\"font-weight: 400;\">\n    {{ product.metafields.custom.short_description }}\n  </div>\n{% endif %}"
+              },
+              "blocks": {}
+            },
+            "custom_liquid_qpMzCT": {
+              "type": "custom-liquid",
+              "name": "t:names.custom_liquid",
+              "settings": {
+                "custom_liquid": "{% assign current_lang = localization.language.iso_code | downcase %}\n\n{% if product.metafields.custom.fisa_produsului != blank %}\n  <a href=\"{{ product.metafields.custom.fisa_produsului.value.url }}\"\n     target=\"_blank\"\n     class=\"modern-pdf-button\">\n    <span>\n      {% case current_lang %}\n        {% when 'hu' %}\n          Termékadatlap\n        {% when 'ro' %}\n          Fișa produsului\n        {% else %}\n          Product sheet\n      {% endcase %}\n    </span>\n\n    <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"pdf-icon\">\n      <path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"></path>\n      <polyline points=\"14 2 14 8 20 8\"></polyline>\n      <line x1=\"12\" y1=\"18\" x2=\"12\" y2=\"12\"></line>\n      <polyline points=\"9 15 12 18 15 15\"></polyline>\n    </svg>\n  </a>\n\n  <style>\n    .modern-pdf-button {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 8px;\n      background: linear-gradient(135deg, #E80404 0%, #c40303 100%);\n      color: #ffffff !important;\n      padding: 8px 16px;\n      text-decoration: none;\n      border-radius: 8px;\n      font-weight: 600;\n      font-size: 0.85rem;\n      letter-spacing: 0.3px;\n      text-transform: uppercase;\n      margin: 8px 0;\n      border: 1px solid #b30000;\n      cursor: pointer;\n      box-shadow: 0 3px 8px rgba(232, 4, 4, 0.2);\n      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);\n    }\n\n    .modern-pdf-button:hover {\n      transform: translateY(-2px);\n      box-shadow: 0 5px 15px rgba(232, 4, 4, 0.3);\n      background: linear-gradient(135deg, #f20f0f 0%, #d10404 100%);\n    }\n\n    .modern-pdf-button .pdf-icon {\n      flex-shrink: 0;\n      transition: transform 0.3s ease;\n    }\n\n    .modern-pdf-button:hover .pdf-icon {\n      transform: translateY(2px);\n    }\n  </style>\n{% endif %}"
+              },
+              "blocks": {}
+            },
+            "custom_liquid_YpAcTQ": {
+              "type": "custom-liquid",
+              "name": "t:names.custom_liquid",
+              "disabled": true,
+              "settings": {
+                "custom_liquid": "{% assign mf = product.metafields.custom %}\n{% if mf.bucati_carton != blank or mf.ambalaj != blank or mf.ean_produs != blank or mf.data_expirarii_luna != blank %}\n\n  <div style=\"\n    margin: 0; \n    padding: 14px 18px; \n    background-color: rgba(232, 4, 4, 0.06); \n    border-radius: 8px; \n    display: flex; \n    flex-direction: column; \n    gap: 10px; /* Picit megnövelt sorköz, hogy az ikonok jól mutassanak */\n    font-family: inherit;\n  \">\n    \n    <h3 style=\"\n      color: #E80404; \n      font-weight: 900; \n      font-size: 1.1rem; \n      margin: 0 0 6px 0; \n      letter-spacing: 0.02em;\n    \">\n      Specificații Produs\n    </h3>\n    \n    {% if mf.bucati_carton != blank %}\n      <div style=\"display: flex; gap: 8px; align-items: center;\">\n        <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#E80404\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" style=\"flex-shrink: 0;\">\n          <path d=\"M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z\"></path>\n          <polyline points=\"3.27 6.96 12 12.01 20.73 6.96\"></polyline>\n          <line x1=\"12\" y1=\"22.08\" x2=\"12\" y2=\"12\"></line>\n        </svg>\n        <span style=\"color: #E80404; font-weight: 600; font-size: 0.95rem;\">Bucăți / Carton:</span>\n        <span style=\"font-weight: 700; font-size: 0.95rem; color: inherit;\">{{ mf.bucati_carton }}</span>\n      </div>\n    {% endif %}\n    \n    {% if mf.ambalaj != blank %}\n      <div style=\"display: flex; gap: 8px; align-items: center;\">\n        <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#E80404\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" style=\"flex-shrink: 0;\">\n          <path d=\"M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z\"></path>\n          <line x1=\"7\" y1=\"7\" x2=\"7.01\" y2=\"7\"></line>\n        </svg>\n        <span style=\"color: #E80404; font-weight: 600; font-size: 0.95rem;\">Ambalaj:</span>\n        <span style=\"font-weight: 700; font-size: 0.95rem; color: inherit;\">{{ mf.ambalaj }}</span>\n      </div>\n    {% endif %}\n    \n    {% if mf.ean_produs != blank %}\n      <div style=\"display: flex; gap: 8px; align-items: center;\">\n        <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#E80404\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" style=\"flex-shrink: 0;\">\n          <line x1=\"3\" y1=\"5\" x2=\"3\" y2=\"19\"></line>\n          <line x1=\"8\" y1=\"5\" x2=\"8\" y2=\"19\"></line>\n          <line x1=\"12\" y1=\"5\" x2=\"12\" y2=\"19\"></line>\n          <line x1=\"16\" y1=\"5\" x2=\"16\" y2=\"19\"></line>\n          <line x1=\"21\" y1=\"5\" x2=\"21\" y2=\"19\"></line>\n        </svg>\n        <span style=\"color: #E80404; font-weight: 600; font-size: 0.95rem;\">EAN Produs:</span>\n        <span style=\"font-weight: 700; font-size: 0.95rem; color: inherit;\">{{ mf.ean_produs }}</span>\n      </div>\n    {% endif %}\n    \n    {% if mf.data_expirarii_luna != blank %}\n      <div style=\"display: flex; gap: 8px; align-items: center;\">\n        <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#E80404\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" style=\"flex-shrink: 0;\">\n          <rect x=\"3\" y=\"4\" width=\"18\" height=\"18\" rx=\"2\" ry=\"2\"></rect>\n          <line x1=\"16\" y1=\"2\" x2=\"16\" y2=\"6\"></line>\n          <line x1=\"8\" y1=\"2\" x2=\"8\" y2=\"6\"></line>\n          <line x1=\"3\" y1=\"10\" x2=\"21\" y2=\"10\"></line>\n        </svg>\n        <span style=\"color: #E80404; font-weight: 600; font-size: 0.95rem;\">Dată Expirare (Luni):</span>\n        <span style=\"font-weight: 700; font-size: 0.95rem; color: inherit;\">{{ mf.data_expirarii_luna }}</span>\n      </div>\n    {% endif %}\n    \n  </div>\n\n{% endif %}"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "group_icgrde",
+            "divider_VJhene",
+            "product_inventory_AfGbap",
+            "custom_liquid_yWhL77",
+            "divider_E9LwgK",
+            "custom_liquid_WK87XR",
+            "custom_liquid_WUGEic",
+            "custom_liquid_mUPPwj",
+            "buy_buttons_eYQEYi",
+            "custom_liquid_HL7FHB",
+            "custom_liquid_nkH7Qd",
+            "custom_liquid_qpMzCT",
+            "custom_liquid_YpAcTQ"
+          ]
+        }
+      },
+      "custom_css": [
+        ".price,.compare-at-price,.unit-price {color: #bf0000; font-weight: 800; font-size: 20px;}",
+        "h1 {font-weight: 700;}",
+        "button.shopify-payment-button__button--unbranded,.add-to-cart-text,span {font-weight: 600; text-transform: var(--button-text-case-primary);}",
+        ".accordion .details__header {font-weight: 700;}"
+      ],
+      "settings": {
+        "content_width": "content-center-aligned",
+        "desktop_media_position": "left",
+        "equal_columns": true,
+        "limit_details_width": false,
+        "gap": 20,
+        "enable_sticky_add_to_cart": true,
+        "color_scheme": "scheme-283c728c-21d6-44ac-8cfa-5d68626ecbfe",
+        "padding-block-start": 31,
+        "padding-block-end": 50
+      }
+    },
+    "custom_liquid_CDcKGR": {
+      "type": "custom-liquid",
+      "name": "t:names.custom_liquid",
+      "settings": {
+        "custom_liquid": "<div class=\"custom-tabs-wrapper\">\n  \n  <div class=\"tabs-header\">\n    <button class=\"tab-button active\" data-tab=\"tab-descriere\">\n      {% if request.locale.iso_code == 'hu' %}\n        Termékleírás\n      {% else %}\n        Descrierea produsului\n      {% endif %}\n    </button>\n    <button class=\"tab-button\" data-tab=\"tab-livrare\">\n      {% if request.locale.iso_code == 'hu' %}\n        Szállítás és Visszaküldés\n      {% else %}\n        Livrare și Retur\n      {% endif %}\n    </button>\n    <button class=\"tab-button\" data-tab=\"tab-garantie\">\n      {% if request.locale.iso_code == 'hu' %}\n        Garancia és Minőség\n      {% else %}\n        Garanție și Calitate\n      {% endif %}\n    </button>\n  </div>\n\n  <div class=\"tabs-content\">\n    \n    <div class=\"tab-pane active\" id=\"tab-descriere\">\n      <img src=\"https://cdn.shopify.com/s/files/1/0995/3683/0793/files/fm-banner-26-asztali.jpg?v=1773756975\" \n           alt=\"Banner Produs\" \n           class=\"tab-banner-image\">\n      \n      <div class=\"tab-text\">\n        {% if product.metafields.custom.long_description != blank %}\n          {{ product.metafields.custom.long_description | metafield_tag }}\n        {% else %}\n          <p>\n            {% if request.locale.iso_code == 'hu' %}\n             \n            {% else %}\n              \n            {% endif %}\n          </p>\n        {% endif %}\n      </div>\n    </div>\n\n    <div class=\"tab-pane\" id=\"tab-livrare\">\n      <div class=\"tab-text\">\n        {% if request.locale.iso_code == 'hu' %}\n          <p>Gyorsan szállítunk bárhová Romániában. Az átlagos szállítási idő a rendelés visszaigazolásától számított <strong>1-2 munkanap</strong>.</p>\n          <p>Ha meggondolod magad, semmi gond! <strong>14 naptári nap</strong> áll rendelkezésedre, hogy eredeti állapotában visszaküldd a terméket. A pénzt gyorsan visszautaljuk a számládra.</p>\n        {% else %}\n          <p>Livrăm rapid oriunde în România. Timpul mediu de tranzit este de <strong>1-2 zile lucrătoare</strong> de la confirmarea comenzii.</p>\n          <p>Dacă te răzgândești, nu este nicio problemă! Ai la dispoziție <strong>14 zile calendaristice</strong> pentru a returna produsul în starea sa inițială. Banii vor fi rambursați rapid în contul tău.</p>\n        {% endif %}\n      </div>\n    </div>\n\n    <div class=\"tab-pane\" id=\"tab-garantie\">\n      <div class=\"tab-text\">\n        {% if request.locale.iso_code == 'hu' %}\n          <p>Büszkék vagyunk termékeink minőségére. Az élelmiszer jellegű termékek minőségüket a csomagoláson feltüntetett időpontig őrzik meg. A nem élelmiszer jellegű kiegészítőkre a vonatkozó garanciális feltételek érvényesek.</p>\n          <p>Bármilyen probléma esetén ügyfélszolgálati csapatunk készséggel és gyorsan segít. A Te elégedettséged a mi prioritásunk.</p>\n        {% else %}\n          <p>Suntem mândri de calitatea produselor noastre. Siropurile și sosurile își păstrează calitatea până la data indicată pe ambalaj. Pentru pompe și alte accesorii se aplică condițiile de garanție corespunzătoare.</p>\n          <p>Pentru orice problemă, echipa noastră de suport este gata să te ajute rapid și eficient. Satisfacția ta este prioritatea noastră.</p>\n        {% endif %}\n      </div>\n    </div>\n\n  </div>\n</div>\n\n<style>\n  /* Fő tartály: Visszakapta az egységes 30px paddingot */\n  .custom-tabs-wrapper {\n    background-color: white; /* Finom krém/bézs háttér a kép alapján */\n  /* Halvány szürke border */\n    border-radius: 16px; /* Lekerekített szélek */\n    margin: 40px 0;\n    padding: 30px; /* Egységes belső távolság minden elemnek */\n    font-family: var(--font-body-family), sans-serif;\n  }\n\n  /* Fülek sora */\n  .tabs-header {\n    display: flex;\n    flex-wrap: wrap;\n    gap: 24px;\n    margin-bottom: 24px; /* Távolság a gombok és a tartalom (kép) között */\n  }\n\n  /* Inaktív fülek */\n  .tab-button {\n    background: transparent;\n    border: none;\n    font-family: inherit;\n    font-size: 1.1rem;\n    font-weight: 700;\n    color: #222222;\n    cursor: pointer;\n    padding: 8px 16px;\n    transition: all 0.3s ease;\n  }\n\n  /* Aktív fül: Piros háttér, lekerekítés, fehér aláhúzás */\n  .tab-button.active {\n    background-color: #be0b0b; /* A képen látható elegáns piros */\n    color: #ffffff;\n    border-radius: 8px;\n    text-decoration-thickness: 2px;\n  }\n\n  /* Tartalmi részek */\n  .tab-pane {\n    display: none; \n    animation: fadeInTab 0.4s ease;\n  }\n\n  .tab-pane.active {\n    display: block; \n  }\n\n  @keyframes fadeInTab {\n    from { opacity: 0; transform: translateY(5px); }\n    to { opacity: 1; transform: translateY(0); }\n  }\n\n  /* Kép: Most már a paddingon belül van, 100% széles a belső helyhez képest */\n  .tab-banner-image {\n    width: 100%;\n    height: auto;\n    display: block;\n    margin-bottom: 25px;\n    border-radius: 12px; /* Finom lekerekítés, hogy passzoljon a fő dobozhoz */\n  }\n\n  /* Szöveges tartalom */\n  .tab-text {\n    line-height: 1.7;\n    color: #333333;\n    font-size: 0.95rem;\n  }\n  \n  .tab-text p {\n    margin-top: 0;\n    margin-bottom: 15px;\n  }\n\n  /* Mobil optimalizálás */\n  @media screen and (max-width: 768px) {\n    .custom-tabs-wrapper {\n      padding: 20px; /* Mobilon kisebb a külső doboz belső margója */\n    }\n    .tabs-header {\n      gap: 12px;\n    }\n    .tab-button {\n      font-size: 0.95rem;\n      padding: 6px 12px;\n    }\n  }\n</style>\n\n<script>\n  document.addEventListener('DOMContentLoaded', function() {\n    const tabButtons = document.querySelectorAll('.tab-button');\n    const tabPanes = document.querySelectorAll('.tab-pane');\n\n    tabButtons.forEach(button => {\n      button.addEventListener('click', () => {\n        tabButtons.forEach(btn => btn.classList.remove('active'));\n        tabPanes.forEach(pane => pane.classList.remove('active'));\n\n        button.classList.add('active');\n        const targetId = button.getAttribute('data-tab');\n        document.getElementById(targetId).classList.add('active');\n      });\n    });\n  });\n</script>",
+        "color_scheme": "scheme-283c728c-21d6-44ac-8cfa-5d68626ecbfe",
+        "section_width": "page-width",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "custom_features_overlay_bW3cKY": {
+      "type": "custom-features-overlay",
+      "blocks": {
+        "feature_PgJ37V": {
+          "type": "feature",
+          "settings": {
+            "icon": "star",
+            "heading": "Calitate",
+            "text": "<p>Fabrica noastră de producție de ultimă generație funcționează conform standardelor stricte ale Uniunii Europene și respectă standardul HACCP, asigurându-ne că fiecare sticlă îndeplinește cele mai înalte cerințe de calitate și siguranță. Din 2005, ne-am extins continuu prezența pe piață prin inovație tehnologică și dezvoltare de produse.<br/><br/></p>"
+          }
+        },
+        "feature_WPcAYR": {
+          "type": "feature",
+          "settings": {
+            "icon": "check",
+            "heading": "Diferența",
+            "text": "<p>FruttaMax a revoluționat industria siropurilor cu abordarea noastră unică a băuturilor din fructe, oferind un conținut excepțional de fructe de 50-60% fructe reale în fiecare sticlă. Propunerea noastră superioară de valoare include un raport de diluție de 1:23 care creează 12 litri din fiecare sticlă de 500 ml, în timp ce leadershipul nostru în materie de mediu strălucește prin ambalaje sustenabile și metode de producție ecologice.<br/><br/></p>"
+          }
+        }
+      },
+      "block_order": [
+        "feature_PgJ37V",
+        "feature_WPcAYR"
+      ],
+      "name": "Features (Overlay)",
+      "settings": {
+        "bg_image": "shopify://shop_images/f3c513_fd396e1d23f04b349d9ba12cc7bb1807_mv2.avif",
+        "overlay_color": "#e80404",
+        "overlay_opacity": 50,
+        "text_color": "#ffffff",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "product_recommendations_qggXJq": {
+      "type": "product-recommendations",
+      "blocks": {
+        "text_cbcgyb": {
+          "type": "text",
+          "name": "t:names.header",
+          "settings": {
+            "text": "<p><strong>S-ar putea să îți placă și</strong></p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h4",
+            "font": "var(--font-primary--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "static-product-card": {
+          "type": "_product-card",
+          "name": "t:names.product_card",
+          "static": true,
+          "settings": {
+            "product_card_gap": 8,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 8,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product_card_gallery_DNizbJ": {
+              "type": "_product-card-gallery",
+              "name": "t:names.product_card_media",
+              "settings": {
+                "image_ratio": "portrait",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "product_title_M7MJkb": {
+              "type": "product-title",
+              "name": "t:names.product_title",
+              "settings": {
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 4,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "price_gLWgA6": {
+              "type": "price",
+              "settings": {
+                "show_sale_price_first": true,
+                "show_installments": false,
+                "show_tax_info": false,
+                "type_preset": "h6",
+                "width": "100%",
+                "alignment": "center",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "color": "var(--color-foreground)",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "buy_buttons_3tHyMn": {
+              "type": "buy-buttons",
+              "name": "t:names.product_buy_buttons",
+              "settings": {
+                "stacking": false,
+                "show_pickup_availability": true,
+                "gift_card_form": true,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "quantity": {
+                  "type": "quantity",
+                  "disabled": true,
+                  "static": true,
+                  "settings": {},
+                  "blocks": {}
+                },
+                "add-to-cart": {
+                  "type": "add-to-cart",
+                  "static": true,
+                  "settings": {
+                    "style_class": "button-secondary"
+                  },
+                  "blocks": {}
+                },
+                "accelerated-checkout": {
+                  "type": "accelerated-checkout",
+                  "disabled": true,
+                  "static": true,
+                  "settings": {},
+                  "blocks": {}
+                }
+              },
+              "block_order": []
+            }
+          },
+          "block_order": [
+            "product_card_gallery_DNizbJ",
+            "product_title_M7MJkb",
+            "price_gLWgA6",
+            "buy_buttons_3tHyMn"
+          ]
+        }
+      },
+      "block_order": [
+        "text_cbcgyb"
+      ],
+      "custom_css": [
+        ".price,.compare-at-price,.unit-price {color: #e80404; font-weight: 800; font-size: 18px;}"
+      ],
+      "name": "t:names.product_recommendations",
+      "settings": {
+        "product": "{{ closest.product }}",
+        "recommendation_type": "related",
+        "layout_type": "grid",
+        "carousel_on_mobile": false,
+        "max_products": 10,
+        "columns": 5,
+        "mobile_columns": "2",
+        "columns_gap": 12,
+        "rows_gap": 24,
+        "icons_style": "arrow",
+        "icons_shape": "none",
+        "section_width": "page-width",
+        "gap": 28,
+        "color_scheme": "scheme-283c728c-21d6-44ac-8cfa-5d68626ecbfe",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      }
+    }
+  },
+  "order": [
+    "main",
+    "custom_liquid_CDcKGR",
+    "custom_features_overlay_bW3cKY",
+    "product_recommendations_qggXJq"
+  ]
+}

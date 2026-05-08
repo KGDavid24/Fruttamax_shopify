@@ -1,0 +1,291 @@
+{% comment %}
+  FruttaMax FAQ Section - Updated Design
+{% endcomment %}
+
+<style>
+  #shopify-section-{{ section.id }} .fruttamax-faq-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  /* --- CÍM FORMÁZÁSA (Piros és Nagybetűs) --- */
+  #shopify-section-{{ section.id }} .fruttamax-faq-header {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #E80404; /* Fix piros szín */
+    text-transform: uppercase; /* Csupa nagybetű */
+    font-weight: 700;
+    font-size: {{ section.settings.heading_size }}px;
+  }
+
+  /* Accordion elemek */
+  #shopify-section-{{ section.id }} .faq-item {
+    margin-bottom: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: {{ section.settings.bg_color }};
+  }
+
+  #shopify-section-{{ section.id }} .faq-question {
+    background-color: #fff;
+    color: {{ section.settings.text_color }};
+    padding: 15px 20px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+  }
+
+  #shopify-section-{{ section.id }} .faq-question:hover {
+    background-color: #f9f9f9;
+  }
+
+  /* Aktív állapot */
+  #shopify-section-{{ section.id }} .faq-question.active {
+    color: {{ section.settings.brand_color }};
+    border-left: 5px solid {{ section.settings.brand_color }};
+  }
+
+  #shopify-section-{{ section.id }} .faq-icon {
+    font-size: 20px;
+    transition: transform 0.3s ease;
+  }
+
+  #shopify-section-{{ section.id }} .faq-question.active .faq-icon {
+    transform: rotate(45deg);
+  }
+
+  /* --- VÁLASZ DOBOZ FORMÁZÁSA (Középre igazítás és méret) --- */
+  #shopify-section-{{ section.id }} .faq-answer {
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    background-color: #fafafa;
+    transition: max-height 0.3s ease-out, padding 0.3s ease;
+    color: {{ section.settings.text_color }};
+    line-height: 1.6;
+    
+    /* ÚJ: Nagyobb betűméret */
+    font-size: 18px; 
+    
+    /* ÚJ: Függőleges középre igazítás (Flexbox) */
+    display: flex;
+    align-items: center; 
+  }
+  
+  #shopify-section-{{ section.id }} .faq-answer p {
+    margin: 15px 0;
+    width: 100%; /* Biztosítja, hogy a szöveg kitöltse a dobozt */
+  }
+</style>
+
+<div class="fruttamax-faq-container">
+  {% if section.settings.heading != blank %}
+    <h2 class="fruttamax-faq-header">{{ section.settings.heading }}</h2>
+  {% endif %}
+
+  {% for block in section.blocks %}
+    <div class="faq-item" {{ block.shopify_attributes }}>
+      <button class="faq-question">
+        {{ block.settings.question }}
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <div> {{ block.settings.answer }}
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+<script>
+  document.querySelectorAll('#shopify-section-{{ section.id }} .faq-question').forEach(button => {
+    button.addEventListener('click', () => {
+      const answer = button.nextElementSibling;
+      const isActive = button.classList.contains('active');
+
+      // Bezárjuk az összes többit (opcionális, ha azt akarod, hogy egyszerre csak egy legyen nyitva)
+      document.querySelectorAll('#shopify-section-{{ section.id }} .faq-question').forEach(otherButton => {
+        if (otherButton !== button) {
+          otherButton.classList.remove('active');
+          otherButton.nextElementSibling.style.maxHeight = 0;
+          otherButton.nextElementSibling.style.padding = "0 20px";
+        }
+      });
+
+      // Toggle jelenlegi
+      button.classList.toggle('active');
+      if (!isActive) {
+        // ScrollHeight + extra padding a kényelmes megjelenésért
+        answer.style.maxHeight = (answer.scrollHeight + 40) + "px"; 
+        answer.style.padding = "20px";
+      } else {
+        answer.style.maxHeight = 0;
+        answer.style.padding = "0 20px";
+      }
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "FruttaMax FAQ",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Főcím",
+      "default": "Întrebări Frecvente"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 16,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "label": "Főcím mérete",
+      "default": 32
+    },
+    {
+      "type": "color",
+      "id": "brand_color",
+      "label": "Brand Szín (Aktív)",
+      "default": "#E80404"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Szöveg Szín",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Háttérszín",
+      "default": "#FFFFFF"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "Kérdés-Válasz",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Kérdés (Román)",
+          "default": "Kérdés helye"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Válasz (Román)",
+          "default": "<p>Válasz helye</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FruttaMax FAQ",
+      "blocks": [
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Ce este siropul FruttaMax?",
+            "answer": "<p>FruttaMax este un sirop de fructe foarte concentrat, destinat preparării băuturilor răcoritoare prin diluare cu apă. Dintr-o singură sticlă se pot prepara mai mulți litri de băutură, fiind astfel o alternativă economică la băuturile răcoritoare gata preparate.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "În ce proporție trebuie diluat?",
+            "answer": "<p>Diluția recomandată este de obicei 1:23, dar poate fi modificată după gust.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Se poate consuma atât rece, cât și cald?",
+            "answer": "<p>Da. Siropul FruttaMax nu este doar o băutură răcoritoare rece, ci poate fi amestecat și cu apă caldă, de exemplu pentru băuturi de iarnă sau pentru aromatizarea ceaiurilor de fructe.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Se poate folosi cu apă gazoasă?",
+            "answer": "<p>Da, se poate prepara o băutură deosebit de răcoritoare folosind un aparat de sifon sau apă minerală carbogazoasă.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Câtă băutură se poate prepara dintr-o sticlă?",
+            "answer": "<p>Respectând diluția recomandată, se pot obține aproximativ 12 litri de băutură.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Conține fructe naturale?",
+            "answer": "<p>Da, produsele sunt fabricate cu un conținut ridicat de fructe (50-60%). Compoziția exactă poate varia în funcție de aromă.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Există și variante fără zahăr?",
+            "answer": "<p>Da, anumite arome sunt disponibile și în varianta fără zahăr (light).</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Poate fi folosit la gătit sau deserturi?",
+            "answer": "<p>Da. Siropul FruttaMax este o alegere excelentă ca bază pentru limonadă și cocktailuri, dar poate fi folosit cu succes și la prăjituri — de exemplu pentru jeleuri de fructe, aromatizarea cremelor pentru torturi sau ca ingredient pentru alte deserturi.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Copiii îl pot consuma?",
+            "answer": "<p>Da, siropurile FruttaMax pot fi consumate și de copii, dacă sunt diluate corespunzător. Se recomandă întotdeauna respectarea proporției de diluare sugerate și verificarea ingredientelor și valorilor nutriționale de pe eticheta produsului, în special în cazul dietelor speciale sau sensibilităților.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "De ce este mai economic decât băuturile gata preparate?",
+            "answer": "<p>Datorită concentrației ridicate, dintr-o singură sticlă se pot prepara până la 12 litri de băutură, ceea ce înseamnă mai puține ambalaje și un cost mai mic pe litru.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Cum trebuie depozitat?",
+            "answer": "<p>Înainte de deschidere, se păstrează într-un loc răcoros și uscat. După deschidere, se recomandă păstrarea la frigider.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Informații despre Livrare (Țări, Timp, Cost)",
+            "answer": "<p><strong>În ce țări livrați?</strong><br> Livrăm momentan în România. [Te rog completează]</p><p><strong>Care este timpul de livrare?</strong><br> Timpul estimat de livrare este de X-Y zile lucrătoare.</p><p><strong>Care este costul livrării?</strong><br> Costul livrării este de X RON, sau gratuit peste suma de Y RON.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

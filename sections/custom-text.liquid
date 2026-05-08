@@ -1,0 +1,448 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    background-color: {{ section.settings.bg_color }};
+    /* POP: warm radial glow from the heading side */
+    background-image: radial-gradient(ellipse 70% 80% at 20% 50%, {{ section.settings.brand_color }}0D 0%, transparent 70%);
+    color: {{ section.settings.text_color }};
+    overflow: hidden;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .section-{{ section.id }}-padding .cbt-eyebrow {
+    background-color: {{ section.settings.brand_color }}1A;
+    color: {{ section.settings.brand_color }};
+  }
+
+  .section-{{ section.id }}-padding .cbt-heading {
+    color: {{ section.settings.heading_color }};
+    font-size: calc({{ section.settings.heading_size }}px * 0.85);
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding .cbt-heading {
+      font-size: {{ section.settings.heading_size }}px;
+    }
+  }
+
+  .section-{{ section.id }}-padding .cbt-accent-line {
+    /* POP: gradient accent line fading out to the right */
+    background: linear-gradient(to right, {{ section.settings.brand_color }}, {{ section.settings.brand_color }}00);
+  }
+
+  /* Mobile: shift glow to top-center behind stacked heading, symmetric accent line */
+  @media screen and (max-width: 899px) {
+    .section-{{ section.id }}-padding {
+      background-image: radial-gradient(ellipse 120% 55% at 50% 0%, {{ section.settings.brand_color }}0D 0%, transparent 70%);
+    }
+
+    .section-{{ section.id }}-padding .cbt-accent-line {
+      background: linear-gradient(to right, transparent, {{ section.settings.brand_color }} 30%, {{ section.settings.brand_color }} 70%, transparent);
+    }
+  }
+
+  .section-{{ section.id }}-padding .cbt-text {
+    color: {{ section.settings.text_color }};
+  }
+
+  .section-{{ section.id }}-padding .cbt-text strong,
+  .section-{{ section.id }}-padding .cbt-text b {
+    color: {{ section.settings.brand_color }};
+    font-weight: 700;
+  }
+
+  .section-{{ section.id }}-padding .cbt-btn--primary {
+    background-color: {{ section.settings.brand_color }};
+    border-color: {{ section.settings.brand_color }};
+    box-shadow: 0 4px 20px {{ section.settings.brand_color }}40;
+  }
+
+  .section-{{ section.id }}-padding .cbt-btn--primary:hover {
+    background-color: transparent;
+    color: {{ section.settings.brand_color }};
+    box-shadow: none;
+  }
+
+  .section-{{ section.id }}-padding .cbt-btn--secondary {
+    color: {{ section.settings.brand_color }};
+    border-color: {{ section.settings.brand_color }};
+  }
+
+  .section-{{ section.id }}-padding .cbt-btn--secondary:hover {
+    background-color: {{ section.settings.brand_color }};
+    color: #ffffff;
+    box-shadow: 0 4px 20px {{ section.settings.brand_color }}40;
+  }
+{%- endstyle -%}
+
+<div class="section-{{ section.id }}-padding">
+  <!-- POP: decorative blob -->
+  <div class="cbt-blob" aria-hidden="true"></div>
+  <div class="cbt-wrapper">
+    <div class="cbt-inner">
+
+      <div class="cbt-heading-col">
+        {%- if section.settings.eyebrow != blank -%}
+          <div class="cbt-eyebrow">{{ section.settings.eyebrow }}</div>
+        {%- endif -%}
+
+        {%- if section.settings.heading != blank -%}
+          <h2 class="cbt-heading">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+
+        <div class="cbt-accent-line"></div>
+      </div>
+
+      <div class="cbt-content-col">
+        {%- if section.settings.text != blank -%}
+          <div class="cbt-text">{{ section.settings.text }}</div>
+        {%- endif -%}
+
+        <div class="cbt-buttons">
+          {%- if section.settings.btn1_label != blank -%}
+            <a href="{{ section.settings.btn1_link }}" class="cbt-btn cbt-btn--primary">
+              {{ section.settings.btn1_label }}
+              <svg class="cbt-btn-arrow" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          {%- endif -%}
+
+          {%- if section.settings.btn2_label != blank -%}
+            <a href="{{ section.settings.btn2_link }}" class="cbt-btn cbt-btn--secondary">
+              {{ section.settings.btn2_label }}
+              <svg class="cbt-btn-arrow" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          {%- endif -%}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .cbt-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .cbt-inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+
+  @media screen and (min-width: 900px) {
+    .cbt-inner {
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+    }
+  }
+
+  .cbt-heading-col {
+    position: relative;
+  }
+
+  .cbt-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+  }
+
+  .cbt-heading {
+    font-weight: 800;
+    line-height: 1.15;
+    margin: 0;
+    letter-spacing: -0.02em;
+  }
+
+  .cbt-accent-line {
+    width: 56px;
+    height: 4px;
+    border-radius: 2px;
+    margin-top: 28px;
+  }
+
+  .cbt-content-col {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cbt-text {
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 36px;
+  }
+
+  .cbt-text p {
+    margin-bottom: 1em;
+  }
+
+  .cbt-text p:last-child {
+    margin-bottom: 0;
+  }
+
+  .cbt-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .cbt-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 16px;
+    border: 2px solid transparent;
+    transition: background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+    cursor: pointer;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  .cbt-btn--primary {
+    color: #ffffff;
+  }
+
+  .cbt-btn--secondary {
+    background-color: transparent;
+  }
+
+  .cbt-btn--secondary:hover {
+    color: #ffffff;
+  }
+
+  .cbt-btn-arrow {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+    transition: transform 0.25s ease;
+  }
+
+  /* POP: blob decoration */
+  .cbt-blob {
+    position: absolute;
+    top: 50%;
+    left: -120px;
+    transform: translateY(-50%);
+    width: 480px;
+    height: 480px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #E804040F 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cbt-btn:hover .cbt-btn-arrow {
+    transform: translateX(3px);
+  }
+
+  /* POP: button lift on hover */
+  .cbt-btn:hover {
+    transform: translateY(-2px);
+  }
+
+  /* ── Mobile ─────────────────────────────────────────── */
+  @media screen and (max-width: 899px) {
+    .cbt-wrapper {
+      padding: 0 24px;
+    }
+
+    .cbt-inner {
+      gap: 32px;
+    }
+
+    /* Center the heading column when stacked */
+    .cbt-heading-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    /* Symmetric accent line, centered */
+    .cbt-accent-line {
+      width: 80px;
+      margin-top: 20px;
+    }
+
+    /* Slightly smaller body text for comfort */
+    .cbt-text {
+      font-size: 16px;
+    }
+
+    /* Center the button row */
+    .cbt-buttons {
+      justify-content: center;
+    }
+
+    /* Blob floats up behind the heading */
+    .cbt-blob {
+      top: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 380px;
+      height: 380px;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .cbt-buttons {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .cbt-btn {
+      justify-content: center;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Brand Szöveg + Gombok",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Culori și Brand (Színek)"
+    },
+    {
+      "type": "color",
+      "id": "brand_color",
+      "label": "Culoare Brand (kiemelések és gombok)",
+      "default": "#E80404",
+      "info": "Această culoare va fi folosită pentru textul îngroșat (bold) și butoane."
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Culoare Fundal",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Culoare Text Normal",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Culoare Titlu",
+      "default": "#E80404"
+    },
+    {
+      "type": "header",
+      "content": "Conținut (Tartalom)"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow Label (felső kis szöveg)",
+      "default": "FruttaMax"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titlu Principal",
+      "default": "Te-ai săturat de băuturile gata preparate, grele și scumpe?"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 24,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "label": "Mărime Font Titlu",
+      "default": 48
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text Descriere",
+      "default": "<p>Cari acasă sticle grele, plătești prețuri premium doar pentru apă, în timp ce te lupți cu tone de deșeuri de plastic? Băuturile tradiționale sunt scumpe, incomode și împovărează inutil mediul înconjurător.</p><p><strong>Toarnă, amestecă, savurează</strong> — Siropurile FruttaMax aduc prospețime imbatabilă în ziua ta, fie că îți pregătești o băutură rapidă sau un cocktail creativ pentru prieteni. Oferă familiei tale calitate adevărată și confort ecologic în fiecare sticlă, cu mai puțini aditivi și mai multe fructe în fiecare înghițitură delicioasă.</p>",
+      "info": "Folosește stilul 'Bold' (B) pentru a colora textul în roșu automat!"
+    },
+    {
+      "type": "header",
+      "content": "Butoane (Gombok)"
+    },
+    {
+      "type": "text",
+      "id": "btn1_label",
+      "label": "Text Buton 1 (Plin)",
+      "default": "Arome"
+    },
+    {
+      "type": "url",
+      "id": "btn1_link",
+      "label": "Link Buton 1"
+    },
+    {
+      "type": "text",
+      "id": "btn2_label",
+      "label": "Text Buton 2 (Contur)",
+      "default": "Magazin Online"
+    },
+    {
+      "type": "url",
+      "id": "btn2_link",
+      "label": "Link Buton 2"
+    },
+    {
+      "type": "header",
+      "content": "Spațiere (Padding)"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Sus",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Jos",
+      "default": 60
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand Szöveg + Gombok"
+    }
+  ]
+}
+{% endschema %}

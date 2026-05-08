@@ -1,0 +1,486 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero_jVaWmY": {
+      "type": "hero",
+      "name": "t:names.hero",
+      "settings": {
+        "media_type_1": "image",
+        "image_1": "shopify://shop_images/hatter-nelkul.avif",
+        "media_type_2": "image",
+        "stack_media_on_mobile": false,
+        "custom_mobile_media": false,
+        "media_type_1_mobile": "image",
+        "media_type_2_mobile": "image",
+        "link": "",
+        "open_in_new_tab": false,
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "space-between",
+        "vertical_alignment": "flex-end",
+        "align_baseline": true,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "flex-end",
+        "gap": 24,
+        "section_width": "page-width",
+        "section_height": "auto",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-2065ed97-d757-4f78-bbfb-8372edb202ed",
+        "toggle_overlay": false,
+        "overlay_color": "#12121266",
+        "overlay_style": "solid",
+        "gradient_direction": "to bottom",
+        "blurred_reflection": false,
+        "reflection_opacity": 75,
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "17782294182576b85d": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_c275284_kx7NfR": {
+          "type": "ai_gen_block_c275284",
+          "settings": {
+            "text_ro": "🏆 Câștigă 10.000 lei — Fotografiază FruttaMax în cel mai random context! Participă acum →",
+            "link_ro": "https://fruttamax.ro/pages/campainie-unde-fruttamax-2026",
+            "text_hu": "🏆 Nyerj 10.000 lejt — Fotózd le a FruttaMaxot a legrandomabb helyzetben! Részt veszek →",
+            "link_hu": "https://fruttamax.ro/hu/pages/fruttamax-kampany-nyerj-10000-lejt",
+            "background_color": "#e80404",
+            "text_color": "#ffffff",
+            "font_size": 20,
+            "font_weight": "600",
+            "bar_height": 14,
+            "scroll_direction": "right",
+            "scroll_speed": 100,
+            "spacing_between": 100
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_fa9d285_Q6mArn": {
+          "type": "ai_gen_block_fa9d285",
+          "disabled": true,
+          "settings": {
+            "text_romanian": "🏆 Câștigă 10.000 lei — Fotografiază FruttaMax în cel mai random context! Participă acum →",
+            "url_romanian": "",
+            "text_hungarian": "🏆 Nyerj 10.000 lejt — Fotózd le a FruttaMaxot a legrandomabb helyzetben! Részt veszek →",
+            "url_hungarian": "",
+            "scroll_direction": "right",
+            "scroll_speed": 20,
+            "background_color": "#e80404",
+            "text_color": "#ffffff",
+            "font_size": 20,
+            "vertical_padding": 14,
+            "spacing": 60
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_c275284_kx7NfR",
+        "ai_gen_block_fa9d285_Q6mArn"
+      ],
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 12,
+        "section_width": "full-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "custom_text_qCC64m": {
+      "type": "custom-text",
+      "name": "Brand Szöveg + Gombok",
+      "settings": {
+        "brand_color": "#e80404",
+        "bg_color": "#ffffff",
+        "text_color": "#333333",
+        "heading_color": "#e80404",
+        "eyebrow": "FruttaMax Romania",
+        "heading": "Te-ai săturat să tot cari sticle grele și să plătești mult pentru băuturi din comerț?",
+        "heading_size": 48,
+        "text": "<p>Cari acasă lăzi grele cu sticle, plătești prețuri mari, deși în mare parte cumperi doar apă și te confrunți cu o cantitate mare de deșeuri din plastic? Băuturile tradiționale din comerț sunt costisitoare, incomode și dăunătoare pentru mediu.</p><p><strong>Toarnă, amestecă, savurează — siropurile FruttaMax îți aduc un plus de prospețime de neegalat</strong>, indiferent dacă pregătești o băutură rapidă sau un cocktail creativ pentru prieteni. Oferă familiei tale <strong>calitate autentică maghiară</strong> și o alegere mai ecologică în fiecare sticlă, cu mai puțini aditivi și mai multe fructe în fiecare porție delicioasă.<br/></p>",
+        "btn1_label": "Siropuri",
+        "btn1_link": "shopify://collections/siropuri",
+        "btn2_label": "Sosuri",
+        "btn2_link": "shopify://collections/sosuri",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "custom_statsimage_qhJbre": {
+      "type": "custom-statsimage",
+      "blocks": {
+        "stat_wye6mC": {
+          "type": "stat",
+          "settings": {
+            "top_text": "până la",
+            "big_text": "60%",
+            "bottom_text": "conținut de fructe"
+          }
+        },
+        "stat_D6WdWU": {
+          "type": "stat",
+          "settings": {
+            "top_text": "incredibil",
+            "big_text": "1:23",
+            "bottom_text": "proporție de diluare"
+          }
+        },
+        "stat_KLr3Mw": {
+          "type": "stat",
+          "settings": {
+            "top_text": "cu aproximativ",
+            "big_text": "75%",
+            "bottom_text": "mai puțin zahăr"
+          }
+        }
+      },
+      "block_order": [
+        "stat_wye6mC",
+        "stat_D6WdWU",
+        "stat_KLr3Mw"
+      ],
+      "name": "FruttaMax Statisztika",
+      "settings": {
+        "bg_color": "#ffffff",
+        "brand_color": "#e80404",
+        "text_color": "#333333",
+        "heading": "De ce FruttaMax?",
+        "image": "shopify://shop_images/hero-2.avif",
+        "padding_top": 32
+      }
+    },
+    "custom_collection_k9zUCq": {
+      "type": "custom-collection",
+      "name": "Produse (Custom Grid)",
+      "settings": {
+        "heading": "Arome explozive",
+        "subheading": "Explorează lumea FruttaMax",
+        "heading_weight": "700",
+        "product_list": [
+          "capșuni",
+          "soc-lime-menta",
+          "lamaie-lime",
+          "zmeura"
+        ],
+        "brand_color": "#e80404",
+        "text_color": "#333333",
+        "bg_color": "#ffffff",
+        "padding_top": 36,
+        "padding_bottom": 60
+      }
+    },
+    "custom_video_CqqnM4": {
+      "type": "custom-video",
+      "name": "Video Centrat (Full BG)",
+      "settings": {
+        "heading": "Cine suntem noi?",
+        "video": "shopify://files/videos/Yuva_Exhibition_2026.mp4",
+        "video_width": 700,
+        "autoplay": true,
+        "loop": true,
+        "controls": true,
+        "bg_color": "#ffffff",
+        "heading_color": "#e80404",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "custom_features_overlay_XYm6aF": {
+      "type": "custom-features-overlay",
+      "blocks": {
+        "feature_EjtaEX": {
+          "type": "feature",
+          "settings": {
+            "icon": "star",
+            "heading": "Calitate",
+            "text": "<p>Unitatea noastră de producție modernă funcționează conform standardelor stricte ale Uniunii Europene și este certificată HACCP, asigurând că fiecare sticlă îndeplinește cele mai înalte cerințe de calitate și siguranță. Din 2005, ne-am extins constant prezența pe piață prin inovație tehnologică și dezvoltare de produse.</p>"
+          }
+        },
+        "feature_eqGFJi": {
+          "type": "feature",
+          "settings": {
+            "icon": "check",
+            "heading": "Diferența",
+            "text": "<p>FruttaMax aduce o nouă perspectivă asupra siropurilor, prin modul nostru unic de a crea băuturi din fructe, cu un conținut excepțional de <strong>50–60% fructe reale</strong> în fiecare sticlă.</p><p>În plus, proporția de diluare de <strong>1:23</strong> îți permite să obții până la <strong>12 litri</strong> de băutură dintr-o sticlă de 500 ml. Grija noastră pentru mediu se reflectă în ambalaje sustenabile și metode de producție ecologice.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "feature_EjtaEX",
+        "feature_eqGFJi"
+      ],
+      "name": "Features (Overlay)",
+      "settings": {
+        "bg_image": "shopify://shop_images/f3c513_fd396e1d23f04b349d9ba12cc7bb1807_mv2.avif",
+        "overlay_color": "#e80404",
+        "overlay_opacity": 40,
+        "text_color": "#ffffff",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "custom_collection_yHJwd4": {
+      "type": "custom-collection",
+      "name": "Produse (Custom Grid)",
+      "settings": {
+        "heading": "Clasice atemporale",
+        "subheading": "Descoperă lumea FruttaMax",
+        "heading_weight": "700",
+        "product_list": [
+          "capșuni",
+          "lamaie-lime",
+          "zmeura",
+          "piersica"
+        ],
+        "brand_color": "#e80404",
+        "text_color": "#333333",
+        "bg_color": "#ffffff",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "custom_collection_VVwJaE": {
+      "type": "custom-collection",
+      "name": "Produse (Custom Grid)",
+      "settings": {
+        "heading": "Amestecuri unice și gusturi semnătură",
+        "subheading": "",
+        "heading_weight": "700",
+        "product_list": [
+          "cola",
+          "tonic"
+        ],
+        "brand_color": "#e80404",
+        "text_color": "#333333",
+        "bg_color": "#ffffff",
+        "padding_top": 0,
+        "padding_bottom": 60
+      }
+    },
+    "custom_reviews_glass_ByR47G": {
+      "type": "custom-reviews-glass",
+      "blocks": {
+        "review_FmLJWa": {
+          "type": "review",
+          "settings": {
+            "product_name": "Portocale",
+            "rating": 5,
+            "text": "Am citit în recenzii că gustul ăsta e bun. De aceea am vrut să-l încerc și eu și a fost un succes.\nSunt un adevărat băutor de limonadă.\nAcest gust este foarte apropiat de acele limonade gustoase de altădată, deci este și un pic de nostalgie. Acesta este gustul pe care ar trebui să îl aibă o limonadă.\nSunt fan. Diluție: 1 parte sirop la 25 de părți apă.",
+            "author": "Bart"
+          }
+        },
+        "review_TYF6hR": {
+          "type": "review",
+          "settings": {
+            "product_name": "Coacăze",
+            "rating": 5,
+            "text": "Gustul este foarte bun, are aromă de cireșe!! Folosește puțin pentru băuturi răcoritoare, prăjituri, înghețată, iaurt...",
+            "author": "Dani"
+          }
+        },
+        "review_XFw6ix": {
+          "type": "review",
+          "settings": {
+            "product_name": "ThunderMax",
+            "rating": 5,
+            "text": "Are gust ca alternativele mai ieftine ale faimoasei băuturi energizante cu taur pe ea. Dar are gust bun, nu lasă postgust sau gust ciudat. Și are același efect.",
+            "author": "Adam Nemeth"
+          }
+        },
+        "review_gKXEzf": {
+          "type": "review",
+          "settings": {
+            "product_name": "Mango deschis",
+            "rating": 5,
+            "text": "Căutam un parfum pentru a face jeleu de casă. După ce am încercat și nu am reușit cu diverse arome alimentare, am descoperit FruttaMax. Au ieșit niște jeleuri delicioase. Aroma de mango este incredibilă.",
+            "author": "Client Kindle"
+          }
+        },
+        "review_JCHUP6": {
+          "type": "review",
+          "settings": {
+            "product_name": "Cireașă",
+            "rating": 5,
+            "text": "Excelent atât cu apă plată, cât și cu apă minerală",
+            "author": "Domnul Syed HA Mashhadi"
+          }
+        },
+        "review_8RaLD6": {
+          "type": "review",
+          "settings": {
+            "product_name": "Mango",
+            "rating": 5,
+            "text": "Produs excelent. Deoarece este conceput special pentru aparatul de băut cu bule, cantitatea recomandată de sirop cu capacul dozator (care este inclus) este exact cea potrivită. Gata cu ghicitul sau încercările. Am încercat sirop de lămâie/lime și mango și aștept cu nerăbdare să le încerc și pe celelalte.",
+            "author": "Sean"
+          }
+        },
+        "review_V98Nex": {
+          "type": "review",
+          "settings": {
+            "product_name": "Piersică",
+            "rating": 5,
+            "text": "Este o explozie de gust în gură. Absolut superb, perfect oricând, mai ales într-o zi însorită și călduroasă. Livrare rapidă, preț bun, client mulțumit.",
+            "author": "Joanne Morrison"
+          }
+        },
+        "review_B6yRM8": {
+          "type": "review",
+          "settings": {
+            "product_name": "Struguri",
+            "rating": 5,
+            "text": "Frumos, gusturile sunt pur și simplu wow",
+            "author": "Christophe"
+          }
+        },
+        "review_bkD7jr": {
+          "type": "review",
+          "settings": {
+            "product_name": "Lemon Radler",
+            "rating": 5,
+            "text": "Acest sirop cu aromă de shandy este, desigur, fără alcool, dar are un gust destul de subtil. Diluat, are un conținut scăzut de carbohidrați, fiind o varietate bună de adăugat la repertoriul tău SodaStream!",
+            "author": "Phat Fay"
+          }
+        },
+        "review_K97mH9": {
+          "type": "review",
+          "settings": {
+            "product_name": "Tonic",
+            "rating": 5,
+            "text": "Soluție bună, a făcut o băutură carbogazoasă răcoritoare.\n\nexcelent într-o zi călduroasă",
+            "author": "CjW și KjW"
+          }
+        },
+        "review_kMFiJb": {
+          "type": "review",
+          "settings": {
+            "product_name": "Floare de soc",
+            "rating": 5,
+            "text": "Sirop concentrat, ceea ce înseamnă că puțin ajunge mult. O alternativă aromată la alte băuturi răcoritoare de pe piață. Voi lua în considerare achiziționarea și a altor arome.",
+            "author": "KJ"
+          }
+        },
+        "review_aN9ENP": {
+          "type": "review",
+          "settings": {
+            "product_name": "Zmeură",
+            "rating": 5,
+            "text": "Foarte gustos! Îmi place la nebunie! Trebuie doar puțin și e plin de aromă! Voi mai cumpăra și voi încerca și alte arome de la această marcă, deoarece am încercat și alte mărci și nu mi-au plăcut prea mult.",
+            "author": "Roxanne"
+          }
+        }
+      },
+      "block_order": [
+        "review_FmLJWa",
+        "review_TYF6hR",
+        "review_XFw6ix",
+        "review_gKXEzf",
+        "review_JCHUP6",
+        "review_8RaLD6",
+        "review_V98Nex",
+        "review_B6yRM8",
+        "review_bkD7jr",
+        "review_K97mH9",
+        "review_kMFiJb",
+        "review_aN9ENP"
+      ],
+      "name": "Recenzii (Glass Style)",
+      "settings": {
+        "bg_image": "shopify://shop_images/f3c513_fd396e1d23f04b349d9ba12cc7bb1807_mv2.avif",
+        "brand_color": "#e80404",
+        "overlay_opacity": 30,
+        "heading": "Ce spun clienții noștri",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "custom_image_text_bNWkJB": {
+      "type": "custom-image-text",
+      "name": "Imagine cu Text (1200px)",
+      "settings": {
+        "image": "shopify://shop_images/fata-bea-sirop-de-zmeura.png",
+        "desktop_image_width": 50,
+        "desktop_image_height": 590,
+        "mobile_image_height": 350,
+        "image_position": "left",
+        "subheading": "Transformă apa obișnuită într-o experiență extraordinară Culoare și savoare în fiecare picătură",
+        "heading": "Culoare și savoare în fiecare picătură",
+        "text": "Siropurile FruttaMax au un conținut ridicat de fructe, oferind o alternativă delicioasă și economică la băuturile carbogazoase din magazine. Sunt perfecte pentru cocktailuri, limonade sau pur și simplu cu apă rece. Descoperă gama noastră variată și găsește-ți aroma preferată!",
+        "btn_label": "Descoperă Aromele",
+        "btn_link": "shopify://collections/siropuri",
+        "text_align": "center",
+        "bg_color": "#ffffff",
+        "heading_color": "#e80404",
+        "subheading_color": "#999999",
+        "text_color": "#000000",
+        "btn_bg_color": "#e80404",
+        "btn_text_color": "#ffffff",
+        "padding_top": 60,
+        "padding_bottom": 0
+      }
+    },
+    "custom_newsletter_pda8y6": {
+      "type": "custom-newsletter",
+      "name": "Newsletter (1200px)",
+      "settings": {
+        "heading": "Fii primul care află noutățile!",
+        "text": "Înscrie-te la newsletter-ul nostru pentru oferte exclusive și rețete delicioase de cocktailuri.",
+        "placeholder": "Adresa ta de email",
+        "btn_label": "Mă Abonez",
+        "outer_bg_color": "rgba(0,0,0,0)",
+        "bg_color": "#e80404",
+        "text_color": "#ffffff",
+        "btn_bg_color": "#ffffff",
+        "btn_text_color": "#e80404",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30,
+        "overlay_width": 25,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    }
+  },
+  "order": [
+    "hero_jVaWmY",
+    "17782294182576b85d",
+    "custom_text_qCC64m",
+    "custom_statsimage_qhJbre",
+    "custom_collection_k9zUCq",
+    "custom_video_CqqnM4",
+    "custom_features_overlay_XYm6aF",
+    "custom_collection_yHJwd4",
+    "custom_collection_VVwJaE",
+    "custom_reviews_glass_ByR47G",
+    "custom_image_text_bNWkJB",
+    "custom_newsletter_pda8y6"
+  ]
+}

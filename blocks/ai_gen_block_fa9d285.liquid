@@ -1,0 +1,279 @@
+{% doc %}
+  @prompt
+    Add a scrolling announcement bar at the top of the page that loops continuously. The bar should show two language versions depending on the active locale.
+    For the Romanian locale show: 🏆 Câștigă 10.000 lei — Fotografiază FruttaMax în cel mai random context! Participă acum → and link it to https://fruttamax.ro/pages/campainie-unde-fruttamax-2026
+    For the Hungarian locale show: 🏆 Nyerj 10.000 lejt — Fotózd le a FruttaMaxot a legrandomabb helyzetben! Részt veszek → and link it to https://fruttamax.ro/hu/pages/fruttamax-kampany-nyerj-10000-lejt
+    The bar should use a red background (#d0322b) with white text, the text should scroll horizontally in a continuous loop, and the entire bar should be clickable., make it pop more and the scrolling speed is not working, also make it fullwidth, the scroll should be setable, the direction of it. 
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-announcement-bar-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    background-color: {{ block.settings.background_color }};
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .ai-announcement-bar-link-{{ ai_gen_id }} {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+  }
+
+  .ai-announcement-bar-wrapper-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    padding: {{ block.settings.vertical_padding }}px 0;
+    will-change: transform;
+  }
+
+  .ai-announcement-bar-text-{{ ai_gen_id }} {
+    color: {{ block.settings.text_color }};
+    font-size: {{ block.settings.font_size }}px;
+    font-weight: 700;
+    padding: 0 {{ block.settings.spacing }}px;
+    display: inline-block;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-announcement-bar-text-{{ ai_gen_id }} {
+      font-size: {{ block.settings.font_size | times: 0.85 }}px;
+    }
+  }
+{% endstyle %}
+
+<announcement-bar-{{ ai_gen_id }}
+  class="ai-announcement-bar-{{ ai_gen_id }}"
+  data-speed="{{ block.settings.scroll_speed }}"
+  data-direction="{{ block.settings.scroll_direction }}"
+  {{ block.shopify_attributes }}
+>
+  {% liquid
+    if request.locale.iso_code == 'hu'
+      assign announcement_text = block.settings.text_hungarian
+      assign announcement_url = block.settings.url_hungarian
+    else
+      assign announcement_text = block.settings.text_romanian
+      assign announcement_url = block.settings.url_romanian
+    endif
+  %}
+
+  <a href="{{ announcement_url }}" class="ai-announcement-bar-link-{{ ai_gen_id }}">
+    <div class="ai-announcement-bar-wrapper-{{ ai_gen_id }}">
+      {% for i in (1..30) %}
+        <span class="ai-announcement-bar-text-{{ ai_gen_id }}">{{ announcement_text }}</span>
+      {% endfor %}
+    </div>
+  </a>
+</announcement-bar-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class AnnouncementBar{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+        this.isPaused = false;
+        this.animationId = null;
+        this.position = 0;
+      }
+
+      connectedCallback() {
+        this.wrapper = this.querySelector('.ai-announcement-bar-wrapper-{{ ai_gen_id }}');
+        this.link = this.querySelector('.ai-announcement-bar-link-{{ ai_gen_id }}');
+        
+        if (!this.wrapper) return;
+
+        this.speed = parseFloat(this.dataset.speed) || 30;
+        this.direction = this.dataset.direction || 'left';
+        this.pixelsPerSecond = 50 / this.speed;
+
+        this.link.addEventListener('mouseenter', () => this.pause());
+        this.link.addEventListener('mouseleave', () => this.resume());
+
+        this.startScrolling();
+      }
+
+      startScrolling() {
+        let lastTime = performance.now();
+        
+        const animate = (currentTime) => {
+          if (!this.isPaused) {
+            const deltaTime = currentTime - lastTime;
+            
+            if (this.direction === 'left') {
+              this.position -= this.pixelsPerSecond * (deltaTime / 16.67);
+            } else {
+              this.position += this.pixelsPerSecond * (deltaTime / 16.67);
+            }
+            
+            const textElement = this.wrapper.querySelector('.ai-announcement-bar-text-{{ ai_gen_id }}');
+            if (textElement) {
+              const textWidth = textElement.offsetWidth;
+              const resetPoint = textWidth * 15;
+              
+              if (this.direction === 'left') {
+                if (this.position <= -resetPoint) {
+                  this.position = 0;
+                }
+              } else {
+                if (this.position >= resetPoint) {
+                  this.position = 0;
+                }
+              }
+            }
+            
+            this.wrapper.style.transform = `translateX(${this.position}px)`;
+          }
+          
+          lastTime = currentTime;
+          this.animationId = requestAnimationFrame(animate);
+        };
+        
+        this.animationId = requestAnimationFrame(animate);
+      }
+
+      pause() {
+        this.isPaused = true;
+      }
+
+      resume() {
+        this.isPaused = false;
+      }
+
+      disconnectedCallback() {
+        if (this.animationId) {
+          cancelAnimationFrame(this.animationId);
+        }
+      }
+    }
+
+    customElements.define('announcement-bar-{{ ai_gen_id }}', AnnouncementBar{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Announcement bar",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Romanian locale"
+    },
+    {
+      "type": "text",
+      "id": "text_romanian",
+      "label": "Announcement text",
+      "default": "🏆 Câștigă 10.000 lei — Fotografiază FruttaMax în cel mai random context! Participă acum →"
+    },
+    {
+      "type": "url",
+      "id": "url_romanian",
+      "label": "Link URL"
+    },
+    {
+      "type": "header",
+      "content": "Hungarian locale"
+    },
+    {
+      "type": "text",
+      "id": "text_hungarian",
+      "label": "Announcement text",
+      "default": "🏆 Nyerj 10.000 lejt — Fotózd le a FruttaMaxot a legrandomabb helyzetben! Részt veszek →"
+    },
+    {
+      "type": "url",
+      "id": "url_hungarian",
+      "label": "Link URL"
+    },
+    {
+      "type": "header",
+      "content": "Animation"
+    },
+    {
+      "type": "select",
+      "id": "scroll_direction",
+      "label": "Scroll direction",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "range",
+      "id": "scroll_speed",
+      "label": "Scroll speed",
+      "min": 5,
+      "max": 50,
+      "step": 5,
+      "unit": "s",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#d0322b"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "label": "Font size",
+      "min": 12,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "vertical_padding",
+      "label": "Vertical padding",
+      "min": 10,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "spacing",
+      "label": "Text spacing",
+      "min": 30,
+      "max": 150,
+      "step": 10,
+      "unit": "px",
+      "default": 60
+    }
+  ],
+  "presets": [
+    {
+      "name": "Announcement bar"
+    }
+  ]
+}
+{% endschema %}

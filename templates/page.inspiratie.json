@@ -1,0 +1,128 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "blocks": {
+        "heading": {
+          "type": "text",
+          "name": "Title",
+          "settings": {
+            "text": "<h1>{{ closest.page.title }}</h1>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h2",
+            "font": "var(--font-primary--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "page-content": {
+          "type": "page-content",
+          "settings": {},
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading",
+        "page-content"
+      ],
+      "disabled": true,
+      "settings": {
+        "content_direction": "column",
+        "gap": 32,
+        "color_scheme": "",
+        "padding-block-start": 40,
+        "padding-block-end": 80
+      }
+    },
+    "custom_collage_3Kc9Ei": {
+      "type": "custom-collage",
+      "blocks": {
+        "image_inmKA7": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/slide2-1024x576-1.jpg",
+            "size": "wide",
+            "link": ""
+          }
+        },
+        "image_6y7cPf": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/slide1web-678x1024-1.jpg",
+            "size": "tall",
+            "link": ""
+          }
+        },
+        "image_xfDnPT": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/webutso-1024x576-1.jpg",
+            "size": "normal",
+            "link": ""
+          }
+        },
+        "image_JkzD8w": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/slide3-1024x576-1.jpg",
+            "size": "normal",
+            "link": ""
+          }
+        },
+        "image_jfjYbD": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/slide3web-678x1024-1.jpg",
+            "size": "normal",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_inmKA7",
+        "image_6y7cPf",
+        "image_xfDnPT",
+        "image_JkzD8w",
+        "image_jfjYbD"
+      ],
+      "custom_css": [],
+      "name": "Képgaléria (1200px)",
+      "settings": {
+        "heading": "INSPIRAȚIE",
+        "subheading": "",
+        "heading_color": "#e80404",
+        "subheading_color": "#666666",
+        "bg_color": "#ffffff",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    }
+  },
+  "order": [
+    "main",
+    "custom_collage_3Kc9Ei"
+  ]
+}

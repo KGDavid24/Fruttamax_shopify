@@ -1,0 +1,292 @@
+{%- style -%}
+  /* SZEKCIÓ ALAPOK */
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    background-color: {{ section.settings.bg_color }};
+  }
+
+  /* 1200PX KONTÉNER (KÖZÉPRE IGAZÍTVA) */
+  .custom-gallery-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+  }
+
+  /* KÖZÖS HEADER WRAPPER */
+  .gallery-header-wrapper {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  /* CÍMSOR */
+  .custom-gallery-heading {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 0 15px 0; /* Kisebb alsó margó az alcím miatt */
+    color: {{ section.settings.heading_color }};
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.2;
+  }
+
+  /* ALCÍM (ÚJ) */
+  .custom-gallery-subheading {
+    text-align: center;
+    font-size: 1.1rem;
+    color: {{ section.settings.subheading_color }};
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    opacity: 0.8;
+    line-height: 1.5;
+  }
+
+  /* GRID RÁCSRENDSZER */
+  .custom-gallery-grid {
+    display: grid;
+    /* Desktop: 4 oszlopos rács */
+    grid-template-columns: repeat(4, 1fr);
+    /* Automatikus sorok, min. 250px magassággal */
+    grid-auto-rows: 250px; 
+    gap: 15px; /* Távolság a képek között */
+  }
+
+  /* EGYEDI ELEMEK (KÉPEK DOBOZA) */
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px; /* Lekerekített sarkok */
+    transition: transform 0.3s ease;
+  }
+
+  .gallery-item:hover {
+    transform: scale(1.02); /* Kicsi nagyítás hoverre */
+    z-index: 2;
+  }
+
+  /* KÉP STÍLUS */
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Kitölti a dobozt torzítás nélkül */
+    display: block;
+  }
+
+  /* MÉRET VARIÁCIÓK (DESKTOP) */
+  /* Normál (1x1) - alapértelmezett */
+  
+  /* Széles (2 széles, 1 magas) */
+  .item-wide {
+    grid-column: span 2;
+  }
+
+  /* Magas (1 széles, 2 magas) */
+  .item-tall {
+    grid-row: span 2;
+  }
+
+  /* Nagy (2 széles, 2 magas) */
+  .item-large {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  /* PLACEHOLDER (Ha nincs kép) */
+  .gallery-placeholder {
+    width: 100%;
+    height: 100%;
+    background-color: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    font-size: 1.2rem;
+  }
+
+  /* RESPONSIVE - TABLET (max 900px) */
+  @media screen and (max-width: 900px) {
+    .custom-gallery-grid {
+      grid-template-columns: repeat(2, 1fr); /* Csak 2 oszlop */
+      grid-auto-rows: 200px;
+    }
+    
+    /* Tableten minden széles elem maradjon széles, de a nagyok igazodjanak */
+    .item-wide, .item-large {
+      grid-column: span 2; 
+    }
+  }
+
+  /* RESPONSIVE - MOBIL (max 500px) */
+  @media screen and (max-width: 500px) {
+    .custom-gallery-grid {
+      grid-template-columns: 1fr; /* 1 oszlop */
+      grid-auto-rows: 300px; /* Fix magasság */
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    /* Mobilon töröljük a rács egyesítéseket, minden 100% széles */
+    .item-wide, .item-tall, .item-large {
+      grid-column: auto;
+      grid-row: auto;
+      height: 300px; /* Mobilon egységes magasság */
+    }
+  }
+{%- endstyle -%}
+
+<div class="section-{{ section.id }}-padding">
+  <div class="custom-gallery-container">
+    
+    <div class="gallery-header-wrapper">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="custom-gallery-heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+
+      {%- if section.settings.subheading != blank -%}
+        <div class="custom-gallery-subheading">{{ section.settings.subheading }}</div>
+      {%- endif -%}
+    </div>
+
+    <div class="custom-gallery-grid">
+      {%- for block in section.blocks -%}
+        
+        {%- comment -%} Osztály kiválasztása a beállítás alapján {%- endcomment -%}
+        {%- assign grid_class = '' -%}
+        {%- case block.settings.size -%}
+          {%- when 'wide' -%}
+            {%- assign grid_class = 'item-wide' -%}
+          {%- when 'tall' -%}
+            {%- assign grid_class = 'item-tall' -%}
+          {%- when 'large' -%}
+            {%- assign grid_class = 'item-large' -%}
+          {%- else -%}
+            {%- assign grid_class = '' -%}
+        {%- endcase -%}
+
+        <div class="gallery-item {{ grid_class }}" {{ block.shopify_attributes }}>
+          {%- if block.settings.link != blank -%}
+            <a href="{{ block.settings.link }}" style="display:block; width:100%; height:100%;">
+          {%- endif -%}
+
+          {%- if block.settings.image != blank -%}
+            {{ block.settings.image | image_url: width: 1000 | image_tag: loading: 'lazy', alt: block.settings.image.alt }}
+          {%- else -%}
+            <div class="gallery-placeholder">
+              {{ 'image' | placeholder_svg_tag }}
+            </div>
+          {%- endif -%}
+
+          {%- if block.settings.link != blank -%}
+            </a>
+          {%- endif -%}
+        </div>
+
+      {%- endfor -%}
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Képgaléria (1200px)",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Címsor",
+      "default": "Galeria Noastră"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subtitlu (Alcím)",
+      "default": "Imagini delicioase cu băuturile preparate din siropurile FruttaMax."
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Címsor Színe",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "subheading_color",
+      "label": "Alcím Színe",
+      "default": "#666666"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Háttérszín",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding Felül",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding Alul",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Kép",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Kép Feltöltése"
+        },
+        {
+          "type": "select",
+          "id": "size",
+          "label": "Kép Mérete a Rácsban",
+          "options": [
+            { "value": "normal", "label": "Normál (1x1 kocka)" },
+            { "value": "wide", "label": "Széles (2 széles, 1 magas)" },
+            { "value": "tall", "label": "Magas (1 széles, 2 magas)" },
+            { "value": "large", "label": "Nagy (2 széles, 2 magas)" }
+          ],
+          "default": "normal",
+          "info": "Állítsd be, mekkora helyet foglaljon el a rácsban."
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link (Opcionális)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Képgaléria (1200px)",
+      "blocks": [
+        { "type": "image", "settings": { "size": "wide" } },
+        { "type": "image", "settings": { "size": "tall" } },
+        { "type": "image", "settings": { "size": "normal" } },
+        { "type": "image", "settings": { "size": "normal" } },
+        { "type": "image", "settings": { "size": "normal" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
