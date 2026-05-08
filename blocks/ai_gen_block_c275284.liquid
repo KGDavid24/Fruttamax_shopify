@@ -8,9 +8,11 @@
 {% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
 
 {% style %}
+  announcement-bar-{{ ai_gen_id }},
   .ai-announcement-bar-{{ ai_gen_id }} {
     position: relative;
     width: 100%;
+    max-width: 100%;
     background-color: {{ block.settings.background_color }};
     overflow: hidden;
     z-index: 1000;
@@ -24,6 +26,8 @@
     padding: {{ block.settings.bar_height }}px 0;
     position: relative;
     overflow: hidden;
+    width: 100%;
+    max-width: 100%;
   }
 
   .ai-announcement-bar-track-{{ ai_gen_id }} {

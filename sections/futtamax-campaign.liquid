@@ -509,6 +509,19 @@
   box-shadow: 0 8px 28px rgba(0,0,0,0.3);
 }
 #fruttamax-campaign-wrapper #toast.show { transform: translateX(-50%) translateY(0); }
+@media screen and (max-width: 749px) {
+  #fruttamax-campaign-wrapper #toast {
+    white-space: normal;
+    border-radius: 16px;
+    font-size: 13px;
+    padding: 12px 20px;
+    bottom: 16px;
+    width: calc(100vw - 32px);
+    left: 16px;
+    transform: translateY(90px);
+  }
+  #fruttamax-campaign-wrapper #toast.show { transform: translateY(0); }
+}
 
 /* ═══════════════════════════════════════════
    REVEAL ANIMATION
@@ -1469,7 +1482,12 @@ dzEl.addEventListener('dragover',  e => { e.preventDefault(); dzEl.classList.add
 dzEl.addEventListener('dragleave', () => dzEl.classList.remove('over'));
 dzEl.addEventListener('drop', e => {
   e.preventDefault(); dzEl.classList.remove('over');
-  if (e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0]);
+  if (e.dataTransfer.files[0]) {
+    const dt = new DataTransfer();
+    dt.items.add(e.dataTransfer.files[0]);
+    fileIn.files = dt.files;
+    handleFile(e.dataTransfer.files[0]);
+  }
 });
 fileIn.addEventListener('change', () => { if (fileIn.files[0]) handleFile(fileIn.files[0]); });
 
@@ -1522,9 +1540,18 @@ document.getElementById('main-form').addEventListener('submit', async function(e
     toast(isHu ? '⚠️ Add meg a nevedet.' : '⚠️ Introdu numele tău.');
     return;
   }
-  if (!email || !email.includes('@')) {
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     toast(isHu ? '⚠️ Adj meg egy érvényes e-mail címet.' : '⚠️ Introdu un email valid.');
     return;
+  }
+  if (tel) {
+    const cleanTel = tel.replace(/[\s\-().]/g, '');
+    const validRO = /^(\+40|0040)[0-9]{9}$|^0[0-9]{9}$/.test(cleanTel);
+    const validHU = /^(\+36|0036)[0-9]{9}$|^06[0-9]{9}$/.test(cleanTel);
+    if (!validRO && !validHU) {
+      toast(isHu ? '⚠️ A megadott telefonszám érvénytelen. Kérjük, ellenőrizd és próbáld újra.' : '⚠️ Numărul de telefon introdus nu este valid. Te rugăm să îl verifici și să încerci din nou.');
+      return;
+    }
   }
   if (!fileIn.files.length) {
     toast(isHu ? '⚠️ Csatold a fotódat.' : '⚠️ Atașează fotografia ta.');
@@ -1574,6 +1601,20 @@ document.getElementById('main-form').addEventListener('submit', async function(e
       xhr.setRequestHeader('x-submit-token', '{{ settings.submit_secret }}');
 
       xhr.onload = () => {
+        if (xhr.status === 400) {
+          reject(new Error(isHu ? '⚠️ A megadott telefonszám érvénytelen. Kérjük, ellenőrizd és próbáld újra.' : '⚠️ Numărul de telefon introdus nu este valid. Te rugăm să îl verifici și să încerci din nou.'));
+          return;
+        }
+        if (xhr.status === 409) {
+          const err = new Error(isHu ? '⚠️ Úgy tűnik, ezzel az e-mail címmel vagy telefonszámmal már regisztráltál.' : '⚠️ Se pare că te-ai înscris deja cu acest email sau număr de telefon.');
+          err.duration = 10000;
+          reject(err);
+          return;
+        }
+        if (xhr.status === 429) {
+          reject(new Error(isHu ? '⚠️ Hoppá, túl sok próbálkozás! Próbáld újra néhány perc múlva.' : '⚠️ Hopa, prea multe încercări! Mai încearcă peste câteva minute.'));
+          return;
+        }
         try {
           resolve(JSON.parse(xhr.responseText));
         } catch (e) {
@@ -1595,17 +1636,17 @@ document.getElementById('main-form').addEventListener('submit', async function(e
 
   } catch(err) {
     console.error(err);
-    toast(isHu ? '❌ Hiba a küldés során. Próbáld újra.' : '❌ Eroare la trimitere. Încearcă din nou.');
+    toast(err.message || (isHu ? '❌ Hiba a küldés során. Próbáld újra.' : '❌ Eroare la trimitere. Încearcă din nou.'), err.duration || 3200);
     btn.disabled = false;
     btn.textContent = isHu ? '🚀 Elküldöm a fotómat' : '🚀 Trimit fotografia mea';
   }
 });
 
 /* ── Toast ── */
-function toast(msg) {
+function toast(msg, duration = 3200) {
   const t = document.getElementById('toast');
   t.textContent = msg; t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 3200);
+  setTimeout(() => t.classList.remove('show'), duration);
 }
 
 /* ── Feed carousel ── */
